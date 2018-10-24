@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F55B857-DC7A-475E-A79F-194CFD423D69}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeerProduction.DAL</RootNamespace>
+    <AssemblyName>BeerProduction.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20141103_140000_Initial.cs" />
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20161029_130000_ExceptionLog.cs" />
+    <Compile Include="Migrations\MigrationUtils.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20141123_155100_Initial.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20151014_030700_OrderDetailID.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20151202_193700_ProductLog.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20151226_184500_Notes.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20160121_141200_CustomerRepresentatives.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20161013_002500_CustomerDetails.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20161118_195400_DragDropSample.cs" />
+    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20161126_141700_ForwardDates.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_MySql.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\NorthwindDB\NorthwindDBScript_Oracle.sql" />
+    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
+    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_Sqlite.sql" />
+    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_PostgresData.sql" />
+    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_Postgres.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
