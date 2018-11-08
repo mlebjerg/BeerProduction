@@ -7,7 +7,7 @@ using Workstation.ServiceModel.Ua;
 
 namespace BeerProduction.OPC
 {
-   [Subscription(endpointUrl: "opc.tcp://localhost:26543", publishingInterval: 500, keepAliveCount: 20)]
+   [Subscription(endpointUrl: "opc.tcp://localhost:4840", publishingInterval: 500, keepAliveCount: 20)]
     public class MainViewModel : SubscriptionBase
     {
 
