@@ -129,6 +129,18 @@ namespace BeerProduction.DAL.Repos
         }
     }
 
+
+        public class DynamicTableQueryResult<T> where T : class
+        {
+            public IList<T> QueryResultList { get; set; }
+            public IList<T> QueryResultListAllResults { get; set; }
+
+            public int QueryCount { get; set; }
+            public int TableCount { get; set; }
+        }
+   
+
+
     public interface IBaseRepository<T> where T : class
     {
         T Find(object id);

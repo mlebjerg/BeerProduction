@@ -1,3 +1,5 @@
+using BeerProduction.DAL.Migrations;
+
 namespace BeerProduction.DAL
 {
     using System;

@@ -187,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="OPCStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainViewModel.cs" />
   </ItemGroup>
