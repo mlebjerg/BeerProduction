@@ -31,8 +31,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,36 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20141103_140000_Initial.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20161029_130000_ExceptionLog.cs" />
-    <Compile Include="Migrations\MigrationUtils.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20141123_155100_Initial.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20151014_030700_OrderDetailID.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20151202_193700_ProductLog.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20151226_184500_Notes.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20160121_141200_CustomerRepresentatives.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20161013_002500_CustomerDetails.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20161118_195400_DragDropSample.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20161126_141700_ForwardDates.cs" />
+    <Compile Include="Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\IBaseRepository.cs" />
+    <Compile Include="Repos\TestClassRepo.cs" />
+    <Compile Include="TestClass.cs" />
+    <Compile Include="UnitofWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_MySql.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Migrations\NorthwindDB\NorthwindDBScript_Oracle.sql" />
-    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
-    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_Sqlite.sql" />
-    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_PostgresData.sql" />
-    <EmbeddedResource Include="Migrations\NorthwindDB\NorthwindDBScript_Postgres.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Migrations\Web.config" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
