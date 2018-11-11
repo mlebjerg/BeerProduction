@@ -180,6 +180,17 @@
     <Content Include="Content\aristo\images\slider_handles.png" />
     <Content Include="Content\aristo\images\ui-icons_222222_256x240.png" />
     <Content Include="Content\aristo\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\beerAssets\accept.svg" />
+    <Content Include="Content\beerAssets\beer.svg" />
+    <Content Include="Content\beerAssets\beertap.svg" />
+    <Content Include="Content\beerAssets\defect.svg" />
+    <Content Include="Content\beerAssets\humidity.png" />
+    <Content Include="Content\beerAssets\maintenance.svg" />
+    <Content Include="Content\beerAssets\package.svg" />
+    <Content Include="Content\beerAssets\power.svg" />
+    <Content Include="Content\beerAssets\speedometer.svg" />
+    <Content Include="Content\beerAssets\thermometer.svg" />
+    <Content Include="Content\beerAssets\vibration.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
