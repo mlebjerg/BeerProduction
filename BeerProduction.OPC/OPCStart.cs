@@ -11,15 +11,15 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Workstation.ServiceModel.Ua;
 
-namespace BeerProduction.DAL
+namespace BeerProduction.OPC
 {
-    public class Class1
+    public class OpcStart
     {
-        private ILoggerFactory loggerFactory;
-        private UaApplication application;
-        private AppBootstrapper bootstrapper;
-    
-        public void Init()
+        public ILoggerFactory loggerFactory { get; set; }
+        public UaApplication application { get; set; }
+        public AppBootstrapper bootstrapper { get; set; }
+
+        public OpcStart()
         {
             this.loggerFactory = new LoggerFactory();
 
@@ -30,10 +30,10 @@ namespace BeerProduction.DAL
 
             // Build and run an OPC UA application instance.
             this.application = new UaApplicationBuilder()
-                .SetApplicationUri($"urn:{Dns.GetHostName()}")
+                .SetApplicationUri($"urn:{Dns.GetHostName()}:Workstation.UaClient")
                 .SetDirectoryStore(Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                    "Workstation.RobotHmi",
+                    "Workstation.UaClient",
                     "pki"))
                 .SetIdentity(ShowSignInDialog)
                 .SetLoggerFactory(this.loggerFactory)
@@ -44,7 +44,7 @@ namespace BeerProduction.DAL
         }
         private static async Task<IUserIdentity> ShowSignInDialog(EndpointDescription endpoint)
         {
-            IUserIdentity userIdentity = null;
+            IUserIdentity userIdentity;
             //if (endpoint.UserIdentityTokens.Any(p => p.TokenType == UserTokenType.Anonymous))
             //{
             //    userIdentity = new AnonymousIdentity();

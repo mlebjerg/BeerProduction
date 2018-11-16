@@ -9,14 +9,14 @@ using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Unity;
 
-namespace BeerProduction.DAL
+namespace BeerProduction.OPC
 {
     /// <summary>
     /// Runs a bootstrapping sequence that initializes the Prism services.
     /// </summary>
     public class AppBootstrapper : UnityBootstrapper, IDisposable
     {
-        private ILoggerFactory loggerFactory;
+        readonly ILoggerFactory loggerFactory;
 
         public AppBootstrapper(ILoggerFactory loggerFactory)
         {
@@ -38,7 +38,7 @@ namespace BeerProduction.DAL
         protected override void ConfigureModuleCatalog()
         {
             ModuleCatalog catalog = (ModuleCatalog)this.ModuleCatalog;
-            catalog.AddModule(typeof(Class1));
+            catalog.AddModule(typeof(OpcStart));
         }
     }
 }
