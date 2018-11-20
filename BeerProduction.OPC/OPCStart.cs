@@ -15,47 +15,52 @@ namespace BeerProduction.OPC
 {
     public class OpcStart
     {
-        public ILoggerFactory loggerFactory { get; set; }
         public UaApplication application { get; set; }
         public AppBootstrapper bootstrapper { get; set; }
 
         public OpcStart()
         {
-            this.loggerFactory = new LoggerFactory();
 
             var config = new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
                .AddJsonFile("appSettings.json", true)
                .Build();
 
-            // Build and run an OPC UA application instance.
-            this.application = new UaApplicationBuilder()
-                .SetApplicationUri($"urn:{Dns.GetHostName()}:Workstation.UaClient")
+            application = new UaApplicationBuilder()
+                .SetApplicationUri($"urn:{Dns.GetHostName()}:Workstation.StatusHmi")
                 .SetDirectoryStore(Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                    "Workstation.UaClient",
+                    "Workstation.StatusHmi",
                     "pki"))
                 .SetIdentity(ShowSignInDialog)
-                .SetLoggerFactory(this.loggerFactory)
-                .AddMappedEndpoints(config)
+                .ConfigureLoggerFactory(o => o.AddDebug(LogLevel.Trace))
                 .Build();
+
+            application.Run();
 
             this.application.Run();
         }
-        private static async Task<IUserIdentity> ShowSignInDialog(EndpointDescription endpoint)
+        private async Task<IUserIdentity> ShowSignInDialog(EndpointDescription endpoint)
         {
-            IUserIdentity userIdentity;
-            //if (endpoint.UserIdentityTokens.Any(p => p.TokenType == UserTokenType.Anonymous))
-            //{
-            //    userIdentity = new AnonymousIdentity();
-            //}
-            //else if (endpoint.UserIdentityTokens.Any(p => p.TokenType == UserTokenType.UserName))
-            //{
-            var userName = "sdu"; //Console.ReadLine();
-            var password = "1234"; //Console.ReadLine();
-            userIdentity = new UserNameIdentity(userName, password);
-            
-            return userIdentity;
+            if (endpoint.UserIdentityTokens.Any(p => p.TokenType == UserTokenType.Anonymous))
+            {
+                return new AnonymousIdentity();
+            }
+
+            if (endpoint.UserIdentityTokens.Any(p => p.TokenType == UserTokenType.UserName))
+            {
+                var tcs = new TaskCompletionSource<IUserIdentity>();
+
+                tcs.TrySetResult(new UserNameIdentity("sdu", "1234"));
+
+                tcs.TrySetResult(new AnonymousIdentity());
+
+
+                return await tcs.Task;
+            }
+
+            throw new NotImplementedException(
+                "ProvideUserIdentity supports only UserName and Anonymous identity, for now.");
         }
     }
 }
