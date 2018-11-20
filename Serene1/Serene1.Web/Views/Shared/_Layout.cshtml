@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-@{
+﻿@{
     Func<string, IHtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));
     var hideNav = Request["hideNav"] == "1";
     var logged = Serenity.Authorization.Username;
@@ -17,6 +16,9 @@
 <html lang="@UICulture" class="no-js@(hideNav ? " no-navigation" : "")">
 <!--<![endif]-->
 <head>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
     @{Html.RenderPartial(MVC.Views.Shared._LayoutHead);}
     @RenderSection("Head", false)
     <title>@(ViewData["Title"]) - Serene1</title>

@@ -1,4 +1,7 @@
 ﻿
+using System;
+using BeerProduction.OPC;
+
 namespace Serene1.AdminLTE
 {
     using Serenity.Web;
@@ -20,6 +23,22 @@ namespace Serene1.AdminLTE
         public ActionResult Calendar()
         {
             return View(MVC.Views.AdminLTE.Calendar);
+        }
+
+        [HttpGet]
+        public ActionResult GetProduced()
+        {
+            try
+            {
+                MainViewModel main = new MainViewModel();
+                return Json(new { success = true/*, produced = main.ProgramCubeAdminProdProcessedCount*/, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

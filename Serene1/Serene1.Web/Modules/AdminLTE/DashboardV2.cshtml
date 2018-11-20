@@ -57,7 +57,7 @@
             <span class="info-box-icon bg-gray"><i><img class="match-block" src="~/Content/beerAssets/beertap.svg" /> </i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Amount to Produce</span>
-                <span class="info-box-number">5000</span>
+                <span id="AmtToProd" class="info-box-number">5000</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -84,7 +84,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Produced</span>
-                <span class="info-box-number">90</span>
+                <span id="produced" class="info-box-number">90</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -235,3 +235,22 @@
         vertical-align: middle;
     }
 </style>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        setInterval(getProduced, 30000);
+    });
+    
+    var getProduced = $(function() {
+        $.ajax({
+            url: "/AdminLTE/GetProduced",
+            data: {},
+            success: function (data) {
+                $("#produced").text(data.produced);
+            }
+        });
+        });
+
+
+</script>
