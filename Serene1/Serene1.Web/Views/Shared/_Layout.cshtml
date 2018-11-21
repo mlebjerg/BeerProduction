@@ -1,4 +1,5 @@
-﻿@{    Func<string, IHtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));
+﻿@{    
+    Func<string, IHtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));
     var hideNav = Request["hideNav"] == "1";
     var logged = Serenity.Authorization.Username;
     var themeCookie = Request.Cookies["ThemePreference"];

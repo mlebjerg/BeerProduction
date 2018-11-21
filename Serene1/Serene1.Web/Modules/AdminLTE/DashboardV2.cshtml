@@ -238,11 +238,11 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        setInterval(getProduced, 1000);
+    $(document).ready(function () {
+        setInterval(getProduced, 500);
     });
-    
-    var getProduced = $(function() {
+
+    function getProduced() {
         $.ajax({
             url: "/AdminLTE/GetProduced",
             data: {},
@@ -250,50 +250,50 @@
                 $("#produced").text(data.produced);
             }
         });
-        });
+    }
 
-    $("#resetBtn").click(function() {
+    $("#resetBtn").click(function () {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
             data: { data: 1 },
-            success: function(data) {
+            success: function (data) {
             }
         });
     });
 
-    $("#startBtn").click(function() {
+    $("#startBtn").click(function () {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
             data: { data: 2 },
-            success: function(data) {
+            success: function (data) {
 
             }
         });
     });
 
-    $("#stopBtn").click(function() {
+    $("#stopBtn").click(function () {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
             data: { data: 3 },
-            success: function(data) {
+            success: function (data) {
             }
         });
     });
 
-    $("#abortBtn").click(function() {
+    $("#abortBtn").click(function () {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
             data: { data: 4 },
-            success: function(data) {
+            success: function (data) {
             }
         });
     });
 
-    $("#clearBtn").click(function() {
+    $("#clearBtn").click(function () {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
             data: { data: 5 },
-            success: function(data) {
+            success: function (data) {
             }
         });
     });

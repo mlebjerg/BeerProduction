@@ -39,11 +39,8 @@ namespace BeerProduction.OPC
 
         private OpcStart()
         {
-            Task.Run(() => ReadSubscribed(/*cts.Token*/));
+            Task.Run(() => ReadSubscribed(cts.Token));
         }
-
-
-
 
         #region OPC generic methods
 
@@ -54,7 +51,7 @@ namespace BeerProduction.OPC
 
         public static int prodProc { get; set; }
 
-        public static async Task ReadSubscribed(/*CancellationToken token = default(CancellationToken)*/)
+        public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
             {
                 var cycleTime = 1000;
@@ -77,12 +74,7 @@ namespace BeerProduction.OPC
                     Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DataLoggingConsole", "pki"));
 
                 // Create array of NodeIds to log.
-                var nodeIds = new[]
-                {
-                NodeId.Parse("i=2258")
-                };
-
-                while (true /*!token.IsCancellationRequested*/)
+                while (!token.IsCancellationRequested)
                 {
                     try
                     {
@@ -129,9 +121,9 @@ namespace BeerProduction.OPC
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
-                                        ClientHandle = 12345, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                        ClientHandle = 1, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
-                                }
+                                },
                             };
                             var itemsRequest = new CreateMonitoredItemsRequest
                             {
@@ -145,15 +137,16 @@ namespace BeerProduction.OPC
                                 // loop thru all the data change notifications
                                 var dcns = pr.NotificationMessage.NotificationData.OfType<DataChangeNotification>();
                                 foreach (var dcn in dcns)
-                                {
+                                {   
                                     foreach (var min in dcn.MonitoredItems)
                                     {
                                         prodProc = (int) min.Value.Value;
+                                        min.ClientHandle
                                     }
                                 }
                             });
 
-                            while (true /*!token.IsCancellationRequested*/)
+                            while (!token.IsCancellationRequested)
                             {
                                 await Task.Delay(500);
                             }
