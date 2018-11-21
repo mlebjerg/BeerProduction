@@ -6,10 +6,13 @@ namespace Serene1.AdminLTE
 {
     using Serenity.Web;
     using System.Web.Mvc;
+    using BeerProduction.OPC;
 
     [Authorize, RoutePrefix("AdminLTE"), Route("{action=index}")]
     public class AdminLTEController : Controller
     {
+        private OpcStart opc;
+        
         public ActionResult DashboardV2()
         {
             return View(MVC.Views.AdminLTE.DashboardV2);
@@ -30,8 +33,22 @@ namespace Serene1.AdminLTE
         {
             try
             {
-                MainViewModel main = new MainViewModel();
-                return Json(new { success = true/*, produced = main.ProgramCubeAdminProdProcessedCount*/, responseText = "success" },
+                return Json(new { success = true, produced = OpcStart.prodProc, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult ActionBtnClick(int data)
+        {
+            try
+            {
+                OpcStart.Instance.SetCntrlCmd(data);
+                return Json(new { success = true, responseText = "success" },
                     JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -41,4 +58,4 @@ namespace Serene1.AdminLTE
             }
         }
     }
-}
+ }

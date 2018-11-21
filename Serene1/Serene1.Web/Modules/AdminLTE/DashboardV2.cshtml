@@ -239,7 +239,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        setInterval(getProduced, 30000);
+        setInterval(getProduced, 1000);
     });
     
     var getProduced = $(function() {
@@ -252,5 +252,50 @@
         });
         });
 
+    $("#resetBtn").click(function() {
+        $.ajax({
+            url: "/AdminLTE/ActionBtnClick",
+            data: { data: 1 },
+            success: function(data) {
+            }
+        });
+    });
+
+    $("#startBtn").click(function() {
+        $.ajax({
+            url: "/AdminLTE/ActionBtnClick",
+            data: { data: 2 },
+            success: function(data) {
+
+            }
+        });
+    });
+
+    $("#stopBtn").click(function() {
+        $.ajax({
+            url: "/AdminLTE/ActionBtnClick",
+            data: { data: 3 },
+            success: function(data) {
+            }
+        });
+    });
+
+    $("#abortBtn").click(function() {
+        $.ajax({
+            url: "/AdminLTE/ActionBtnClick",
+            data: { data: 4 },
+            success: function(data) {
+            }
+        });
+    });
+
+    $("#clearBtn").click(function() {
+        $.ajax({
+            url: "/AdminLTE/ActionBtnClick",
+            data: { data: 5 },
+            success: function(data) {
+            }
+        });
+    });
 
 </script>

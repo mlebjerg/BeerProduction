@@ -14,14 +14,9 @@
         public static void ApplicationStart()
         {
 
-            OpcStart Test;
-            Test = new OpcStart();
-            Test.application.LocalDescription.DiscoveryUrls = new[] { "opc.tcp://localhost:4840" };
-            var qwe = Test.application.MappedEndpoints;
 
-            MainViewModel main = new MainViewModel();
-            var processedCount = main.ProgramCubeAdminProdProcessedCount;
-            
+            OpcStart.Instance.SetCntrlCmd(4);
+
             try
             {
                 SqlSettings.AutoQuotedIdentifiers = true;
