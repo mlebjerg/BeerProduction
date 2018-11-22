@@ -307,6 +307,49 @@ namespace BeerProduction.OPC
                 return false;
             }
         }
+        public bool SetBatchID(Boolean data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter.Parameter[0]") /*Parameter.Parameter[0]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Boolean);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public bool SetBeerTypeID(Boolean data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter.Parameter[1]") /*Parameter.Parameter[1]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Boolean);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetBatchAmount(Boolean data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter.Parameter[2]") /*Parameter.Parameter[2]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Boolean);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
     }
 }
