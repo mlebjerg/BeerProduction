@@ -141,7 +141,6 @@ namespace BeerProduction.OPC
                                     foreach (var min in dcn.MonitoredItems)
                                     {
                                         prodProc = (int) min.Value.Value;
-                                        min.ClientHandle
                                     }
                                 }
                             });
