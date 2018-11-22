@@ -170,7 +170,7 @@ namespace BeerProduction.OPC
                                 {   
                                     foreach (var min in dcn.MonitoredItems)
                                     {
-                                        prodProc = (int) min.Value.Value;
+                                        //prodProc = (int) min.Value.Value;
                                         min.ClientHandle = id; //<-- Skrev det for at den ikke crashede
                                     }
                                 }
