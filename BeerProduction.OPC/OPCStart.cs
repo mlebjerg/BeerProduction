@@ -1,23 +1,25 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Threading;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Workstation.ServiceModel.Ua;
 using Workstation.ServiceModel.Ua.Channels;
+
+//Use xml configuration, to configure log4net
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
 namespace BeerProduction.OPC
 {
     public sealed class OpcStart
     {
+        //Creates new instance of the logging system (Be Aware that reflection can be slow!)
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        //Singleton
         private static  OpcStart instance = null;
         private static readonly object padlock = new object();
         private static string discoveryUrl = $"opc.tcp://localhost:4840";
