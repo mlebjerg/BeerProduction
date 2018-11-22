@@ -17,127 +17,94 @@
 }
 
 <!-- Info boxes -->
-<div class="row" style="padding-bottom: 15px">
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="resetBtn" class="btn btn-block btn-primary btn-lg">Send</button>
-    </div>
-    
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>
-    </div>
-    <div>
-        <span class="col-md-2 info-box-content bg-gray" style="font-size: 180%; margin-left: 0; height: 46px;"> State:  </span>
-    </div>
-</div>
+
+
 
 <div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-aqua">
-                <i>
-                    <img class="match-block" src="~/Content/beerAssets/package.svg" />
-                </i>
-            </span>
-            <div class="info-box-content">
-                <span class="info-box-text">Batch Id</span>
-                <span class="info-box-number">123</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-gray"><i><img class="match-block" src="~/Content/beerAssets/beertap.svg" /> </i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Amount to Produce</span>
-                <span id="AmtToProd" class="info-box-number">5000</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <!-- fix for small devices only -->
-    <div class="clearfix visible-sm-block"></div>
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-green"><i><img class="match-block" src="~/Content/beerAssets/speedometer.svg" /></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Speed</span>
-                <span class="info-box-number">760</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-</div><!-- /.row -->
+    <div class="col-md-6">
+        <!--Venstre Kolonne-->
+        <div class="row" style="padding-bottom: 15px">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <button id="sendBtn" class="btn btn-block btn-primary btn-lg">Send</button>
+            </div>
 
-<div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>
+            </div>
+            <div>
+                <span class="col-md-4 info-box-content bg-gray" style="font-size: 180%; margin-left: 0; height: 46px;"> State: </span>
+            </div>
+        </div>
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Next Batch</h3>
+            </div>
+            <div class="box-body">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Type:</label>
+                        <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">Pilsner</option>
+                            <option>Wheat</option>
+                            <option>IPA</option>
+                            <option>Stout</option>
+                            <option>Ale</option>
+                            <option>Alcohol Free</option>
+                        </select>
+                    </div><!-- /.form-group -->
+                </div><!-- /.col -->
+                <div class="col-md-4">
+                    <label>Mængde(0-65535):</label>
+                    <div class="col">
+                        <input type="number" min="0" max="65535" class="form-control" placeholder="10000">
+                    </div>
+                </div><!-- /.col -->
+                <div class="col-md-4">
+                    <label>Batch ID:</label>
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="25" disabled>
+                    </div>
+                </div><!-- /.col -->
+            </div>
+        </div><!-- /.box-body -->
+    </div>
+    <div class="col-md-6">
+        <!--Højre Kolonne-->
         <div class="info-box">
-            <span class="info-box-icon bg-gray">
+            <span class="info-box-icon bg-green">
                 <i>
                     <img class="match-block" src="~/Content/beerAssets/beer.svg" />
                 </i>
             </span>
             <div class="info-box-content">
-                <span class="info-box-text">Produced</span>
-                <span id="produced" class="info-box-number">90</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
+                <span class="info-box-text">Amount Left of Current Batch</span>
+                <span class="info-box-number">537</span>
+            </div>
+        </div>
         <div class="info-box">
-            <span class="info-box-icon bg-gray"><i><img style="display: block; margin-left: auto; margin-top: 10%; margin-right: auto; height:72px; width: auto; vertical-align: middle;" src="~/Content/beerAssets/accept.svg" /> </i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Acceptable Amount Produced</span>
-                <span class="info-box-number">41,410</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <!-- fix for small devices only -->
-    <div class="clearfix visible-sm-block"></div>
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-bg-gray"><i><img style="display: block;margin-left: auto;margin-top: 10%;margin-right: auto;height:72px; width: auto; vertical-align: middle;" src="~/Content/beerAssets/defect.svg" /></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Unacceptable Amount Produced</span>
-                <span class="info-box-number">760</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-</div><!-- /.row -->
-
-<div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-red">
+            <span class="info-box-icon bg-yellow">
                 <i>
-                    <img class="match-block" src="~/Content/beerAssets/thermometer.svg" />
+                    <img class="match-block" src="~/Content/beerAssets/wheat1.svg" />
                 </i>
             </span>
             <div class="info-box-content">
-                <span class="info-box-text">Temperature</span>
-                <span class="info-box-number">90</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <div class="col-md-4 col-sm-6 col-xs-12">
+                <span class="info-box-text">Beer Type for next batch</span>
+                <span class="info-box-number">Wheat</span>
+            </div>
+        </div>
         <div class="info-box">
-            <span class="info-box-icon bg-gray"><i><img class="match-block" src="~/Content/beerAssets/humidity.png" /> </i></span>
+            <span class="info-box-icon bg-aqua">
+                <i>
+                    <img class="match-block" src="~/Content/beerAssets/beertap.svg" />
+                </i>
+            </span>
             <div class="info-box-content">
-                <span class="info-box-text">Humidity</span>
-                <span class="info-box-number">41,410</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-    <!-- fix for small devices only -->
-    <div class="clearfix visible-sm-block"></div>
-    <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-green"><i><img class="match-block" src="~/Content/beerAssets/vibration.svg" /></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Vibration</span>
-                <span class="info-box-number">760</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
-</div><!-- /.row -->
-
+                <span class="info-box-text">Beer amount for next batch</span>
+                <span class="info-box-number">10000</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Main row -->
@@ -155,53 +122,13 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        setInterval(getProduced, 500);
-    });
+    
 
-    function getProduced() {
-        $.ajax({
-            url: "/AdminLTE/GetProduced",
-            data: {},
-            success: function (data) {
-                $("#produced").text(data.produced);
-            }
-        });
-    }
-
-    $("#resetBtn").click(function () {
+    $("#sendBtn").click(function() {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
             data: { data: 1 },
-            success: function (data) {
-            }
-        });
-    });
-
-    $("#startBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 2 },
-            success: function (data) {
-
-            }
-        });
-    });
-
-    $("#stopBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 3 },
-            success: function (data) {
-            }
-        });
-    });
-
-    $("#abortBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 4 },
-            success: function (data) {
+            success: function(data) {
             }
         });
     });
