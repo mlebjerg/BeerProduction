@@ -164,7 +164,7 @@ namespace BeerProduction.OPC
 
                             var subToken = channel.Where(pr => pr.SubscriptionId == id).Subscribe(pr =>
                             {
-                                // loop thru all the data change notifications
+                                // loop through all the data change notifications
                                 var dcns = pr.NotificationMessage.NotificationData.OfType<DataChangeNotification>();
                                 foreach (var dcn in dcns)
                                 {   
