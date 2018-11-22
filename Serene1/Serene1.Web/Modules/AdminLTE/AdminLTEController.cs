@@ -17,6 +17,10 @@ namespace Serene1.AdminLTE
         {
             return View(MVC.Views.AdminLTE.DashboardV2);
         }
+        public ActionResult BatchStarter()
+        {
+            return View(MVC.Views.AdminLTE.BatchStarter);
+        }
 
         public ActionResult Widgets()
         {

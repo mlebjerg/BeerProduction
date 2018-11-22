@@ -38,6 +38,7 @@ namespace MVC
                 public const string Morris = "~/Modules/AdminLTE/Charts/Morris.cshtml";
             }
             public const string DashboardV2 = "~/Modules/AdminLTE/DashboardV2.cshtml";
+            public const string BatchStarter = "~/Modules/AdminLTE/BatchStarter.cshtml";
             public static class Examples
             {
                 public const string BlankPage = "~/Modules/AdminLTE/Examples/BlankPage.cshtml";
