@@ -122,7 +122,30 @@
 
 
 <script type="text/javascript">
-    
+    $(document).ready(function () {
+        setInterval(getState, 500);
+        setinterval(getProductionLeft, 500)
+    });
+
+    function getState() {
+        $.ajax({
+            url: "/AdminLTE/GetProduced",
+            data: {},
+            success: function (data) {
+                $("#produced").text(data.produced);
+            }
+        });
+    }
+
+    function getProductionLeft() {
+        $.ajax({
+            url: "/AdminLTE/GetProduced",
+            data: {},
+            success: function (data) {
+                $("#produced").text(data.produced);
+            }
+        });
+    }
 
     $("#sendBtn").click(function() {
         $.ajax({
@@ -136,7 +159,7 @@
     $("#clearBtn").click(function () {
         $.ajax({
             url: "/AdminLTE/ActionBtnClick",
-            data: { data: 5 },
+            data: { data: 2 },
             success: function (data) {
             }
         });
