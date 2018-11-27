@@ -932,7 +932,7 @@
     <Content Include="Scripts\jquery.signalR-2.4.0.min.js" />
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="appSettings.json" />
-    <Content Include="Modules\AdminLTE\BatchStarter\BatchStarter.cshtml" />
+    <Content Include="Modules\AdminLTE\BatchStarter.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1987,7 +1987,7 @@
     <Compile Include="Modules\Administration\UserRole\UserRoleListResponse.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleListRequest.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleEndpoint.cs" />
-    <Compile Include="Modules\AdminLTE\BatchStarter\BatchStarterController.cs" />
+    <Compile Include="Modules\AdminLTE\BatchStarterController.cs" />
     <Compile Include="SubscriptionHub\SubscriptionHub.cs" />
     <Content Include="Modules\AdminLTE\DashboardV2.cshtml" />
     <Compile Include="Modules\Administration\User\Authentication\DirectoryEntry.cs" />

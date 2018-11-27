@@ -43,26 +43,26 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Type:</label>
-                        <select class="form-control select2" style="width: 100%;">
-                            <option selected="selected">Pilsner</option>
-                            <option>Wheat</option>
-                            <option>IPA</option>
-                            <option>Stout</option>
-                            <option>Ale</option>
-                            <option>Alcohol Free</option>
+                        <select id="beerSelector" class="form-control select2" style="width: 100%;">
+                            <option beer-data=0 selected="selected">Pilsner</option>
+                            <option beer-data=1 >Wheat</option>
+                            <option beer-data=2>IPA</option>
+                            <option beer-data=3>Stout</option>
+                            <option beer-data=4>Ale</option>
+                            <option beer-data=5>Alcohol Free</option>
                         </select>
                     </div><!-- /.form-group -->
                 </div><!-- /.col -->
                 <div class="col-md-4">
                     <label>Mængde(0-65535):</label>
                     <div class="col">
-                        <input type="number" min="0" max="65535" class="form-control" placeholder="10000">
+                        <input id="amtSet" type="number" min="0" max="65535" class="form-control" placeholder="10000">
                     </div>
                 </div><!-- /.col -->
                 <div class="col-md-4">
                     <label>Batch ID:</label>
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="25" disabled>
+                        <input id="batchID" type="number" class="form-control" value="25" disabled="">
                     </div>
                 </div><!-- /.col -->
             </div>
@@ -78,7 +78,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Amount Left of Current Batch</span>
-                <span class="info-box-number">537</span>
+                <span class="info-box-number" id="nextLeft">537</span>
             </div>
         </div>
         <div class="info-box">
@@ -89,7 +89,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Beer Type for next batch</span>
-                <span class="info-box-number">Wheat</span>
+                <span class="info-box-number" id="nextType">Pilsner</span>
             </div>
         </div>
         <div class="info-box">
@@ -100,7 +100,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Beer amount for next batch</span>
-                <span class="info-box-number">10000</span>
+                <span class="info-box-number" id="nextAmt">10000</span>
             </div>
         </div>
     </div>
@@ -147,22 +147,30 @@
         });
     }
 
-    $("#sendBtn").click(function() {
+    $("#sendBtn").click(function () {
+        var amt = parseInt($("#amtSet").val());
+        var beerType = parseInt($("#beerSelector").find(":selected").attr("beer-data"));
+        var beerTypeName = $("#beerSelector").val();
+        var batchID = parseInt($("#batchID").val());
         $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 1 },
-            success: function(data) {
+            url: "/AdminLTE/SendBtnClick",
+            data: { name: amt, name2: beerType, name:batchID },
+            success: function (data) {
+                toastr.success("Batch Information has been send.")
+                $("#nextAmt").text(amt);
+                $("#nextType").text(beerTypeName);
+            },
+            error: function(data) {
+                toastr.error("An error happened.")
             }
         });
     });
 
     $("#clearBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 2 },
-            success: function (data) {
-            }
-        });
+        $("#beerSelector").val("Pilsner");
+        $("#amtSet").val(null);
     });
+
+    
 
 </script>

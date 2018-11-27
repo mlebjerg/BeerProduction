@@ -61,5 +61,22 @@ namespace Serene1.AdminLTE
                     JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult SendBtnClick(int amt, int beerType, int batchID)
+        {
+            try
+            {
+                OpcStart.Instance.SetBatchAmount(amt);
+                OpcStart.Instance.SetBeerTypeID(beerType);
+                OpcStart.Instance.SetBatchID(batchID);
+                return Json(new { success = true, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
  }
