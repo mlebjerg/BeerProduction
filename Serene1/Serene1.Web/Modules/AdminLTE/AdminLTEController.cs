@@ -43,6 +43,34 @@ namespace Serene1.AdminLTE
             }
         }
 
+        public ActionResult GetNextBatchID()
+        {
+            try
+            {
+                return Json(new { success = true, nextBatchID = OpcStart.nextBatchID, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetNextProductID()
+        {
+            try
+            {
+                return Json(new { success = true, nextProductID = OpcStart.nextProductID, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public ActionResult ActionBtnClick(int data)
         {
             try

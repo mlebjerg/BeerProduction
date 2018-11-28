@@ -52,11 +52,13 @@ namespace BeerProduction.OPC
         }
 
         public static int prodProc { get; set; }
+        public static float nextBatchID { get; set; }
+        public static float nextProductID { get; set; }
+        public static float nextProductAmount { get; set; }
 
         public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
             {
-                var cycleTime = 1000;
 
                 // setup logger
                 var loggerFactory = new LoggerFactory();
@@ -116,20 +118,23 @@ namespace BeerProduction.OPC
 
                             var itemsToCreate = new MonitoredItemCreateRequest[]
                             {
+                                #region MonitoredItems
+                                
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount"), AttributeId = AttributeIds.Value},
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount"), AttributeId = AttributeIds.Value}, //ProdProcessedCount
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
                                         ClientHandle = 1, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[0]"), AttributeId = AttributeIds.Value},
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[0].Value"), AttributeId = AttributeIds.Value}, //Next batch ID
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
@@ -139,7 +144,7 @@ namespace BeerProduction.OPC
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1]"), AttributeId = AttributeIds.Value},
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value"), AttributeId = AttributeIds.Value}, //Next product ID
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
@@ -149,14 +154,17 @@ namespace BeerProduction.OPC
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2]"), AttributeId = AttributeIds.Value},
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value"), AttributeId = AttributeIds.Value}, //Amount of product in next batch
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
                                         ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 }
+                                #endregion
                             };
+
+                         
                             var itemsRequest = new CreateMonitoredItemsRequest
                             {
                                 SubscriptionId = id,
@@ -172,8 +180,29 @@ namespace BeerProduction.OPC
                                 {   
                                     foreach (var min in dcn.MonitoredItems)
                                     {
-                                        //prodProc = (int) min.Value.Value;
-                                        min.ClientHandle = id; //<-- Skrev det for at den ikke crashede
+                                        switch (min.ClientHandle)
+                                        {
+                                            case 1:
+                                                prodProc = (int) min.Value.Value;
+                                                
+                                                break;
+                                            case 2:
+
+                                                nextBatchID = (float) min.Value.Value;
+
+                                                break;
+                                            case 3:
+
+                                                nextProductID = (float)min.Value.Value;
+
+                                                break;
+
+                                            case 4:
+
+                                                nextProductAmount = (float)min.Value.Value;
+
+                                                break;
+                                        }
                                     }
                                 }
                             });
@@ -282,7 +311,7 @@ namespace BeerProduction.OPC
                     await session.CloseAsync();
                 }
 
-            catch (Exception e)
+                catch (Exception e)
                 {
                     // ignored
                 }
@@ -318,6 +347,12 @@ namespace BeerProduction.OPC
                 List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.CntrlCmd") /*CntrlCmd*/};
                 DataValue val = new DataValue(new Variant(data));
                 Write(nodeIds, val).Start();
+
+                foreach (var nodeID in nodeIds)
+                {
+                    Console.WriteLine("NodeID: " + nodeID.ToString());
+                }
+
                 return true;
 
             }
