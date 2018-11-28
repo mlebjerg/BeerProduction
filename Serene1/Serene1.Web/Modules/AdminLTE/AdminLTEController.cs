@@ -71,6 +71,76 @@ namespace Serene1.AdminLTE
             }
         }
 
+        public ActionResult GetNextProductAmount()
+        {
+            try
+            {
+                return Json(new { success = true, nextProductAmount = OpcStart.nextProductAmount, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetHumidity()
+        {
+            try
+            {
+                return Json(new { success = true, humidity = OpcStart.humidity, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetTemperature()
+        {
+            try
+            {
+                return Json(new { success = true, temperature = OpcStart.temperature, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetVibration()
+        {
+            try
+            {
+                return Json(new { success = true, vibration = OpcStart.vibration, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetMachinespeed()
+        {
+            try
+            {
+                return Json(new { success = true, machinespeed = OpcStart.machinespeed, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public ActionResult ActionBtnClick(int data)
         {
             try

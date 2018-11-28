@@ -54,11 +54,17 @@ namespace BeerProduction.OPC
             cts.Cancel();
         }
 
-        public static int prodProc { get; set; }
 
-        public static float nextBatchID { get; set; }
-        public static float nextProductID { get; set; }
-        public static float nextProductAmount { get; set; }
+        public static int prodProc { get; set; } // Product produced
+        public static int acceptableProduct { get; set; } //Acceptable products
+        public  static int unacceptableProductProc { get; set; } //Unacceptable products
+        public static float nextBatchID { get; set; } //Next batch ID
+        public static float nextProductID { get; set; } //Next type of beer in batch
+        public static float nextProductAmount { get; set; } //Next amount of product
+        public static  float temperature { get; set; } //Current temperature
+        public  static float humidity { get; set; } //Current humidity
+        public  static  float vibration { get; set; } //Current vibration
+        public static  float machinespeed { get; set; } //Current machine speed in products per minute
 
         public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
@@ -166,7 +172,50 @@ namespace BeerProduction.OPC
                                     {
                                         ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.Parameter[2].Value"), AttributeId = AttributeIds.Value}, //Humidity
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 5, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.Parameter[3].Value"), AttributeId = AttributeIds.Value}, //Temperature
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 6, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.Parameter[4].Value"), AttributeId = AttributeIds.Value}, //Vibration
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 7, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.MachSpeed"), AttributeId = AttributeIds.Value}, //MachineSpeed
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 8, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
                                 }
+                                
+
+                                
                                 #endregion
 
                             };
@@ -209,15 +258,30 @@ namespace BeerProduction.OPC
                                                 break;
                                             case 3:
 
-                                                nextProductID = (float)min.Value.Value;
+                                                nextProductID = (float) min.Value.Value;
 
                                                 break;
 
                                             case 4:
 
-                                                nextProductAmount = (float)min.Value.Value;
+                                                nextProductAmount = (float) min.Value.Value;
 
                                                 break;
+                                            case 5:
+
+                                                humidity = (float) min.Value.Value;
+
+                                                break;
+                                            case 6:
+                                                temperature = (float) min.Value.Value;
+                                                break;
+                                            case 7:
+                                                vibration = (float) min.Value.Value;
+                                                break;
+                                            case 8:
+                                                machinespeed = (float) min.Value.Value;
+                                                break;
+
                                         }
 
                                     }
