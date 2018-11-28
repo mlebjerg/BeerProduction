@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -55,12 +55,14 @@ namespace BeerProduction.OPC
         }
 
         public static int prodProc { get; set; }
-        public static float barley { get; set; }
+
+        public static float nextBatchID { get; set; }
+        public static float nextProductID { get; set; }
+        public static float nextProductAmount { get; set; }
 
         public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
             {
-                var cycleTime = 1000;
 
                 // setup logger
                 var loggerFactory = new LoggerFactory();
@@ -120,27 +122,56 @@ namespace BeerProduction.OPC
 
                             var itemsToCreate = new MonitoredItemCreateRequest[]
                             {
+                                #region MonitoredItems
+                                
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount"), AttributeId = AttributeIds.Value},
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount"), AttributeId = AttributeIds.Value}, //ProdProcessedCount
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
                                         ClientHandle = 1, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+
+
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Barley"), AttributeId = AttributeIds.Value},
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[0].Value"), AttributeId = AttributeIds.Value}, //Next batch ID
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
                                         ClientHandle = 2, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value"), AttributeId = AttributeIds.Value}, //Next product ID
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 3, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value"), AttributeId = AttributeIds.Value}, //Amount of product in next batch
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                }
+                                #endregion
+
                             };
+
+                         
                             var itemsRequest = new CreateMonitoredItemsRequest
                             {
                                 SubscriptionId = id,
@@ -150,15 +181,18 @@ namespace BeerProduction.OPC
 
                             var subToken = channel.Where(pr => pr.SubscriptionId == id).Subscribe(pr =>
                             {
-                                // loop thru all the data change notifications
+                                // loop through all the data change notifications
                                 var dcns = pr.NotificationMessage.NotificationData.OfType<DataChangeNotification>();
                                 foreach (var dcn in dcns)
                                 {   
                                     foreach (var min in dcn.MonitoredItems)
                                     {
-                                        if(min.ClientHandle == 1)
+
+                                        switch (min.ClientHandle)
                                         {
-                                            Temperature temp = new Temperature
+                                            case 1:
+                                                prodProc = (int) min.Value.Value;
+                                                Temperature temp = new Temperature
                                             {
                                                 DateTime = DateTime.Now,
                                                 Value = (int) min.Value.Value
@@ -167,8 +201,25 @@ namespace BeerProduction.OPC
                                             prodProc = (int) min.Value.Value;
                                             _uow.TemperatureRepos.Add(temp);
                                             _uow.SaveChanges();
+                                                break;
+                                            case 2:
+
+                                                nextBatchID = (float) min.Value.Value;
+
+                                                break;
+                                            case 3:
+
+                                                nextProductID = (float)min.Value.Value;
+
+                                                break;
+
+                                            case 4:
+
+                                                nextProductAmount = (float)min.Value.Value;
+
+                                                break;
                                         }
-                                        if(min.ClientHandle == 2) {barley = (float) min.Value.Value;}
+
                                     }
                                 }
                             });
@@ -277,7 +328,7 @@ namespace BeerProduction.OPC
                     await session.CloseAsync();
                 }
 
-            catch (Exception e)
+                catch (Exception e)
                 {
                     // ignored
                 }
@@ -313,6 +364,28 @@ namespace BeerProduction.OPC
                 List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.CntrlCmd") /*CntrlCmd*/};
                 DataValue val = new DataValue(new Variant(data));
                 Write(nodeIds, val).Start();
+
+                foreach (var nodeID in nodeIds)
+                {
+                    Console.WriteLine("NodeID: " + nodeID.ToString());
+                }
+
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetNextBatchID(Object data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[0]") /*Parameter[0]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Int16);
+                Write(nodeIds, val).Start();
                 return true;
             }
             catch (Exception e)
@@ -320,6 +393,37 @@ namespace BeerProduction.OPC
                 return false;
             }
         }
+
+        public bool SetNextProductID(Object data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1]") /*Parameter[1]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Int16);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetNextProductAmount(Object data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2]") /*Parameter[2]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Int16);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        
 
         public bool SetCmdChangeRequest(Boolean data)
         {
