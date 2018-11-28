@@ -8,6 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using BeerProduction.DAL;
+using BeerProduction.DAL.Models;
+using BeerProduction.DAL.Repos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -22,6 +25,8 @@ namespace BeerProduction.OPC
         private static readonly object padlock = new object();
         private static string discoveryUrl = $"opc.tcp://localhost:4840";
         private CancellationTokenSource cts = new CancellationTokenSource();
+
+        private static UnitofWork _uow = new UnitofWork();
 
         public static OpcStart Instance
         {
@@ -50,6 +55,7 @@ namespace BeerProduction.OPC
         }
 
         public static int prodProc { get; set; }
+        public static float barley { get; set; }
 
         public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
@@ -124,6 +130,16 @@ namespace BeerProduction.OPC
                                         ClientHandle = 1, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Barley"), AttributeId = AttributeIds.Value},
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 2, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
                             };
                             var itemsRequest = new CreateMonitoredItemsRequest
                             {
@@ -140,7 +156,19 @@ namespace BeerProduction.OPC
                                 {   
                                     foreach (var min in dcn.MonitoredItems)
                                     {
-                                        prodProc = (int) min.Value.Value;
+                                        if(min.ClientHandle == 1)
+                                        {
+                                            Temperature temp = new Temperature
+                                            {
+                                                DateTime = DateTime.Now,
+                                                Value = (int) min.Value.Value
+                                            };
+
+                                            prodProc = (int) min.Value.Value;
+                                            _uow.TemperatureRepos.Add(temp);
+                                            _uow.SaveChanges();
+                                        }
+                                        if(min.ClientHandle == 2) {barley = (float) min.Value.Value;}
                                     }
                                 }
                             });
@@ -307,6 +335,21 @@ namespace BeerProduction.OPC
                 return false;
             }
         }
+ public bool SetProductID(Single data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value") /*Value*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Float);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
     }
 }
+
