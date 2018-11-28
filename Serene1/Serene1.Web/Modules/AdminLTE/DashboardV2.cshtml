@@ -48,7 +48,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Batch Id</span>
-                <span class="info-box-number">123</span>
+                <span id="nextBatchID" class="info-box-number"> 123 </span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -207,10 +207,10 @@
                             <span class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                            </div>
-                        </div><!-- /.progress-group -->
+                            </div>group -->
                         <div class="progress-group">
-                            <span class="progress-text">Yeast</span>
+                            <span class="progress-text">Yeast</sp
+                        </div><!-- /.progress-an>
                             <span class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
@@ -238,64 +238,84 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         setInterval(getProduced, 500);
+        setInterval(getNextBatchID, 500);
     });
 
     function getProduced() {
         $.ajax({
             url: "/AdminLTE/GetProduced",
             data: {},
-            success: function (data) {
+            success: function(data) {
                 $("#produced").text(data.produced);
             }
         });
     }
 
-    $("#resetBtn").click(function () {
+    function getNextProductID() {
         $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 1 },
-            success: function (data) {
+            url: "/AdminLTE/GetNextBatchID",
+            data: {},
+            success: function(data) {
+                $("#nextProductID").text((data.nextProductID));
             }
         });
-    });
-
-    $("#startBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 2 },
-            success: function (data) {
-
-            }
+     }
+        function getNextBatchID() {
+            $.ajax({
+                url: "/AdminLTE/GetNextBatchID",
+                data: {},
+                success: function(data) {
+                    $("#nextBatchID").text((data.nextBatchID));
+                }
+            });
+        }
+    
+        $("#resetBtn").click(function() {
+            $.ajax({
+                url: "/AdminLTE/ActionBtnClick",
+                data: { data: 1 },
+                success: function(data) {
+                }
+            });
         });
-    });
 
-    $("#stopBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 3 },
-            success: function (data) {
-            }
-        });
-    });
+        $("#startBtn").click(function() {
+            $.ajax({
+                url: "/AdminLTE/ActionBtnClick",
+                data: { data: 2 },
+                success: function(data) {
 
-    $("#abortBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 4 },
-            success: function (data) {
-            }
+                }
+            });
         });
-    });
 
-    $("#clearBtn").click(function () {
-        $.ajax({
-            url: "/AdminLTE/ActionBtnClick",
-            data: { data: 5 },
-            success: function (data) {
-            }
+        $("#stopBtn").click(function() {
+            $.ajax({
+                url: "/AdminLTE/ActionBtnClick",
+                data: { data: 3 },
+                success: function(data) {
+                }
+            });
         });
-    });
+
+        $("#abortBtn").click(function() {
+            $.ajax({
+                url: "/AdminLTE/ActionBtnClick",
+                data: { data: 4 },
+                success: function(data) {
+                }
+            });
+        });
+
+        $("#clearBtn").click(function() {
+            $.ajax({
+                url: "/AdminLTE/ActionBtnClick",
+                data: { data: 5 },
+                success: function(data) {
+                }
+            });
+        });
 
 </script>
