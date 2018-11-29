@@ -56,7 +56,7 @@ namespace Serene1
 
                 public static class Login
                 {
-                    public static LocalText FormTitle = "Welcome to SERENE (Serenity Application Template)";
+                    public static LocalText FormTitle = "Welcome to BeerCraft";
                     public static LocalText SignInButton = "Sign In";
                     public static LocalText ForgotPassword = "Forgot password?";
                     public static LocalText SignUpButton = "Register a new account";
@@ -92,7 +92,7 @@ namespace Serene1
         public static class Navigation
         {
             public static LocalText LogoutLink = "Logout";
-            public static LocalText SiteTitle = "Serene1";
+            public static LocalText SiteTitle = "BeerCraft";
         }
 
         public static class Site
