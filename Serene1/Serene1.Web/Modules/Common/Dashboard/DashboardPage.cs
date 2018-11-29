@@ -8,10 +8,10 @@ namespace Serene1.Common.Pages
     using System;
     using System.Web.Mvc;
 
-    [RoutePrefix("Dashboard"), Route("{action=index}")]
+    [RoutePrefix("oldDashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        [Authorize, HttpGet, Route("~/")]
+        [Authorize, HttpGet, Route("~/oldDash")]
         public ActionResult Index()
         {
             var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
