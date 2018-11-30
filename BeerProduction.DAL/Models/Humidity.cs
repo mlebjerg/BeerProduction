@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BeerProduction.DAL.Models
 {
-    public class Temperature
+    public class Humidity
     {
         [Key]
         public int Id { get; set; }

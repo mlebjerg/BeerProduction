@@ -241,24 +241,43 @@ namespace BeerProduction.OPC
                                         {
                                             case 1:
                                                 prodProc = (int) min.Value.Value;
-                                                Temperature temp = new Temperature
-                                            {
-                                                DateTime = DateTime.Now,
-                                                Value = (int) min.Value.Value
-                                            };
 
-                                            prodProc = (int) min.Value.Value;
-                                            _uow.TemperatureRepos.Add(temp);
-                                            _uow.SaveChanges();
+                                                ProductProcessed productProcessed = new ProductProcessed()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (int)min.Value.Value
+                                                };
+
+                                                _uow.ProductProcessedRepos.Add(productProcessed);
+                                                _uow.SaveChanges();
+
                                                 break;
                                             case 2:
 
                                                 nextBatchID = (float) min.Value.Value;
 
+                                                NextBatchID nxtBatchID = new NextBatchID()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (float)min.Value.Value
+                                                };
+
+                                                _uow.NextBatchIDRepos.Add(nxtBatchID);
+                                                _uow.SaveChanges();
+
                                                 break;
                                             case 3:
 
                                                 nextProductID = (float) min.Value.Value;
+
+                                                NextProductID nxtProductID = new NextProductID()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (float)min.Value.Value
+                                                };
+
+                                                _uow.NextProductIDRepos.Add(nxtProductID);
+                                                _uow.SaveChanges();
 
                                                 break;
 
@@ -266,20 +285,68 @@ namespace BeerProduction.OPC
 
                                                 nextProductAmount = (float) min.Value.Value;
 
+                                                NextProductAmount nextProductAmt = new NextProductAmount()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (float)min.Value.Value
+                                                };
+
+                                                _uow.NextProductAmountRepos.Add(nextProductAmt);
+                                                _uow.SaveChanges();
+
                                                 break;
                                             case 5:
 
                                                 humidity = (float) min.Value.Value;
 
+                                                Humidity humid = new Humidity()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (int)min.Value.Value
+                                                };
+
+                                                _uow.HumidityRepos.Add(humid);
+                                                _uow.SaveChanges();
+
                                                 break;
                                             case 6:
                                                 temperature = (float) min.Value.Value;
+
+                                                Temperature temp = new Temperature
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (int)min.Value.Value
+                                                };
+                                                
+                                                _uow.TemperatureRepos.Add(temp);
+                                                _uow.SaveChanges();
+
                                                 break;
                                             case 7:
                                                 vibration = (float) min.Value.Value;
+
+                                                Vibration vibra = new Vibration()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (int)min.Value.Value
+                                                };
+
+                                                _uow.VibrationRepos.Add(vibra);
+                                                _uow.SaveChanges();
+
                                                 break;
                                             case 8:
                                                 machinespeed = (float) min.Value.Value;
+
+                                                MachineSpeed machineSpeed = new MachineSpeed()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (float)min.Value.Value
+                                                };
+
+                                                _uow.MachineSpeedRepos.Add(machineSpeed);
+                                                _uow.SaveChanges();
+
                                                 break;
 
                                         }

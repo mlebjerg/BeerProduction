@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeerProduction.DAL.Models
 {
-    public class Temperature
+    public class NextBatchID
     {
         [Key]
         public int Id { get; set; }
