@@ -65,6 +65,11 @@ namespace BeerProduction.OPC
         public  static float humidity { get; set; } //Current humidity
         public  static  float vibration { get; set; } //Current vibration
         public static  float machinespeed { get; set; } //Current machine speed in products per minute
+        public static  float malt { get; set; } //The level of malt left from 0-43750? <-- Check 35000/0.8 = x/1.
+        public static float hops { get; set; } //The level of hops left
+        public static float barley { get; set; } //The level of barley left
+        public static float wheat { get; set; } //The level of wheat left
+        public static float yeast { get; set; } //The level of yeast left
 
         public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
@@ -212,10 +217,62 @@ namespace BeerProduction.OPC
                                     {
                                         ClientHandle = 8, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
+                                },
+                                #region Ingredients
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Malt"), AttributeId = AttributeIds.Value}, //Malt
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 9, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Barley"), AttributeId = AttributeIds.Value}, //Barley
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 10, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Hops"), AttributeId = AttributeIds.Value}, //Hops
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 11, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Wheat"), AttributeId = AttributeIds.Value}, //Wheat
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 12, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Inventory.Yeast"), AttributeId = AttributeIds.Value}, //Yeast
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 13, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
                                 }
-                                
+                                #endregion
 
-                                
+
+
                                 #endregion
 
                             };
@@ -348,7 +405,25 @@ namespace BeerProduction.OPC
                                                 _uow.SaveChanges();
 
                                                 break;
+                                            case 9:
+                                                malt = (float) min.Value.Value;
+                                                break;
 
+                                            case 10:
+                                                barley = (float) min.Value.Value;
+                                                break;
+
+                                            case 11:
+                                                hops = (float)min.Value.Value;
+                                                break;
+
+                                            case 12:
+                                                wheat = (float)min.Value.Value;
+                                                break;
+
+                                            case 13:
+                                                yeast = (float)min.Value.Value;
+                                                break;
                                         }
 
                                     }
