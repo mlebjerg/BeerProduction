@@ -146,6 +146,17 @@ namespace BeerProduction.OPC
                                     }
                                 },
 
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount"), AttributeId = AttributeIds.Value}, //ProdProcessedCount
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 1, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+
 
                                 new MonitoredItemCreateRequest
                                 {
@@ -270,6 +281,16 @@ namespace BeerProduction.OPC
                                     RequestedParameters = new MonitoringParameters
                                     {
                                         ClientHandle = 13, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.CntrlCmd"), AttributeId = AttributeIds.Value}, //SetControlCommand
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 14, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 }
                                 #endregion
@@ -432,6 +453,19 @@ namespace BeerProduction.OPC
                                             case 13:
                                                 yeast = (float) min.Value.Value;
                                                 break;
+                                            case 14:
+
+                                                //Log state change to database NOT update GUI
+                                                SetControlCommand setControlCommand = new SetControlCommand()
+                                                {
+                                                    DateTime = DateTime.Now,
+                                                    Value = (Int32)min.Value.Value
+                                                };
+
+                                                _uow.SetControlCommandRepos.Add(setControlCommand);
+                                                _uow.SaveChanges();
+
+                                                break;
                                         }
 
                                     }
@@ -580,16 +614,6 @@ namespace BeerProduction.OPC
                 List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.CntrlCmd") /*CntrlCmd*/};
                 DataValue val = new DataValue(new Variant(data));
                 Write(nodeIds, val).Start();
-
-                SetControlCommand setControlCommand = new SetControlCommand()
-                {
-                    DateTime = DateTime.Now,
-                    Value =  data
-            };
-
-                _uow.SetControlCommandRepos.Add(setControlCommand);
-                _uow.SaveChanges();
-
 
                 foreach (var nodeID in nodeIds)
                 {
