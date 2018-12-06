@@ -14,8 +14,7 @@
         public static void ApplicationStart()
         {
             var noNameIsTooLongToNotMakeSense = OpcStart.Instance;
-
-            OpcStart.Instance.SetCntrlCmd(4);
+            var start = Opc.Instance.Programproductproduced;
 
             try
             {

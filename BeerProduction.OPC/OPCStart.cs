@@ -76,6 +76,9 @@ namespace BeerProduction.OPC
         public static float yeast { get; set; } //The level of yeast left
         public static float yeastPercentage { get { return getPercentage(yeast); } } //Get yeast in percentage
         private static float maxValue = 35000;
+        public static float State { get; set; } //Get yeast in percentage
+        public static int CmdCntrl { get; set; }
+
 
 
         private static float getPercentage(float ingredient)
@@ -158,17 +161,6 @@ namespace BeerProduction.OPC
                                     }
                                 },
 
-                                new MonitoredItemCreateRequest
-                                {
-                                    ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Admin.ProdProcessedCount"), AttributeId = AttributeIds.Value}, //ProdProcessedCount
-                                    MonitoringMode = MonitoringMode.Reporting,
-                                    RequestedParameters = new MonitoringParameters
-                                    {
-                                        ClientHandle = 1, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
-                                    }
-                                },
-
 
                                 new MonitoredItemCreateRequest
                                 {
@@ -200,6 +192,17 @@ namespace BeerProduction.OPC
                                     {
                                         ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.StateCurrent"), AttributeId = AttributeIds.Value}, //state
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 15, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+
                                 },
                                 #region Sensors
                                 new MonitoredItemCreateRequest
@@ -479,7 +482,7 @@ namespace BeerProduction.OPC
                                                 yeast = (float) min.Value.Value;
                                                 break;
                                             case 14:
-
+                                                CmdCntrl = (Int32) min.Value.Value;
                                                 //Log state change to database NOT update GUI
                                                 SetControlCommand setControlCommand = new SetControlCommand()
                                                 {
@@ -490,6 +493,9 @@ namespace BeerProduction.OPC
                                                 _uow.SetControlCommandRepos.Add(setControlCommand);
                                                 _uow.SaveChanges();
 
+                                                break;
+                                            case 15:
+                                                State = (int)min.Value.Value;
                                                 break;
                                         }
 
@@ -521,6 +527,7 @@ namespace BeerProduction.OPC
                 }
             }
      }
+
 
         private static async Task Write(List<NodeId> nodesIds, DataValue dataval )
         {
@@ -698,7 +705,21 @@ namespace BeerProduction.OPC
                 return false;
             }
         }
-        
+
+        public bool SetMachSpeed(Single data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.MachSpeed") /*MachSpeed*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Double);
+                Write(nodeIds, val).Start();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
         public bool SetCmdChangeRequest(Boolean data)
         {

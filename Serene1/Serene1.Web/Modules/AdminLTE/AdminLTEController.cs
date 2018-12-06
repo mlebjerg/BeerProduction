@@ -1,6 +1,7 @@
 ﻿
 using System;
 using BeerProduction.OPC;
+using WebApplication1.Models;
 
 namespace Serene1.AdminLTE
 {
@@ -34,7 +35,7 @@ namespace Serene1.AdminLTE
         {
             try
             {
-                return Json(new { success = true, produced = OpcStart.prodProc, responseText = "success" },
+                return Json(new { success = true, produced = Opc.Instance.Programproductproduced, responseText = "success" },
                     JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -224,6 +225,41 @@ namespace Serene1.AdminLTE
             {
                 return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
                     JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        public void PilsnerOptimize()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                Pilsner b = new Pilsner();
+                b.Speed = (i / 10) * Pilsner.MaxSpeed;
+
+                OpcStart.Instance.SetCntrlCmd(Buttons.ABORT);
+                System.Threading.SpinWait.SpinUntil(() => OpcStart.CmdCntrl == Buttons.ABORT);
+
+                OpcStart.Instance.SetCmdChangeRequest(true);
+
+
+                System.Threading.SpinWait.SpinUntil(() => OpcStart.State == States.Aborted);
+                OpcStart.Instance.SetCntrlCmd(Buttons.CLEAR);
+                OpcStart.Instance.SetCmdChangeRequest(true);
+
+                System.Threading.SpinWait.SpinUntil(() => OpcStart.State == States.Stopped);
+                OpcStart.Instance.SetCntrlCmd(Buttons.RESET);
+                OpcStart.Instance.SetCmdChangeRequest(true);
+
+                System.Threading.SpinWait.SpinUntil(() => OpcStart.State == States.Idle);
+
+                OpcStart.Instance.SetNextProductAmount(100);
+                OpcStart.Instance.SetNextProductID(Pilsner.BeerOpcCmd);
+                OpcStart.Instance.SetMachSpeed(b.Speed);
+
+                System.Threading.SpinWait.SpinUntil(() => OpcStart.machinespeed == b.Speed && OpcStart.nextProductAmount == 100 && OpcStart.nextProductID == Pilsner.BeerOpcCmd);
+                OpcStart.Instance.SetCntrlCmd(Buttons.START);
+                OpcStart.Instance.SetCmdChangeRequest(true);
+
             }
         }
     }

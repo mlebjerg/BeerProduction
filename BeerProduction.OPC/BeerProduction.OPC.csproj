@@ -207,6 +207,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Opc.cs" />
     <Compile Include="OPCStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
