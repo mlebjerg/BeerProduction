@@ -2598,6 +2598,10 @@
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.autotable.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BeerProduction.DAL\BeerProduction.DAL.csproj">
+      <Project>{0f55b857-dc7a-475e-a79f-194cfd423d69}</Project>
+      <Name>BeerProduction.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BeerProduction.OPC\BeerProduction.OPC.csproj">
       <Project>{B74A3580-C65C-4354-8C33-3A25694DDC1F}</Project>
       <Name>BeerProduction.OPC</Name>

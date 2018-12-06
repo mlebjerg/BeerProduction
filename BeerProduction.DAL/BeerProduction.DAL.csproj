@@ -60,6 +60,7 @@
       <DependentUpon>201811282058150_CreateTemp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\Humidity.cs" />
     <Compile Include="Models\MachineSpeed.cs" />
     <Compile Include="Models\NextBatchID.cs" />

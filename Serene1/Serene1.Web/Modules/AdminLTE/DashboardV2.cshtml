@@ -224,6 +224,9 @@
         </div><!-- /.box -->
     </div><!-- /.col -->
 </div><!-- /.row -->
+<div class="col-md-2 col-sm-6 col-xs-12">
+    <button id="pilsBtn" class="btn btn-block btn-warning btn-lg">Pils</button>
+</div>
 <!-- Main row -->
 
 <style>
@@ -489,7 +492,16 @@
                 success: function(data) {
                 }
             });
+    });
+
+    $("#pilsBtn").click(function() {
+        $.ajax({
+            url: "/Dashboard/PilsnerOptimize",
+            data: { data: 4 },
+            success: function(data) {
+            }
         });
+    });
 
         $("#clearBtn").click(function() {
             $.ajax({
