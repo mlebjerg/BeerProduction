@@ -70,8 +70,15 @@
     <Compile Include="Models\Vibration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\BaseRepository.cs" />
+    <Compile Include="Repos\HumidityRepo.cs" />
+    <Compile Include="Repos\MachineSpeedRepo.cs" />
+    <Compile Include="Repos\NextBatchIDRepo.cs" />
+    <Compile Include="Repos\NextProductAmountRepo.cs" />
+    <Compile Include="Repos\NextProductIDRepo.cs" />
+    <Compile Include="Repos\ProductProcessedRepo.cs" />
     <Compile Include="Repos\TemperatureRepo.cs" />
     <Compile Include="Repos\TestClassRepo.cs" />
+    <Compile Include="Repos\VibrationRepo.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="UnitofWork.cs" />
   </ItemGroup>

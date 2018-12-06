@@ -19,6 +19,7 @@ namespace BeerProduction.DAL.Repos
             _table = _db.Set<T>();
         }
 
+
         public BaseRepository()
         {
         }

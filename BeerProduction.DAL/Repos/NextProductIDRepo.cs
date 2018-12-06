@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace BeerProduction.DAL.Repos
 {
-    public class TemperatureRepo<T> : BaseRepository<T> where T : class
+
+
+    public class NextProductIDRepo<T> : BaseRepository<T> where T : class
     {
-        public TemperatureRepo(Context context) : base(context)
+        public NextProductIDRepo(Context context) : base(context)
         {
 
         }
     }
-    
 }

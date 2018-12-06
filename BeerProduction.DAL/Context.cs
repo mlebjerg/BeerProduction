@@ -11,6 +11,14 @@ namespace BeerProduction.DAL
     {
         public DbSet<TestClass> TestClasss { get; set; }
         public DbSet<Temperature> Temperatures { get; set; }
+        public DbSet<Humidity> Humidities { get; set; }
+        public DbSet<MachineSpeed> MachineSpeeds { get; set; }
+        public DbSet<NextBatchID> NextBatchIds { get; set; }
+        public DbSet<NextProductAmount> NextProductAmounts { get; set; }
+        public DbSet<NextProductID> NextProductIds { get; set; }
+        public DbSet<ProductProcessed> ProductProcesseds { get; set; }
+        public DbSet<Vibration> Vibrations { get; set; }
+
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
         // 'BeerProduction.DAL.Model1' database on your LocalDb instance. 

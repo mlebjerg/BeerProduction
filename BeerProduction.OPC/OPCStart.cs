@@ -178,6 +178,7 @@ namespace BeerProduction.OPC
                                         ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+                                #region Sensors
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
@@ -218,6 +219,8 @@ namespace BeerProduction.OPC
                                         ClientHandle = 8, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+                                #endregion
+
                                 #region Ingredients
                                 new MonitoredItemCreateRequest
                                 {
@@ -271,7 +274,12 @@ namespace BeerProduction.OPC
                                 }
                                 #endregion
 
+                                /*
+                                 Need:
+                                 Current machine speed
 
+
+                                */
 
                                 #endregion
 
