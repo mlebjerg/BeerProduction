@@ -367,7 +367,7 @@ namespace BeerProduction.OPC
                                                 Humidity humid = new Humidity()
                                                 {
                                                     DateTime = DateTime.Now,
-                                                    Value = (int)min.Value.Value
+                                                    Value = (float)min.Value.Value
                                                 };
 
                                                 _uow.HumidityRepos.Add(humid);
@@ -380,7 +380,7 @@ namespace BeerProduction.OPC
                                                 Temperature temp = new Temperature
                                                 {
                                                     DateTime = DateTime.Now,
-                                                    Value = (int)min.Value.Value
+                                                    Value = (float)min.Value.Value
                                                 };
                                                 
                                                 _uow.TemperatureRepos.Add(temp);
@@ -393,7 +393,7 @@ namespace BeerProduction.OPC
                                                 Vibration vibra = new Vibration()
                                                 {
                                                     DateTime = DateTime.Now,
-                                                    Value = (int)min.Value.Value
+                                                    Value = (float)min.Value.Value
                                                 };
 
                                                 _uow.VibrationRepos.Add(vibra);
@@ -422,15 +422,15 @@ namespace BeerProduction.OPC
                                                 break;
 
                                             case 11:
-                                                hops = (float)min.Value.Value;
+                                                hops = (float) min.Value.Value;
                                                 break;
 
                                             case 12:
-                                                wheat = (float)min.Value.Value;
+                                                wheat = (float) min.Value.Value;
                                                 break;
 
                                             case 13:
-                                                yeast = (float)min.Value.Value;
+                                                yeast = (float) min.Value.Value;
                                                 break;
                                         }
 
@@ -465,6 +465,8 @@ namespace BeerProduction.OPC
 
         private static async Task Write(List<NodeId> nodesIds, DataValue dataval )
         {
+
+
             // setup logger
             var loggerFactory = new LoggerFactory();
             loggerFactory.AddDebug(LogLevel.Debug);
@@ -578,6 +580,16 @@ namespace BeerProduction.OPC
                 List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.CntrlCmd") /*CntrlCmd*/};
                 DataValue val = new DataValue(new Variant(data));
                 Write(nodeIds, val).Start();
+
+                SetControlCommand setControlCommand = new SetControlCommand()
+                {
+                    DateTime = DateTime.Now,
+                    Value =  data
+            };
+
+                _uow.SetControlCommandRepos.Add(setControlCommand);
+                _uow.SaveChanges();
+
 
                 foreach (var nodeID in nodeIds)
                 {

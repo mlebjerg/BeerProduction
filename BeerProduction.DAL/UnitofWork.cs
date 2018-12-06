@@ -15,6 +15,7 @@ namespace BeerProduction.DAL
         public NextBatchIDRepo<NextBatchID> NextBatchIDRepos { get; set; }
         public MachineSpeedRepo<MachineSpeed> MachineSpeedRepos { get; set; }
         public ProductProcessedRepo<ProductProcessed> ProductProcessedRepos { get; set; }
+        public SetControlCommandRepo<SetControlCommand> SetControlCommandRepos { get; set; }
         public UnitofWork()
         {
         _dbContext = Context.Create();
@@ -27,6 +28,7 @@ namespace BeerProduction.DAL
         NextBatchIDRepos = new NextBatchIDRepo<NextBatchID>(_dbContext);
         MachineSpeedRepos = new MachineSpeedRepo<MachineSpeed>(_dbContext);
         ProductProcessedRepos = new ProductProcessedRepo<ProductProcessed>(_dbContext);
+        SetControlCommandRepos = new SetControlCommandRepo<SetControlCommand>(_dbContext);
 
 
 

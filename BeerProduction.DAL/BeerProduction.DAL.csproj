@@ -66,6 +66,7 @@
     <Compile Include="Models\NextProductAmount.cs" />
     <Compile Include="Models\NextProductID.cs" />
     <Compile Include="Models\ProductProcessed.cs" />
+    <Compile Include="Models\SetControlCommand.cs" />
     <Compile Include="Models\Temperature.cs" />
     <Compile Include="Models\Vibration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Repos\NextProductAmountRepo.cs" />
     <Compile Include="Repos\NextProductIDRepo.cs" />
     <Compile Include="Repos\ProductProcessedRepo.cs" />
+    <Compile Include="Repos\SetControlCommandRepo.cs" />
     <Compile Include="Repos\TemperatureRepo.cs" />
     <Compile Include="Repos\TestClassRepo.cs" />
     <Compile Include="Repos\VibrationRepo.cs" />
