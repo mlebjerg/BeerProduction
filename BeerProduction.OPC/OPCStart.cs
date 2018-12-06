@@ -57,7 +57,7 @@ namespace BeerProduction.OPC
 
         public static int prodProc { get; set; } // Product produced
         public static int acceptableProduct { get; set; } //Acceptable products
-        public static int unacceptableProductProc { get; set; } //Unacceptable products
+        public static int unacceptableProduct { get; set; } //Unacceptable products
         public static float nextBatchID { get; set; } //Next batch ID
         public static float nextProductID { get; set; } //Next type of beer in batch
         public static float nextProductAmount { get; set; } //Next amount of product
@@ -75,7 +75,7 @@ namespace BeerProduction.OPC
         public static float wheatPercentage { get { return getPercentage(wheat); } } //Get wheat in percentage
         public static float yeast { get; set; } //The level of yeast left
         public static float yeastPercentage { get { return getPercentage(yeast); } } //Get yeast in percentage
-        private static float maxValue = 35000;
+        private static float maxValue = 35000; //Max value of ingredients
 
 
         private static float getPercentage(float ingredient)
@@ -310,22 +310,24 @@ namespace BeerProduction.OPC
                                 new MonitoredItemCreateRequest
                                 {
                                     ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value"), AttributeId = AttributeIds.Value}, //Current machine speed 
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Product.good"), AttributeId = AttributeIds.Value}, //Acceptable products
                                     MonitoringMode = MonitoringMode.Reporting,
                                     RequestedParameters = new MonitoringParameters
                                     {
-                                        ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                        ClientHandle = 15, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
-                                }
+                                },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Product.bad"), AttributeId = AttributeIds.Value}, //Unacceptable products
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 16, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                },
 
-                                /*
-                                 Need:
-                                 acceptable pro
-                                 Unacceptable
 
-
-
-                                */
 
                                 #endregion
 
@@ -490,6 +492,12 @@ namespace BeerProduction.OPC
                                                 _uow.SetControlCommandRepos.Add(setControlCommand);
                                                 _uow.SaveChanges();
 
+                                                break;
+                                            case 15:
+                                                acceptableProduct = (UInt16) min.Value.Value;
+                                                break;
+                                            case 16:
+                                                unacceptableProduct = (UInt16) min.Value.Value;
                                                 break;
                                         }
 
