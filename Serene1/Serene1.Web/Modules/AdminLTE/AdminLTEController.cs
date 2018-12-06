@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading.Tasks;
 using BeerProduction.OPC;
 using WebApplication1.Models;
 
@@ -213,7 +214,7 @@ namespace Serene1.AdminLTE
             }
         }
 
-        public ActionResult ActionBtnClick(int data)
+        public async Task<ActionResult> ActionBtnClick(int data)
         {
             try
             {
