@@ -128,6 +128,76 @@ namespace Serene1.AdminLTE
             }
         }
 
+        public ActionResult GetMalt()
+        {
+            try
+            {
+                return Json(new { success = true, malt = OpcStart.maltPercentage, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetHops()
+        {
+            try
+            {
+                return Json(new { success = true, hops = OpcStart.hopsPercentage, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetBarley()
+        {
+            try
+            {
+                return Json(new { success = true, barley = OpcStart.barleyPercentage, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetWheat()
+        {
+            try
+            {
+                return Json(new { success = true, wheat = OpcStart.wheatPercentage, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetYeast()
+        {
+            try
+            {
+                return Json(new { success = true, yeast = OpcStart.yeastPercentage, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public ActionResult GetMachinespeed()
         {
             try

@@ -57,19 +57,31 @@ namespace BeerProduction.OPC
 
         public static int prodProc { get; set; } // Product produced
         public static int acceptableProduct { get; set; } //Acceptable products
-        public  static int unacceptableProductProc { get; set; } //Unacceptable products
+        public static int unacceptableProductProc { get; set; } //Unacceptable products
         public static float nextBatchID { get; set; } //Next batch ID
         public static float nextProductID { get; set; } //Next type of beer in batch
         public static float nextProductAmount { get; set; } //Next amount of product
-        public static  float temperature { get; set; } //Current temperature
-        public  static float humidity { get; set; } //Current humidity
-        public  static  float vibration { get; set; } //Current vibration
-        public static  float machinespeed { get; set; } //Current machine speed in products per minute
-        public static  float malt { get; set; } //The level of malt left from 0-43750? <-- Check 35000/0.8 = x/1.
+        public static float temperature { get; set; } //Current temperature
+        public static float humidity { get; set; } //Current humidity
+        public static float vibration { get; set; } //Current vibration
+        public static float machinespeed { get; set; } //Current machine speed in products per minute
+        public static float malt { get; set; } //The level of malt left from 0-43750? <-- Check 35000/0.8 = x/1.
+        public static float maltPercentage { get { return getPercentage(malt); } } //Get malt in percentage
         public static float hops { get; set; } //The level of hops left
-        public static float barley { get; set; } //The level of barley left
+        public static float hopsPercentage { get { return getPercentage(hops); } } //Get hops in percentage
+        public static float barley { get; set; } //The level of barley left 
+        public static float barleyPercentage { get { return getPercentage(barley); } } //Get barley in percentage
         public static float wheat { get; set; } //The level of wheat left
+        public static float wheatPercentage { get { return getPercentage(wheat); } } //Get wheat in percentage
         public static float yeast { get; set; } //The level of yeast left
+        public static float yeastPercentage { get { return getPercentage(yeast); } } //Get yeast in percentage
+        private static float maxValue = 35000;
+
+
+        private static float getPercentage(float ingredient)
+        {
+            return (float) Math.Round(ingredient / maxValue * 100, 2); //Returns percentage left in 2 decimals
+        }
 
         public static async Task ReadSubscribed(CancellationToken token = default(CancellationToken))
         {
@@ -294,10 +306,23 @@ namespace BeerProduction.OPC
                                     }
                                 }
                                 #endregion
+                                ,
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value"), AttributeId = AttributeIds.Value}, //Current machine speed 
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+                                }
 
                                 /*
                                  Need:
-                                 Current machine speed
+                                 acceptable pro
+                                 Unacceptable
+
 
 
                                 */

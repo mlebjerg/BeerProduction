@@ -182,41 +182,43 @@
                         </p>
                         <div class="progress-group">
                             <span class="progress-text">Barley</span>
-                            <span class="progress-number"><b>80</b>/100%</span>
+                            <span id="barley" class="progress-number"><b>80</b></span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>
                         </div><!-- /.progress-group -->
                         <div class="progress-group">
                             <span class="progress-text">Hops</span>
-                            <span class="progress-number"><b>80</b>/100%</span>
+                            <span id="hops" class="progress-number"> </span> 
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>
-                        </div><!-- /.progress-group -->
+                        </div><!-- /.progress-group --> 
+
                         <div class="progress-group">
                             <span class="progress-text">Malt</span>
-                            <span class="progress-number"><b>80</b>/100%</span>
+                            <span id="malt" class="progress-number"><b>80   </b></span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>
                         </div><!-- /.progress-group -->
                         <div class="progress-group">
                             <span class="progress-text">Wheat</span>
-                            <span class="progress-number"><b>80</b>/100%</span>
+                            <span id="wheat" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>@*group -->*@
-                        <div class="progress-group">
-                            <span class="progress-text">Yeast</span>
-                        </div> @*/.progress-an>*@
-                            <span class="progress-number"><b>80</b>/100%</span>
+                            <div class="progress-group">
+                                <span class="progress-text">Yeast</span>
+                            </div> @*/.progress-an>*@
+                            <span id="yeast" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>
-                        </div><!-- /.progress-group 
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+                        </div>
+                        <!-- /.progress-group
+    </div><!-- /.col -->
+                    </div><!-- /.row -->
             </div><!-- ./box-body -->
 
         </div><!-- /.box -->
@@ -245,6 +247,11 @@
         setInterval(getTemperature, 500);
         setInterval(getVibration, 500);
         setInterval(getMachinespeed, 500);
+        setInterval(getMalt, 500);
+        setInterval(getHops, 500);
+        setInterval(getBarley, 500);
+        setInterval(getWheat, 500);
+        setInterval(getYeast, 500);
 
     });
 
@@ -327,13 +334,64 @@
 
     function getNextProductID() {
         $.ajax({
-            url: "/Dashboard/GetNextBatchID",
+            url: "/Dashboard/GetProductID",
             data: {},
             success: function(data) {
                 $("#nextProductID").text((data.nextProductID));
             }
         });
-     }
+    }
+    
+    function getMalt() {
+        $.ajax({
+            url: "/Dashboard/GetMalt",
+            data: {},
+            success: function(data) {
+                $("#malt").text((data.malt));
+            }
+        });
+    }
+
+    function getHops() {
+        $.ajax({
+            url: "/Dashboard/GetHops",
+            data: {},
+            success: function (data) {
+                $("#hops").text((data.hops));
+            }
+        });
+    }
+
+    function getBarley() {
+        $.ajax({
+            url: "/Dashboard/GetBarley",
+            data: {},
+            success: function (data) {
+                $("#barley").text((data.barley));
+            }
+        });
+    }
+
+    function getWheat() {
+        $.ajax({
+            url: "/Dashboard/GetWheat",
+            data: {},
+            success: function (data) {
+                $("#wheat").text((data.wheat));
+            }
+        });
+    }
+
+    function getYeast() {
+        $.ajax({
+            url: "/Dashboard/GetYeast",
+            data: {},
+            success: function (data) {
+                $("#yeast").text((data.yeast));
+            }
+        });
+    }
+
         function getNextBatchID() {
             $.ajax({
                 url: "/Dashboard/GetNextBatchID",
