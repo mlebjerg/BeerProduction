@@ -8,11 +8,12 @@ namespace Serene1.AdminLTE
     using System.Web.Mvc;
     using BeerProduction.OPC;
 
-    [Authorize, RoutePrefix("AdminLTE"), Route("{action=index}")]
+    [Authorize, RoutePrefix("Dashboard"), Route("{action=index}")]
     public class AdminLTEController : Controller
     {
         private OpcStart opc;
-        
+
+        [Authorize, HttpGet, Route("~/")]
         public ActionResult DashboardV2()
         {
             return View(MVC.Views.AdminLTE.DashboardV2);

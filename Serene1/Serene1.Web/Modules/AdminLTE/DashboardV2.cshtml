@@ -8,8 +8,9 @@
     <script src="~/Scripts/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="~/Scripts/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="~/Scripts/chartjs/Chart.min.js"></script>
-    <script src="~/Scripts/adminlte/pages/dashboard2.js"></script>
+    @*<script src="~/Scripts/adminlte/pages/dashboard2.js"></script>*@
     <script src="~/Scripts/adminlte/demo.js"></script>
+    <script src="~/Scripts/plot.ly/plotly-latest.min.js"></script>
 }
 
 @section ContentHeader {
@@ -172,10 +173,8 @@
                         <p class="text-center">
                             <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
                         </p>
-                        <div class="chart">
                             <!-- Sales Chart Canvas -->
-                            <canvas id="salesChart" style="height: 268px;"></canvas>
-                        </div><!-- /.chart-responsive -->
+                            <div id="plotChart"></div>
                     </div><!-- /.col -->
                     <div class="col-md-4">
                         <p class="text-center">
@@ -207,15 +206,15 @@
                             <span class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                            </div>group -->
+                            </div>@*group -->*@
                         <div class="progress-group">
-                            <span class="progress-text">Yeast</sp
-                        </div><!-- /.progress-an>
+                            <span class="progress-text">Yeast</span>
+                        </div> @*/.progress-an>*@
                             <span class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>
-                        </div><!-- /.progress-group -->
+                        </div><!-- /.progress-group 
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- ./box-body -->
@@ -249,9 +248,76 @@
 
     });
 
+    Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
+
+        function unpack(rows, key) {
+            return rows.map(function(row) { return row[key]; });
+        }
+
+
+        var trace1 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'AAPL High',
+            x: unpack(rows, 'Date'),
+            y: unpack(rows, 'AAPL.High'),
+            line: {color: '#17BECF'}
+        }
+
+        var trace2 = {
+            type: "scatter",
+            mode: "lines",
+            name: 'AAPL Low',
+            x: unpack(rows, 'Date'),
+            y: unpack(rows, 'AAPL.Low'),
+            line: {color: '#7F7F7F'}
+        }
+
+        var data = [trace1,trace2];
+
+        var layout = {
+            margin: {
+                l: 50,
+                r: 50,
+                b: 50,
+                t: 50,
+                pad: 1
+            },
+            
+            xaxis: {
+                autorange: true,
+                range: ['2015-02-17', '2017-02-16'],
+                rangeselector: {buttons: [
+                    {
+                        count: 1,
+                        label: '1m',
+                        step: 'month',
+                        stepmode: 'backward'
+                    },
+                    {
+                        count: 6,
+                        label: '6m',
+                        step: 'month',
+                        stepmode: 'backward'
+                    },
+                    {step: 'all'}
+                ]},
+                rangeslider: {range: ['2015-02-17', '2017-02-16']},
+                type: 'date'
+            },
+            yaxis: {
+                autorange: true,
+                range: [86.8700008333, 138.870004167],
+                type: 'linear'
+            }
+        };
+
+        Plotly.newPlot('plotChart', data, layout);
+    })
+
     function getProduced() {
         $.ajax({
-            url: "/AdminLTE/GetProduced",
+            url: "/Dashboard/GetProduced",
             data: {},
             success: function(data) {
                 $("#produced").text(data.produced);
@@ -261,7 +327,7 @@
 
     function getNextProductID() {
         $.ajax({
-            url: "/AdminLTE/GetNextBatchID",
+            url: "/Dashboard/GetNextBatchID",
             data: {},
             success: function(data) {
                 $("#nextProductID").text((data.nextProductID));
@@ -270,7 +336,7 @@
      }
         function getNextBatchID() {
             $.ajax({
-                url: "/AdminLTE/GetNextBatchID",
+                url: "/Dashboard/GetNextBatchID",
                 data: {},
                 success: function(data) {
                     $("#nextBatchID").text((data.nextBatchID));
@@ -280,7 +346,7 @@
 
     function getNextProductAmount() {
         $.ajax({
-            url: "/AdminLTE/GetNextProductAmount",
+            url: "/Dashboard/GetNextProductAmount",
             data: {},
             success: function(data) {
                 $("#nextProductAmount").text((data.nextProductAmount));
@@ -290,7 +356,7 @@
 
     function getHumidity() {
         $.ajax({
-            url: "/AdminLTE/GetHumidity",
+            url: "/Dashboard/GetHumidity",
             data: {},
             success: function (data) {
                 $("#humidity").text((data.humidity));
@@ -300,7 +366,7 @@
 
     function getTemperature() {
         $.ajax({
-            url: "/AdminLTE/GetTemperature",
+            url: "/Dashboard/GetTemperature",
             data: {},
             success: function (data) {
                 $("#temperature").text((data.temperature));
@@ -310,7 +376,7 @@
 
     function getVibration() {
         $.ajax({
-            url: "/AdminLTE/GetVibration",
+            url: "/Dashboard/GetVibration",
             data: {},
             success: function (data) {
                 $("#vibration").text((data.vibration));
@@ -320,7 +386,7 @@
 
     function getMachinespeed() {
         $.ajax({
-            url: "/AdminLTE/GetMachinespeed",
+            url: "/Dashboard/GetMachinespeed",
             data: {},
             success: function (data) {
                 $("#machinespeed").text((data.machinespeed));
@@ -332,7 +398,7 @@
     
         $("#resetBtn").click(function() {
             $.ajax({
-                url: "/AdminLTE/ActionBtnClick",
+                url: "/Dashboard/ActionBtnClick",
                 data: { data: 1 },
                 success: function(data) {
                 }
@@ -341,7 +407,7 @@
 
         $("#startBtn").click(function() {
             $.ajax({
-                url: "/AdminLTE/ActionBtnClick",
+                url: "/Dashboard/ActionBtnClick",
                 data: { data: 2 },
                 success: function(data) {
 
@@ -351,7 +417,7 @@
 
         $("#stopBtn").click(function() {
             $.ajax({
-                url: "/AdminLTE/ActionBtnClick",
+                url: "/Dashboard/ActionBtnClick",
                 data: { data: 3 },
                 success: function(data) {
                 }
@@ -360,7 +426,7 @@
 
         $("#abortBtn").click(function() {
             $.ajax({
-                url: "/AdminLTE/ActionBtnClick",
+                url: "/Dashboard/ActionBtnClick",
                 data: { data: 4 },
                 success: function(data) {
                 }
@@ -369,7 +435,7 @@
 
         $("#clearBtn").click(function() {
             $.ajax({
-                url: "/AdminLTE/ActionBtnClick",
+                url: "/Dashboard/ActionBtnClick",
                 data: { data: 5 },
                 success: function(data) {
                 }
