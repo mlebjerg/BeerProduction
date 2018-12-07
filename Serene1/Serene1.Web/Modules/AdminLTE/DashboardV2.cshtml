@@ -94,7 +94,7 @@
             <span class="info-box-icon bg-gray"><i><img style="display: block; margin-left: auto; margin-top: 10%; margin-right: auto; height:72px; width: auto; vertical-align: middle;" src="~/Content/beerAssets/accept.svg" /> </i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Acceptable Amount Produced</span>
-                <span class="info-box-number">41,410</span>
+                <span id ="acceptableAmountProduced" class="info-box-number">41,410</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -105,7 +105,7 @@
             <span class="info-box-icon bg-bg-gray"><i><img style="display: block;margin-left: auto;margin-top: 10%;margin-right: auto;height:72px; width: auto; vertical-align: middle;" src="~/Content/beerAssets/defect.svg" /></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Unacceptable Amount Produced</span>
-                <span class="info-box-number">760</span>
+                <span id ="unacceptableAmountProduced"class="info-box-number">760</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -255,6 +255,8 @@
         setInterval(getBarley, 500);
         setInterval(getWheat, 500);
         setInterval(getYeast, 500);
+        setInterval(getAcceptableAmountProduced, 500);
+        setInterval(getUnacceptableAmountProduced, 500);
 
     });
 
@@ -453,9 +455,27 @@
                 $("#machinespeed").text((data.machinespeed));
             }
         });
+    } 
+
+    function getAcceptableAmountProduced() {
+        $.ajax({
+            url: "/Dashboard/GetAcceptableAmountProduced",
+            data: {},
+            success: function (data) {
+                $("#acceptableAmountProduced").text((data.acceptableAmountProduced));
+            }
+        });
     }
 
-    
+    function getUnacceptableAmountProduced() {
+        $.ajax({
+            url: "/Dashboard/GetUnacceptableAmountProduced",
+            data: {},
+            success: function (data) {
+                $("#unacceptableAmountProduced").text((data.unacceptableAmountProduced));
+            }
+        });
+    }
     
         $("#resetBtn").click(function() {
             $.ajax({

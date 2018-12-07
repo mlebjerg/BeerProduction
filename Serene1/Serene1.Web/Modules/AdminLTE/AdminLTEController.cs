@@ -212,6 +212,34 @@ namespace Serene1.AdminLTE
                 return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
                     JsonRequestBehavior.AllowGet);
             }
+        } 
+
+        public ActionResult GetAcceptableAmountProduced()
+        {
+            try
+            {
+                return Json(new { success = true, acceptableAmountProduced = OpcStart.acceptableProduct, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetUnacceptableAmountProduced()
+        {
+            try
+            {
+                return Json(new { success = true, unacceptableAmountProduced = OpcStart.unacceptableProduct, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
         }
 
         public async Task<ActionResult> ActionBtnClick(int data)

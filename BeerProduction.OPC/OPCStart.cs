@@ -25,6 +25,7 @@ namespace BeerProduction.OPC
         private static readonly object padlock = new object();
         private static string discoveryUrl = $"opc.tcp://localhost:4840";
         private CancellationTokenSource cts = new CancellationTokenSource();
+        public static DateTime startTime;
 
         private static UnitofWork _uow = new UnitofWork();
 
@@ -44,6 +45,7 @@ namespace BeerProduction.OPC
 
         private OpcStart()
         {
+            startTime = new DateTime();
             Task.Run(() => ReadSubscribed(cts.Token));
         }
 
@@ -75,11 +77,20 @@ namespace BeerProduction.OPC
         public static float wheatPercentage { get { return getPercentage(wheat); } } //Get wheat in percentage
         public static float yeast { get; set; } //The level of yeast left
         public static float yeastPercentage { get { return getPercentage(yeast); } } //Get yeast in percentage
-        private static float maxValue = 35000;
-        public static float State { get; set; } //Get yeast in percentage
-        public static int CmdCntrl { get; set; }
+        private static float maxValue = 35000; //Max value of ingredients
+        public static float State { get; set; } //The current state of the machine
+        public static int CmdCntrl { get; set; } //
 
+        public static float CalculateOEE(int speed, int maxSpeed, int total, int good, float actualTime)
+        {
+            float  plannedTime = total / speed; //Minutes it takes to make all the products planned
 
+            float availablity =  plannedTime / actualTime; //The relationship between the planned time and actual time.
+            float performance = (float) (speed / maxSpeed); //Percentage of max speed
+            float quality = (float) (good / total); //Percentage of good products
+
+            return  performance * quality * availablity ; //Calculate OEE
+        }
 
 
         private static float getPercentage(float ingredient)
@@ -193,17 +204,6 @@ namespace BeerProduction.OPC
                                     {
                                         ClientHandle = 4, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
-                                },
-                                new MonitoredItemCreateRequest
-                                {
-                                    ItemToMonitor = new ReadValueId
-                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.StateCurrent"), AttributeId = AttributeIds.Value}, //state
-                                    MonitoringMode = MonitoringMode.Reporting,
-                                    RequestedParameters = new MonitoringParameters
-                                    {
-                                        ClientHandle = 15, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
-                                    }
-
                                 },
                                 #region Sensors
                                 new MonitoredItemCreateRequest
@@ -330,6 +330,17 @@ namespace BeerProduction.OPC
                                         ClientHandle = 16, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
                                     }
                                 },
+                                new MonitoredItemCreateRequest
+                                {
+                                    ItemToMonitor = new ReadValueId
+                                        {NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Status.StateCurrent"), AttributeId = AttributeIds.Value}, //state
+                                    MonitoringMode = MonitoringMode.Reporting,
+                                    RequestedParameters = new MonitoringParameters
+                                    {
+                                        ClientHandle = 17, SamplingInterval = -1, QueueSize = 0, DiscardOldest = true
+                                    }
+
+                                }
 
 
 
@@ -499,13 +510,15 @@ namespace BeerProduction.OPC
                                                 break;
                                             case 15:
 
-                                                State = (int)min.Value.Value;
-
                                                 acceptableProduct = (UInt16) min.Value.Value;
                                                 break;
                                             case 16:
                                                 unacceptableProduct = (UInt16) min.Value.Value;
 
+                                                break;
+                                            case 17:
+
+                                                State = (int)min.Value.Value; 
                                                 break;
                                         }
 
@@ -646,7 +659,7 @@ namespace BeerProduction.OPC
 
             return userIdentity;
         }
-
+          
         #endregion
 
         public bool SetCntrlCmd(Int32 data)
