@@ -187,7 +187,10 @@
                 {
                     throw new Exception("Error executing migration:\r\n" +
                         sw.ToString(), ex);
-                }
+                }// To fix error open Microsoft SQL server manager connect to (LocalDb)\MSSqlLocalDB
+                 // right-click on both Databases, -> Task -> Detach. Try and detach both.
+                 // if that does not work, try and delete the DBs it will throw an error, dont try to delete more.
+                 // Try to start the project, if that doesn't work 😎🔫 If you know what i mean -😉
             }
         }
     }

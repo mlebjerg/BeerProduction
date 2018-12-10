@@ -3,7 +3,7 @@
 [assembly: NavigationMenu(8000, "Theme Samples", icon: "fa-diamond")]
 
 [assembly: NavigationLink(8100, "Theme Samples/Dashboard v2", url: "~/AdminLTE/DashboardV2", permission: "", icon: "fa-tachometer")]
-[assembly: NavigationLink(8150, "Theme Samples/BatchStarter", url: "~/AdminLTE/BatchStarter", permission: "", icon: "fa-heart")]
+[assembly: NavigationLink(8150, "Theme Samples/BatchReport", url: "~/AdminLTE/BatchReporter", permission: "", icon: "fa-heart")]
 [assembly: NavigationLink(8200, "Theme Samples/Widgets", url: "~/AdminLTE/Widgets", permission: "", icon: "fa-th")]
 
 [assembly: NavigationMenu(8300, "Theme Samples/Charts", icon: "fa-pie-chart")]
