@@ -1,4 +1,11 @@
-﻿namespace Serene1
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Builder;
+using Owin;
+using Serene1;
+
+[assembly: OwinStartup(typeof(Serene1.SiteInitialization))]
+
+namespace Serene1
 {
     using Administration;
     using Serenity;
@@ -9,12 +16,17 @@
     using System.Configuration;
     using BeerProduction.OPC;
 
+
     public static partial class SiteInitialization
     {
+
         public static void ApplicationStart()
         {
 
+            //AppBuilder app = new AppBuilder();
 
+            //app.MapSignalR();
+            
             OpcStart.Instance.SetCntrlCmd(4);
 
             try

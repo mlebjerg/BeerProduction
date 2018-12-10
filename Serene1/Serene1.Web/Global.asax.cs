@@ -1,5 +1,10 @@
 ﻿
-namespace Serene1
+using Microsoft.Owin;
+using Owin;
+using Serene1;
+
+
+namespace BeerProduction.Web
 {
     using System;
     using System.Globalization;
@@ -8,8 +13,11 @@ namespace Serene1
     using System.Web.Mvc;
     using System.Web.Routing;
 
+
     public class Global : System.Web.HttpApplication
     {
+
+
         protected void Application_Start(object sender, EventArgs e)
         {
             AreaRegistration.RegisterAllAreas();

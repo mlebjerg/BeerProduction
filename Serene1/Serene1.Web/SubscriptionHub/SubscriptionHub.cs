@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 
-namespace Serene1.SubscriptionHub
+namespace BeerProduction.Web.SubscriptionHub
 {
     public class SubscriptionHub : Hub
     {

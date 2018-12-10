@@ -242,6 +242,15 @@
         setInterval(getProduced, 500);
     });
 
+    $.connection.hub.start().done(function () {
+
+        alert('Hello');
+
+        $.connection.myHub.server.broadCastServerTime();
+
+    });
+
+
     function getProduced() {
         $.ajax({
             url: "/AdminLTE/GetProduced",
@@ -249,6 +258,8 @@
             success: function (data) {
                 $("#produced").text(data.produced);
             }
+
+
         });
     }
 
