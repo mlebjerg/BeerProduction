@@ -14,5 +14,40 @@ namespace Serene1.Modules.Batches
         {
             return View(MVC.Views.Batches.BatchReporter);
         }
+
+        public ActionResult BatchReportViewer()
+        {
+            return View(MVC.Views.Batches.BatchReportViewer);
+        }
+
+        [HttpGet]
+        public ActionResult GetBatchID()
+        {
+            return null;
+        }
+        public ActionResult GetProductAmount()
+        {
+            return null;
+        }
+        public ActionResult GetSpeed()
+        {
+            return null;
+        }
+        public ActionResult GetProduced()
+        {
+            return null;
+        }
+        public ActionResult GetAccepted()
+        {
+            return null;
+        }
+        public ActionResult GetUnacceptable()
+        {
+            return null;
+        }
+        public ActionResult GetType()
+        {
+            return null;
+        }
     }
 }

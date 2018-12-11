@@ -439,7 +439,7 @@
 
     function getProduced() {
         $.ajax({
-            url: "/Dashboard/GetProduced",
+            url: "/BatchReporterController/GetProduced",
             data: {},
             success: function(data) {
                 $("#produced").text(data.produced);

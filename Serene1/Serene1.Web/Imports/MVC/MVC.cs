@@ -29,8 +29,11 @@ namespace MVC
 
         public static class Batches
         {
+            public const string BatchReportViewer = "~/Modules/Batches/BatchReportViewer.cshtml";
+            
             public const string BatchReporter = "~/Modules/Batches/BatchReporter.cshtml";
         }
+
 
         public static class AdminLTE
         {
