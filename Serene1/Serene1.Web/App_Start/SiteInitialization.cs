@@ -28,6 +28,8 @@ namespace Serene1
             //app.MapSignalR();
             
             OpcStart.Instance.SetCntrlCmd(4);
+            var noNameIsTooLongToNotMakeSense = OpcStart.Instance;
+            Opc.Instance.Start();
 
             try
             {

@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerProduction.Web", "Serene1\Serene1.Web\BeerProduction.Web.csproj", "{E298DC33-D240-4585-AC47-775575246780}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerProduction.BUL", "BeerProduction.Business\BeerProduction.BUL.csproj", "{FD346BB0-9309-490A-A87D-EA9F13225068}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerProduction.DAL", "BeerProduction.DAL\BeerProduction.DAL.csproj", "{0F55B857-DC7A-475E-A79F-194CFD423D69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerProduction.OPC", "BeerProduction.OPC\BeerProduction.OPC.csproj", "{B74A3580-C65C-4354-8C33-3A25694DDC1F}"
