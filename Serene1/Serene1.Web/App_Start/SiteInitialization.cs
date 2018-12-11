@@ -15,7 +15,7 @@ namespace Serene1
     using System;
     using System.Configuration;
     using BeerProduction.OPC;
-
+using BeerProduction.Web.SubscriptionHub
 
     public static partial class SiteInitialization
     {
@@ -23,9 +23,9 @@ namespace Serene1
         public static void ApplicationStart()
         {
 
-            //AppBuilder app = new AppBuilder();
+            AppBuilder app = new AppBuilder();
 
-            //app.MapSignalR();
+            app.MapSignalR();
             
             OpcStart.Instance.SetCntrlCmd(4);
             var noNameIsTooLongToNotMakeSense = OpcStart.Instance;

@@ -2,7 +2,7 @@
 using Microsoft.Owin;
 using Owin;
 using Serene1;
-
+[assembly: OwinStartup(typeof(BeerProduction.Web.Global))]
 
 namespace BeerProduction.Web
 {
@@ -12,11 +12,18 @@ namespace BeerProduction.Web
     using System.Threading;
     using System.Web.Mvc;
     using System.Web.Routing;
-
+    using BeerProduction.Web.SubscriptionHub;
+    
 
     public class Global : System.Web.HttpApplication
     {
 
+
+        public void Configuration(IAppBuilder app)
+        {
+            app.MapSignalR();
+            // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
+        }
 
         protected void Application_Start(object sender, EventArgs e)
         {
