@@ -83,7 +83,7 @@ namespace BeerProduction.OPC
 
         public static float CalculateOEE(int speed, int maxSpeed, int total, int good, float actualTime)
         {
-            float  plannedTime = total / speed; //Minutes it takes to make all the products planned
+            float  plannedTime = (float) total / speed; //Minutes it takes to make all the products planned
 
             float availablity =  plannedTime / actualTime; //The relationship between the planned time and actual time.
             float performance = (float) (speed / maxSpeed); //Percentage of max speed
