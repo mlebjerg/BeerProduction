@@ -16,14 +16,60 @@
 @section ContentHeader {
     <h1>@ViewData["Title"]</h1>
 }
+<!-- Modal -->
+
+<div id="modal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal Default</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Type:</label>
+                            <select id="beerSelector" class="form-control select2" style="width: 100%;">
+                                <option beer-data=0 selected="selected">Pilsner</option>
+                                <option beer-data=1>Wheat</option>
+                                <option beer-data=2>IPA</option>
+                                <option beer-data=3>Stout</option>
+                                <option beer-data=4>Ale</option>
+                                <option beer-data=5>Alcohol Free</option>
+                            </select>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col -->
+                    <div class="col-md-4">
+                        <label>Mængde(0-65535):</label>
+
+                        <input id="amtSet" type="number" min="0" max="65535" class="form-control" placeholder="10000">
+
+                    </div><!-- /.col -->
+                    <div class="col-md-4">
+                        <label>Batch ID:</label>
+
+                        <input id="batchID" type="number" class="form-control" value="25" disabled="">
+
+                    </div><!-- /.col -->
+                </div>
+                    <div class="modal-footer">
+                        <button id="closeModal"type="button" class="btn btn-default pull-left">Close</button>
+                        <button id="sendData" type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 <!-- Info boxes -->
 <div class="row" style="padding-bottom: 15px">
     <div class="col-md-2 col-sm-6 col-xs-12">
+        <button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>
         <button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>
-    </div>
-    <div class="col-md-2 col-sm-6 col-xs-12">
         <button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>
+
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
         <button id="stopBtn" class="btn btn-block btn-warning btn-lg">Stop</button>
@@ -31,12 +77,10 @@
     <div class="col-md-2 col-sm-6 col-xs-12">
         <button id="abortBtn" class="btn btn-block btn-danger btn-lg">Abort</button>
     </div>
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>
-    </div>
     <div>
-        <span class="col-md-2 info-box-content bg-gray" style="font-size: 180%; margin-left: 0; height: 46px;"> State:  </span>
+        <span class="col-md-2 info-box-content bg-gray" id="stateShow" style="font-size: 180%; margin-left: 0; height: 46px;"> State:  </span>
     </div>
+
 </div>
 
 <div class="row">
@@ -49,6 +93,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Batch Id</span>
+
                 <span id="nextBatchID" class="info-box-number"> 123 </span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
@@ -146,8 +191,7 @@
         </div><!-- /.info-box -->
     </div><!-- /.col -->
 </div><!-- /.row -->
-
-
+<!-- Main row -->
 <div class="row">
     <div class="col-md-12">
         <div class="box">
@@ -224,10 +268,58 @@
         </div><!-- /.box -->
     </div><!-- /.col -->
 </div><!-- /.row -->
-<div class="col-md-2 col-sm-6 col-xs-12">
-    <button id="pilsBtn" class="btn btn-block btn-warning btn-lg">Pils</button>
+<div class="row" style="padding-bottom: 15px">
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <button id="stateBtn" class="btn btn-block btn-primary btn-lg">State Changer</button>
+    </div>
 </div>
-<!-- Main row -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="info-box">
+            <span class="info-box-icon bg-green">
+                <i>
+                    <img class="match-block" src="~/Content/beerAssets/beer.svg" />
+                </i>
+            </span>
+            <div class="info-box-content">
+                <span class="info-box-text">Beer Type for next batch</span>
+                <span class="info-box-number" id="nextType">Pilsner</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-box">
+            <span class="info-box-icon bg-aqua">
+                <i>
+                    <img class="match-block" src="~/Content/beerAssets/beertap.svg" />
+                </i>
+            </span>
+            <div class="info-box-content">
+                <span class="info-box-text">Beer amount for next batch</span>
+                <span class="info-box-number" id="nextAmt">10000</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="info-box">
+            <span class="info-box-icon bg-yellow">
+                <i>
+                    <img class="match-block" src="~/Content/beerAssets/package.svg" />
+                </i>
+            </span>
+            <div class="info-box-content">
+                <span class="info-box-text">Next Batch ID</span>
+                <span class="info-box-number" id="nextID">25</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 col-sm-6 col-xs-12">
+        <button id="newBatchBtn" class="btn btn-block btn-success btn-lg">Start new Batch</button>
+    </div>
+</div>
+
 
 <style>
     .match-block {
@@ -238,11 +330,54 @@
         width: 80%;
         vertical-align: middle;
     }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 50;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    #resetBtn {
+        position: absolute;
+        top: -5;
+        width: 250px;
+    }
+
+    #startBtn {
+        position: absolute;
+        top: -5;
+        width: 250px;
+    }
+
+    #clearBtn {
+        position: relative;
+        top: 0;
+        width: 250px;
+    }
+
+    #stopBtn {
+    }
+
+    #abortBtn {
+    }
 </style>
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
+
+    var state = 3;
+    var modal = document.getElementById("modal");
+
+
+
+    $(document).ready(function () {
+
         setInterval(getProduced, 500);
         setInterval(getNextBatchID, 500);
         setInterval(getNextProductAmount, 500);
@@ -259,6 +394,7 @@
         setInterval(getUnacceptableAmountProduced, 500);
 
     });
+
 
     Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
 
@@ -523,13 +659,81 @@
         });
     });
 
-        $("#clearBtn").click(function() {
-            $.ajax({
-                url: "/Dashboard/ActionBtnClick",
-                data: { data: 5 },
-                success: function(data) {
-                }
-            });
+    $(".btn-danger").click()
+    {
+    }
+
+    $("#stateBtn").click(function () {
+        state = (state + 1) % 4;
+
+        switch (state) {
+            case 0:
+                $("#stateShow").text("State: Stopped");
+                $("#clearBtn").hide();
+                $("#resetBtn").show();
+                $("#startBtn").hide();
+                break;
+            case 1:
+                $("#stateShow").text("State: Idle");
+                $("#clearBtn").hide();
+                $("#resetBtn").hide();
+                $("#startBtn").show();
+                break;
+            case 2:
+                $("#stateShow").text("State: Completed");
+                $("#clearBtn").hide();
+                $("#startBtn").hide();
+                $("#resetBtn").show();
+                break;
+            case 3:
+                $("#stateShow").text("State: Aborted");
+                $("#resetBtn").hide();
+                $("#startBtn").hide();
+                $("#clearBtn").show();
+                break;
+        };
+    });
+
+    $("#newBatchBtn").click(function () {
+        modal.style.display = "block";
+    });
+
+    $("#closeModal").click(function() {
+        modal.style.display = "none";
+        $("#beerSelector").val("Pilsner");
+        $("#amtSet").val(null);
+    });
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            $("#beerSelector").val("Pilsner");
+            $("#amtSet").val(null);
+        }
+    }
+
+    $("#sendData").click(function ()
+    {
+        var amt = parseInt($("#amtSet").val());
+        var beerType = parseInt($("#beerSelector").find(":selected").attr("beer-data"));
+        var beerTypeName = $("#beerSelector").val();
+        var batchID = parseInt($("#batchID").val());
+        $.ajax({
+            url: "/AdminLTE/SendBtnClick",
+            data: { name: amt, name2: beerType, name: batchID },
+            success: function (data) {
+                toastr.success("Batch Information has been send.")
+                $("#nextAmt").text(amt);
+                $("#nextType").text(beerTypeName);
+                $("#beerSelector").val("Pilsner");
+                $("#nextID").val(batchID);
+                $("#amtSet").val(null);
+                modal.style.display = "none";
+            },
+            error: function (data) {
+                toastr.error("An error happened.")
+            }
         });
+    });
 
 </script>

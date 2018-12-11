@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "BatchStarter";
+}
+
+@section Head {
+    <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+ 
+    <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+}
+
+@section ContentHeader {
+    <h1>@ViewData["Title"]</h1>
+}
+
+<!-- Info boxes -->
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Column1</th>
+                    <th>Column2</th>
+                    <th>Column3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1 Data 1</td>
+                    <td>Row 1 Data 2</td>
+                    <td>Row 1 Data 3</td>
+                </tr>
+                <tr>
+                    <td>Row 2 Data 1</td>
+                    <td>Row 2 Data 2</td>
+                    <td>Row 2 Data 3</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Main row -->
+
+<style>
+   
+</style>
+
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } ); 
+</script>

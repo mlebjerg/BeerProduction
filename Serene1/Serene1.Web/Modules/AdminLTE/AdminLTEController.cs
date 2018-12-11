@@ -20,6 +20,10 @@ namespace Serene1.AdminLTE
         {
             return View(MVC.Views.AdminLTE.DashboardV2);
         }
+        public ActionResult BatchReporter()
+        {
+            return View(MVC.Views.AdminLTE.BatchReporter);
+        }
 
         public ActionResult Widgets()
         {
@@ -257,37 +261,20 @@ namespace Serene1.AdminLTE
             }
         }
 
-
-        public void PilsnerOptimize()
+        public ActionResult SendBtnClick(int amt, int beerType, int batchID)
         {
-            for (int i = 1; i <= 10; i++)
+            try
             {
-                Pilsner b = new Pilsner();
-                b.Speed = (i / 10) * Pilsner.MaxSpeed;
-
-                OpcStart.Instance.SetCntrlCmd(Buttons.ABORT);
-                System.Threading.SpinWait.SpinUntil(() => OpcStart.CmdCntrl == Buttons.ABORT);
-
-                OpcStart.Instance.SetCmdChangeRequest(true);
-
-
-                System.Threading.SpinWait.SpinUntil(() => OpcStart.State == States.Aborted);
-                OpcStart.Instance.SetCntrlCmd(Buttons.CLEAR);
-                OpcStart.Instance.SetCmdChangeRequest(true);
-
-                System.Threading.SpinWait.SpinUntil(() => OpcStart.State == States.Stopped);
-                OpcStart.Instance.SetCntrlCmd(Buttons.RESET);
-                OpcStart.Instance.SetCmdChangeRequest(true);
-
-                System.Threading.SpinWait.SpinUntil(() => OpcStart.State == States.Idle);
-
-                OpcStart.Instance.SetNextProductAmount(100);
-                OpcStart.Instance.SetNextProductID(Pilsner.BeerOpcCmd);
-                OpcStart.Instance.SetMachSpeed(b.Speed);
-
-                System.Threading.SpinWait.SpinUntil(() => OpcStart.machinespeed == b.Speed && OpcStart.nextProductAmount == 100 && OpcStart.nextProductID == Pilsner.BeerOpcCmd);
-                OpcStart.Instance.SetCntrlCmd(Buttons.START);
-                OpcStart.Instance.SetCmdChangeRequest(true);
+                OpcStart.Instance.SetBatchAmount(amt);
+                OpcStart.Instance.SetBeerTypeID(beerType);
+                OpcStart.Instance.SetBatchID(batchID);
+                return Json(new { success = true, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
 
             }
         }
