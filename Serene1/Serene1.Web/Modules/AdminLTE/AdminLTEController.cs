@@ -20,10 +20,6 @@ namespace Serene1.AdminLTE
         {
             return View(MVC.Views.AdminLTE.DashboardV2);
         }
-        public ActionResult BatchReporter()
-        {
-            return View(MVC.Views.AdminLTE.BatchReporter);
-        }
 
         public ActionResult Widgets()
         {

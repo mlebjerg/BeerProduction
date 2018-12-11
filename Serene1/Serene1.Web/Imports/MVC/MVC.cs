@@ -27,6 +27,11 @@ namespace MVC
             }
         }
 
+        public static class Batches
+        {
+            public const string BatchReporter = "~/Modules/Batches/BatchReporter.cshtml";
+        }
+
         public static class AdminLTE
         {
             public const string Calendar = "~/Modules/AdminLTE/Calendar.cshtml";
@@ -38,7 +43,6 @@ namespace MVC
                 public const string Morris = "~/Modules/AdminLTE/Charts/Morris.cshtml";
             }
             public const string DashboardV2 = "~/Modules/AdminLTE/DashboardV2.cshtml";
-            public const string BatchReporter = "~/Modules/AdminLTE/BatchReporter.cshtml";
             public static class Examples
             {
                 public const string BlankPage = "~/Modules/AdminLTE/Examples/BlankPage.cshtml";
