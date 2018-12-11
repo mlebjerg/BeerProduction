@@ -66,10 +66,7 @@
 <!-- Info boxes -->
 <div class="row" style="padding-bottom: 15px">
     <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>
-        <button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>
-        <button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>
-
+      <span id ="changeingBtns"></span>
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
         <button id="stopBtn" class="btn btn-block btn-warning btn-lg">Stop</button>
@@ -343,29 +340,6 @@
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     }
 
-    #resetBtn {
-        position: absolute;
-        top: -5;
-        width: 250px;
-    }
-
-    #startBtn {
-        position: absolute;
-        top: -5;
-        width: 250px;
-    }
-
-    #clearBtn {
-        position: relative;
-        top: 0;
-        width: 250px;
-    }
-
-    #stopBtn {
-    }
-
-    #abortBtn {
-    }
 </style>
 
 
@@ -663,33 +637,35 @@
     {
     }
 
+    var clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>'
+    var resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
+    var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
+
     $("#stateBtn").click(function () {
         state = (state + 1) % 4;
 
         switch (state) {
             case 0:
                 $("#stateShow").text("State: Stopped");
-                $("#clearBtn").hide();
-                $("#resetBtn").show();
-                $("#startBtn").hide();
+                $("#changeingBtns").empty();
+                $("#changeingBtns").append(resetBtn);
+                
                 break;
             case 1:
                 $("#stateShow").text("State: Idle");
-                $("#clearBtn").hide();
-                $("#resetBtn").hide();
-                $("#startBtn").show();
+                $("#changeingBtns").empty();
+                $("#changeingBtns").append(startBtn);
                 break;
             case 2:
                 $("#stateShow").text("State: Completed");
-                $("#clearBtn").hide();
-                $("#startBtn").hide();
-                $("#resetBtn").show();
+                $("#changeingBtns").empty();
+                $("#changeingBtns").append(resetBtn);
+
                 break;
             case 3:
                 $("#stateShow").text("State: Aborted");
-                $("#resetBtn").hide();
-                $("#startBtn").hide();
-                $("#clearBtn").show();
+                $("#changeingBtns").empty();
+                $("#changeingBtns").append(clearBtn);
                 break;
         };
     });

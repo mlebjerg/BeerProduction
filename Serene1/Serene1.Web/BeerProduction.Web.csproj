@@ -2028,8 +2028,8 @@
     <Compile Include="Modules\Administration\UserRole\UserRoleListResponse.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleListRequest.cs" />
     <Compile Include="Modules\Administration\UserRole\UserRoleEndpoint.cs" />
-    <Compile Include="SubscriptionHub\SignalRStartup.cs" />
     <Compile Include="Modules\AdminLTE\BatchReport.cs" />
+    <Compile Include="SubscriptionHub\SignalRStartup.cs" />
     <Compile Include="SubscriptionHub\SubscriptionHub.cs" />
     <Content Include="Modules\AdminLTE\DashboardV2.cshtml" />
     <Compile Include="Modules\Administration\User\Authentication\DirectoryEntry.cs" />

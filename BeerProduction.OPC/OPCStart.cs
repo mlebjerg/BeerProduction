@@ -788,23 +788,36 @@ namespace BeerProduction.OPC
             }
         }
 
-        public bool SetBatchAmount(Int32 data)
+        public bool SetProductID(Single data)
         {
             try
             {
-                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter.Parameter[2]") /*Parameter.Parameter[2]*/};
-                DataValue val = new DataValue(new Variant(data).Type == VariantType.Int32);
-
- public bool SetProductID(Single data)
-        {
-            try
-            {
-                List<NodeId> nodeIds = new List<NodeId> { NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value") /*Value*/};
+                List<NodeId> nodeIds = new List<NodeId>
+                    {NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value") /*Value*/};
                 DataValue val = new DataValue(new Variant(data).Type == VariantType.Float);
 
                 Write(nodeIds, val).Start();
                 return true;
             }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool SetBatchAmount(Int32 data)
+        {
+            try
+            {
+                List<NodeId> nodeIds = new List<NodeId>
+                    {NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter.Parameter[2]") /*Parameter.Parameter[2]*/};
+                DataValue val = new DataValue(new Variant(data).Type == VariantType.Int32);
+
+                Write(nodeIds, val).Start();
+                return true;
+
+            }
+
             catch (Exception e)
             {
                 return false;
