@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Linq.Dynamic;
 using BeerProduction.DAL;
+using BeerProduction.DAL.IRepo;
 
 namespace BeerProduction.DAL.Repos
 {
@@ -17,6 +18,12 @@ namespace BeerProduction.DAL.Repos
             _db = context;
             _table = _db.Set<T>();
         }
+
+
+        public BaseRepository()
+        {
+        }
+
         public T Find(object id)
         {
             return _table.Find(id);
@@ -129,23 +136,13 @@ namespace BeerProduction.DAL.Repos
         }
     }
 
-
-        public class DynamicTableQueryResult<T> where T : class
-        {
-            public IList<T> QueryResultList { get; set; }
-            public IList<T> QueryResultListAllResults { get; set; }
-
-            public int QueryCount { get; set; }
-            public int TableCount { get; set; }
-        }
-   
-
-
-    public interface IBaseRepository<T> where T : class
+    public class DynamicTableQueryResult<T> where T : class
     {
-        T Find(object id);
-        void Add(T obj);
-        void Update(T obj);
-        void Remove(object id);
+        public IList<T> QueryResultList { get; set; }
+        public IList<T> QueryResultListAllResults { get; set; }
+
+        public int QueryCount { get; set; }
+        public int TableCount { get; set; }
     }
+
 }

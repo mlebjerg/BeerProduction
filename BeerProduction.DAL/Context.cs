@@ -1,4 +1,5 @@
 using BeerProduction.DAL.Migrations;
+using BeerProduction.DAL.Models;
 
 namespace BeerProduction.DAL
 {
@@ -9,13 +10,23 @@ namespace BeerProduction.DAL
     public class Context : DbContext
     {
         public DbSet<TestClass> TestClasss { get; set; }
+        public DbSet<Temperature> Temperatures { get; set; }
+        public DbSet<Humidity> Humidities { get; set; }
+        public DbSet<MachineSpeed> MachineSpeeds { get; set; }
+        public DbSet<NextBatchID> NextBatchIds { get; set; }
+        public DbSet<NextProductAmount> NextProductAmounts { get; set; }
+        public DbSet<NextProductID> NextProductIds { get; set; }
+        public DbSet<ProductProcessed> ProductProcesseds { get; set; }
+        public DbSet<Vibration> Vibrations { get; set; }
+        public DbSet<SetControlCommand> SetControlCommands { get; set; }
+
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
         // 'BeerProduction.DAL.Model1' database on your LocalDb instance. 
         // 
         // If you wish to target a different database and/or database provider, modify the 'Model1' 
         // connection string in the application configuration file.
-        public Context() : base("CRMContext")
+        public Context() : base("Context")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>());
         }

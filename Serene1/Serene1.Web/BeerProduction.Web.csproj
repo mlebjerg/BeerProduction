@@ -68,6 +68,12 @@
     <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=4.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EPPlus.4.5.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
@@ -963,6 +969,7 @@
     <Content Include="Content\toastr.less" />
     <Content Include="Scripts\jquery.signalR-2.4.0.js" />
     <Content Include="Scripts\jquery.signalR-2.4.0.min.js" />
+    <Content Include="Scripts\plot.ly\plotly-latest.min.js" />
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="appSettings.json" />
     <Content Include="Modules\AdminLTE\BatchStarter.cshtml" />
@@ -2628,6 +2635,10 @@
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.autotable.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BeerProduction.DAL\BeerProduction.DAL.csproj">
+      <Project>{0f55b857-dc7a-475e-a79f-194cfd423d69}</Project>
+      <Name>BeerProduction.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BeerProduction.OPC\BeerProduction.OPC.csproj">
       <Project>{B74A3580-C65C-4354-8C33-3A25694DDC1F}</Project>
       <Name>BeerProduction.OPC</Name>
