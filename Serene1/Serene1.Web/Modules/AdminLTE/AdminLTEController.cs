@@ -13,8 +13,7 @@ namespace Serene1.AdminLTE
     [Authorize, RoutePrefix("Dashboard"), Route("{action=index}")]
     public class AdminLTEController : Controller
     {
-        private OpcStart opc;
-
+        
         [Authorize, HttpGet, Route("~/")]
         public ActionResult DashboardV2()
         {

@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Net;
 using System.Security.Policy;
 using BeerProduction.DAL;
+using Microsoft.AspNet.SignalR;
+using Serene1.SubscriptionHub;
 using Workstation.ServiceModel.Ua;
 
 namespace BeerProduction.OPC
@@ -14,7 +16,7 @@ namespace BeerProduction.OPC
         public UaApp UaApp1;
         private static string Url = $"opc.tcp://localhost:4840";
         private UaApplication app;
-        private PropertyChangedEventHandler dummy;
+        public PropertyChangedEventHandler dummy;
 
         private static UnitofWork _uow = new UnitofWork();
 
@@ -49,9 +51,6 @@ namespace BeerProduction.OPC
                 .SetApplicationUri($"urn:{Dns.GetHostName()}:BeerCraft")
                 .AddMappedEndpoint(Url, Url, SecurityPolicyUris.None)
                 .Build();
-            {
-                app.Run();
-            }
         }
 
         [Subscription(endpointUrl: "opc.tcp://localhost:4840", publishingInterval: -1)]
@@ -141,7 +140,7 @@ namespace BeerProduction.OPC
             public UInt16 Programproductproduce_amount
             {
                 get { return programproductproduce_amount; }
-                private set { SetProperty(ref programproductproduce_amount, value); }
+                private set { SetProperty(ref programproductproduce_amount, value);}
             }
 
             private UInt16 programproductproduce_amount;
@@ -252,7 +251,10 @@ namespace BeerProduction.OPC
             public Int32 ProgramCubeStatusStateCurrent
             {
                 get { return programCubeStatusStateCurrent; }
-                private set { SetProperty(ref programCubeStatusStateCurrent, value); }
+                private set { SetProperty(ref programCubeStatusStateCurrent, value);
+                    var hub = GlobalHost.ConnectionManager.GetHubContext<SubscriptionHub>();
+                    hub.Clients.All.UpdateState(value);
+                }
             }
 
             private Int32 programCubeStatusStateCurrent;
@@ -318,7 +320,9 @@ namespace BeerProduction.OPC
             public Int32 ProgramCubeAdminProdProcessedCount
             {
                 get { return programCubeAdminProdProcessedCount; }
-                private set { SetProperty(ref programCubeAdminProdProcessedCount, value); }
+                private set { SetProperty(ref programCubeAdminProdProcessedCount, value);
+               
+                }
             }
 
             private Int32 programCubeAdminProdProcessedCount;

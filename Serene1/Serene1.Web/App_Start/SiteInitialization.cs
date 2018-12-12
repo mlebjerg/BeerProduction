@@ -1,4 +1,5 @@
-﻿namespace Serene1
+﻿
+namespace Serene1
 {
     using Administration;
     using Serenity;
@@ -13,7 +14,7 @@
     {
         public static void ApplicationStart()
         {
-            var noNameIsTooLongToNotMakeSense = OpcStart.Instance;
+            //var noNameIsTooLongToNotMakeSense = OpcStart.Instance;
             Opc.Instance.Start();
 
             try

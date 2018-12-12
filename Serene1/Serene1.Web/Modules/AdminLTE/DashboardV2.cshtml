@@ -66,9 +66,13 @@
 <!-- Info boxes -->
 <div class="row" style="padding-bottom: 15px">
     <div class="col-md-2 col-sm-6 col-xs-12">
-      <span id ="changeingBtns"></span>
+      <span id ="changingBtns"></span>
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
+
+        <button id="notifyBtn" class="btn btn-block btn-success btn-lg">
+            Notify
+        </button>
         <button id="stopBtn" class="btn btn-block btn-warning btn-lg">Stop</button>
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
@@ -214,8 +218,8 @@
                         <p class="text-center">
                             <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
                         </p>
-                            <!-- Sales Chart Canvas -->
-                            <div id="plotChart"></div>
+                        <!-- Sales Chart Canvas -->
+                        <div id="plotChart"></div>
                     </div><!-- /.col -->
                     <div class="col-md-4">
                         <p class="text-center">
@@ -230,11 +234,11 @@
                         </div><!-- /.progress-group -->
                         <div class="progress-group">
                             <span class="progress-text">Hops</span>
-                            <span id="hops" class="progress-number"> </span> 
+                            <span id="hops" class="progress-number"> </span>
                             <div class="progress sm">
                                 <div class="progress-bar progress-bar-green" style="width: 80%"></div>
                             </div>
-                        </div><!-- /.progress-group --> 
+                        </div><!-- /.progress-group -->
 
                         <div class="progress-group">
                             <span class="progress-text">Malt</span>
@@ -258,65 +262,65 @@
                             </div>
                         </div>
                         <!-- /.progress-group
-    </div><!-- /.col -->
+                        </div><!-- /.col -->
                     </div><!-- /.row -->
-            </div><!-- ./box-body -->
+                </div><!-- ./box-body -->
 
-        </div><!-- /.box -->
-    </div><!-- /.col -->
-</div><!-- /.row -->
-<div class="row" style="padding-bottom: 15px">
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="stateBtn" class="btn btn-block btn-primary btn-lg">State Changer</button>
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="row" style="padding-bottom: 15px">
+        <div class="col-md-2 col-sm-6 col-xs-12">
+            <button id="stateBtn" class="btn btn-block btn-primary btn-lg">State Changer</button>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="info-box">
-            <span class="info-box-icon bg-green">
-                <i>
-                    <img class="match-block" src="~/Content/beerAssets/beer.svg" />
-                </i>
-            </span>
-            <div class="info-box-content">
-                <span class="info-box-text">Beer Type for next batch</span>
-                <span class="info-box-number" id="nextType">Pilsner</span>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="info-box">
+                <span class="info-box-icon bg-green">
+                    <i>
+                        <img class="match-block" src="~/Content/beerAssets/beer.svg" />
+                    </i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Beer Type for next batch</span>
+                    <span class="info-box-number" id="nextType">Pilsner</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua">
+                    <i>
+                        <img class="match-block" src="~/Content/beerAssets/beertap.svg" />
+                    </i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Beer amount for next batch</span>
+                    <span class="info-box-number" id="nextAmt">10000</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow">
+                    <i>
+                        <img class="match-block" src="~/Content/beerAssets/package.svg" />
+                    </i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Next Batch ID</span>
+                    <span class="info-box-number" id="nextID">25</span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="info-box">
-            <span class="info-box-icon bg-aqua">
-                <i>
-                    <img class="match-block" src="~/Content/beerAssets/beertap.svg" />
-                </i>
-            </span>
-            <div class="info-box-content">
-                <span class="info-box-text">Beer amount for next batch</span>
-                <span class="info-box-number" id="nextAmt">10000</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="info-box">
-            <span class="info-box-icon bg-yellow">
-                <i>
-                    <img class="match-block" src="~/Content/beerAssets/package.svg" />
-                </i>
-            </span>
-            <div class="info-box-content">
-                <span class="info-box-text">Next Batch ID</span>
-                <span class="info-box-number" id="nextID">25</span>
-            </div>
+    <div class="row">
+        <div class="col-md-2 col-sm-6 col-xs-12">
+            <button id="newBatchBtn" class="btn btn-block btn-success btn-lg">Start new Batch</button>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-2 col-sm-6 col-xs-12">
-        <button id="newBatchBtn" class="btn btn-block btn-success btn-lg">Start new Batch</button>
-    </div>
-</div>
-
 
 <style>
     .match-block {
@@ -342,30 +346,42 @@
 
 </style>
 
-
+<script src="~/Scripts/jquery.signalR-2.4.0.min.js"></script>
+<script src="~/signalr/hubs"></script>
 <script type="text/javascript">
 
-    var state = 3;
+    var state;
     var modal = document.getElementById("modal");
-
+    clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
+    resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
+    startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
 
 
     $(document).ready(function () {
+        switch (state) {
+        case 0:
+            $("#stateShow").text("State: Stopped");
+            $("#changingBtns").empty();
+            $("#changingBtns").append(resetBtn);
+                
+            break;
+        case 1:
+            $("#stateShow").text("State: Idle");
+            $("#changingBtns").empty();
+            $("#changingBtns").append(startBtn);
+            break;
+        case 2:
+            $("#stateShow").text("State: Completed");
+            $("#changingBtns").empty();
+            $("#changingBtns").append(resetBtn);
 
-        setInterval(getProduced, 500);
-        setInterval(getNextBatchID, 500);
-        setInterval(getNextProductAmount, 500);
-        setInterval(getHumidity, 500);
-        setInterval(getTemperature, 500);
-        setInterval(getVibration, 500);
-        setInterval(getMachinespeed, 500);
-        setInterval(getMalt, 500);
-        setInterval(getHops, 500);
-        setInterval(getBarley, 500);
-        setInterval(getWheat, 500);
-        setInterval(getYeast, 500);
-        setInterval(getAcceptableAmountProduced, 500);
-        setInterval(getUnacceptableAmountProduced, 500);
+            break;
+        case 3:
+            $("#stateShow").text("State: Aborted");
+            $("#changingBtns").empty();
+            $("#changingBtns").append(clearBtn);
+            break;
+        };
 
     });
 
@@ -624,22 +640,7 @@
             });
     });
 
-    $("#pilsBtn").click(function() {
-        $.ajax({
-            url: "/Dashboard/PilsnerOptimize",
-            data: { data: 4 },
-            success: function(data) {
-            }
-        });
-    });
 
-    $(".btn-danger").click()
-    {
-    }
-
-    var clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>'
-    var resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
-    var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
 
     $("#stateBtn").click(function () {
         state = (state + 1) % 4;
@@ -647,25 +648,25 @@
         switch (state) {
             case 0:
                 $("#stateShow").text("State: Stopped");
-                $("#changeingBtns").empty();
-                $("#changeingBtns").append(resetBtn);
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
                 
                 break;
             case 1:
                 $("#stateShow").text("State: Idle");
-                $("#changeingBtns").empty();
-                $("#changeingBtns").append(startBtn);
+                $("#changingBtns").empty();
+                $("#changingBtns").append(startBtn);
                 break;
             case 2:
                 $("#stateShow").text("State: Completed");
-                $("#changeingBtns").empty();
-                $("#changeingBtns").append(resetBtn);
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
 
                 break;
             case 3:
                 $("#stateShow").text("State: Aborted");
-                $("#changeingBtns").empty();
-                $("#changeingBtns").append(clearBtn);
+                $("#changingBtns").empty();
+                $("#changingBtns").append(clearBtn);
                 break;
         };
     });
@@ -712,4 +713,30 @@
         });
     });
 
+    $(function () {
+        debugger;
+        var hub = $.connection.SubscriptionTicker;
+        hub.client.notifyAllUsers = function(message) {
+            toastr.info(message);
+        }
+
+        hub.client.UpdateState = function(data) {
+            state = data;
+        }
+
+        $.connection.hub.start().done(function() {
+            $("#notifyBtn").click(function () {
+                debugger;
+                hub.server.hello("hello from button");
+            });
+
+
+            
+        });
+
+     
+  
+      
+    });
+ 
 </script>
