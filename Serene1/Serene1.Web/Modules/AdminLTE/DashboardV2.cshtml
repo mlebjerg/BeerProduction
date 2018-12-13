@@ -352,38 +352,16 @@
 
     var state;
     var modal = document.getElementById("modal");
-    clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
-    resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
-    startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
 
 
-    $(document).ready(function () {
-        switch (state) {
-        case 0:
-            $("#stateShow").text("State: Stopped");
-            $("#changingBtns").empty();
-            $("#changingBtns").append(resetBtn);
-                
-            break;
-        case 1:
-            $("#stateShow").text("State: Idle");
-            $("#changingBtns").empty();
-            $("#changingBtns").append(startBtn);
-            break;
-        case 2:
-            $("#stateShow").text("State: Completed");
-            $("#changingBtns").empty();
-            $("#changingBtns").append(resetBtn);
 
-            break;
-        case 3:
-            $("#stateShow").text("State: Aborted");
-            $("#changingBtns").empty();
-            $("#changingBtns").append(clearBtn);
-            break;
-        };
+        $(document).ready(function () {
 
-    });
+            //setInterval(getProduced, 500);
+
+        });
+
+
 
 
     Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
@@ -455,7 +433,7 @@
 
     function getProduced() {
         $.ajax({
-            url: "/BatchReporterController/GetProduced",
+            url: "/Dashboard/GetProduced",
             data: {},
             success: function(data) {
                 $("#produced").text(data.produced);
@@ -720,9 +698,124 @@
             toastr.info(message);
         }
 
-        hub.client.UpdateState = function(data) {
-            state = data;
+        hub.client.UpdateState = function (data) {
+            clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
+            resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
+            startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
+
+            switch (data) {
+                case 0:
+                    $("#stateShow").text("State: Deactivated");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+
+                    break;
+                case 1:
+                    $("#stateShow").text("State: Clearing");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 2:
+                    $("#stateShow").text("State: Stopped");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', false);
+                    break;
+                case 3:
+                    $("#stateShow").text("State: Starting");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 4:
+                    $("#stateShow").text("State: Idle");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(startBtn);
+                    $('#changingBtns').prop('disabled', false);
+                    break;
+                case 5:
+                    $("#stateShow").text("State: Suspended");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(clearBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 6:
+                    $("#stateShow").text("State: Execute");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 7:
+                    $("#stateShow").text("State: Stopping");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 8:
+                    $("#stateShow").text("State: Aborting");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(clearBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 9:
+                    $("#stateShow").text("State: Aborted");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(clearBtn);
+                    $('#changingBtns').prop('disabled', false);
+                    break;
+                case 10:
+                    $("#stateShow").text("State: Holding");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 11:
+                    $("#stateShow").text("State: Held");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 15:
+                    $("#stateShow").text("State: Resetting");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(startBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 16:
+                    $("#stateShow").text("State: Completing");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 17:
+                    $("#stateShow").text("State: Complete");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', false);
+                    break;
+                case 18:
+                    $("#stateShow").text("State: Deactivating");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+                case 19:
+                    $("#stateShow").text("State: Activating");
+                    $("#changingBtns").empty();
+                    $("#changingBtns").append(resetBtn);
+                    $('#changingBtns').prop('disabled', true);
+                    break;
+            }
         }
+        
+        hub.client.UpdateProdProc = function (data) {
+            debugger
+
+            $("#produced").text(data);
+            }
+       
 
         $.connection.hub.start().done(function() {
             $("#notifyBtn").click(function () {
@@ -730,7 +823,26 @@
                 hub.server.hello("hello from button");
             });
 
+            $("#resetBtn").click(function() {
+                hub.server.btnClickAsync(1);
 
+            });
+
+            $("#startBtn").click(function() {
+                hub.server.btnClickAsync(2);
+
+            });
+
+            $("#stopBtn").click(function () {
+                hub.server.btnClickAsync(3);
+                hub.server.hello("hello from stop button");
+
+            });
+
+            $("#abortBtn").click(function() {
+                hub.server.btnClickAsync(4);
+
+            });
             
         });
 

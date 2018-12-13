@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using BeerProduction.OPC;
+using Workstation.ServiceModel.Ua;
 
 
 namespace Serene1.SubscriptionHub
@@ -12,6 +13,19 @@ namespace Serene1.SubscriptionHub
     [HubName("SubscriptionTicker")]
     public class SubscriptionHub : Hub
     {
+        private Opc _opc;
+
+
+        public SubscriptionHub() :
+            this(Opc.Instance)
+        {
+
+        }
+
+        public SubscriptionHub(Opc opc)
+        {
+            _opc = opc;
+        }
         public void Hello()
         {
             Clients.All.hello();
@@ -20,14 +34,20 @@ namespace Serene1.SubscriptionHub
         {
             Clients.All.notifyAllUsers(message);
         }
-        public void UpdateProdProc(int data)
+        public void updateProdProc(int data)
         {
             Clients.All.UpdateProdProc(data);
         }
 
-        public void UpdateState(int data)
+        public void updateState(int data)
         {
             Clients.All.UpdateState(data);
+        }
+
+        public async void BtnClickAsync(int data)
+        {
+            await Opc.Instance.UaApp1.ButtonClick(data);
+
         }
     }
 }

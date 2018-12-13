@@ -16,6 +16,9 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Workstation.ServiceModel.Ua;
 using Workstation.ServiceModel.Ua.Channels;
+using Serene1.SubscriptionHub;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 
 namespace BeerProduction.OPC
 {
@@ -55,6 +58,8 @@ namespace BeerProduction.OPC
         {
             cts.Cancel();
         }
+
+        private static IHubConnectionContext<dynamic> Clients = GlobalHost.ConnectionManager.GetHubContext<SubscriptionHub>().Clients;
 
 
         public static int prodProc { get; set; } // Product produced
@@ -375,7 +380,7 @@ namespace BeerProduction.OPC
                                                     DateTime = DateTime.Now,
                                                     Value = (int)min.Value.Value
                                                 };
-
+                                                Clients.All.updateProdProc(min.Value.Value);
                                                 _uow.ProductProcessedRepos.Add(productProcessed);
                                                 _uow.SaveChanges();
 
@@ -508,17 +513,10 @@ namespace BeerProduction.OPC
                                                 _uow.SaveChanges();
 
                                                 break;
-                                            case 15:
-
-                                                acceptableProduct = (UInt16) min.Value.Value;
-                                                break;
-                                            case 16:
-                                                unacceptableProduct = (UInt16) min.Value.Value;
-
-                                                break;
                                             case 17:
 
                                                 State = (int)min.Value.Value; 
+                                                
                                                 break;
                                         }
 

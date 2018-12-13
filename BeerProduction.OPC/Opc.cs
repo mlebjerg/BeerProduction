@@ -1,18 +1,29 @@
 ﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
 using System.Security.Policy;
+using System.Threading;
+using System.Threading.Tasks;
 using BeerProduction.DAL;
+using BeerProduction.DAL.Models;
 using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
+using Microsoft.Extensions.Logging;
 using Serene1.SubscriptionHub;
+using Serenity;
 using Workstation.ServiceModel.Ua;
 
 namespace BeerProduction.OPC
 {
     public sealed class Opc
     {
-        private static Opc instance;
-        private static readonly object padlock = new object();
+        private readonly static Lazy<Opc> _instance = new Lazy<Opc>(
+            () => new Opc(GlobalHost.ConnectionManager.GetHubContext<SubscriptionHub>().Clients));
+
+        private readonly ConcurrentDictionary<string, Property> _properties = new ConcurrentDictionary<string, Property>();
+
         public UaApp UaApp1;
         private static string Url = $"opc.tcp://localhost:4840";
         private UaApplication app;
@@ -24,31 +35,33 @@ namespace BeerProduction.OPC
         {
             get
             {
-                lock (padlock)
-                {
-                    if (instance != null) return instance;
-                    instance = new Opc();
-                    return instance;
-
-                }
+                return _instance.Value;
             }
         }
 
         public void Start()
         {
         }
-
-        private Opc()
+        private IHubConnectionContext<dynamic> Clients
         {
-            Connect();
+            get;
+            set;
+        }
+        private Opc(IHubConnectionContext<dynamic> clients)
+        {
+            Clients = clients;
 
-            UaApp1 = new UaApp(app);
+            Connect();
+        
+            UaApp1 = new UaApp(app, Clients);
+
         }
 
         internal void Connect()
         {
             app = new UaApplicationBuilder()
                 .SetApplicationUri($"urn:{Dns.GetHostName()}:BeerCraft")
+                .ConfigureLoggerFactory(o => o.AddDebug(LogLevel.Trace))
                 .AddMappedEndpoint(Url, Url, SecurityPolicyUris.None)
                 .Build();
         }
@@ -56,15 +69,32 @@ namespace BeerProduction.OPC
         [Subscription(endpointUrl: "opc.tcp://localhost:4840", publishingInterval: -1)]
         public class UaApp : SubscriptionBase
         {
-            private UaApplication app;
+            private UaApplication App;
             private PropertyChangedEventHandler dummy = delegate { };
 
-            public UaApp(UaApplication app)
+            private IHubConnectionContext<dynamic> Clients
             {
+                get;
+                set;
+            }
+
+            public UaApp(UaApplication app, IHubConnectionContext<dynamic> clients)
+            {
+                Clients = clients;
                 {
-                    app.Run();
-                    PropertyChanged += dummy; // needed to start background activities
+                    App = app;
+                    App.Run();
+                    this.PropertyChanged += dummy; // needed to start background activities
                 }
+                string message = "Hi from OPC";
+            }
+
+            public async Task ButtonClick(int data)
+            {
+
+                programCubeCommandCntrlCmd = data;
+                programCubeCommandCmdChangeRequest = true;
+
             }
 
             #region Inventory   
@@ -100,7 +130,10 @@ namespace BeerProduction.OPC
             public Single ProgramInventoryMalt
             {
                 get { return programInventoryMalt; }
-                private set { SetProperty(ref programInventoryMalt, value);  }
+                private set
+                {
+                    SetProperty(ref programInventoryMalt, value);
+                }
             }
 
             private Single programInventoryMalt;
@@ -140,7 +173,19 @@ namespace BeerProduction.OPC
             public UInt16 Programproductproduce_amount
             {
                 get { return programproductproduce_amount; }
-                private set { SetProperty(ref programproductproduce_amount, value);}
+                private set
+                {
+                    SetProperty(ref programproductproduce_amount, value);
+
+                    NextProductAmount nextProductAmt = new NextProductAmount()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = (float)value
+                    };
+
+                    _uow.NextProductAmountRepos.Add(nextProductAmt);
+                    _uow.SaveChanges();
+                }
             }
 
             private UInt16 programproductproduce_amount;
@@ -152,7 +197,17 @@ namespace BeerProduction.OPC
             public UInt16 Programproductproduced
             {
                 get { return programproductproduced; }
-                private set { SetProperty<UInt16>(ref programproductproduced, value);
+                private set {
+                    SetProperty<UInt16>(ref programproductproduced, value);
+
+                    ProductProcessed productProcessed = new ProductProcessed()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = (int)value
+                    };
+                    Clients.All.updateProdProc(value);
+                    _uow.ProductProcessedRepos.Add(productProcessed);
+                    _uow.SaveChanges();
                 }
             }
 
@@ -165,7 +220,18 @@ namespace BeerProduction.OPC
             public UInt16 Programproductgood
             {
                 get { return programproductgood; }
-                private set { SetProperty(ref programproductgood, value); }
+                private set
+                {
+                    SetProperty(ref programproductgood, value);
+                    ProductProcessed productProcessed = new ProductProcessed()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = (int)value
+                    };
+                    Clients.All.updateProdProc(value);
+                    _uow.ProductProcessedRepos.Add(productProcessed);
+                    _uow.SaveChanges();
+                }
             }
 
             private UInt16 programproductgood;
@@ -177,7 +243,19 @@ namespace BeerProduction.OPC
             public UInt16 Programproductbad
             {
                 get { return programproductbad; }
-                private set { SetProperty(ref programproductbad, value); }
+                private set
+                {
+                    SetProperty(ref programproductbad, value);
+
+                    ProductProcessed productProcessed = new ProductProcessed()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = (int)value
+                    };
+                    Clients.All.updateProdProc(value);
+                    _uow.ProductProcessedRepos.Add(productProcessed);
+                    _uow.SaveChanges();
+                }
             }
 
             private UInt16 programproductbad;
@@ -252,8 +330,7 @@ namespace BeerProduction.OPC
             {
                 get { return programCubeStatusStateCurrent; }
                 private set { SetProperty(ref programCubeStatusStateCurrent, value);
-                    var hub = GlobalHost.ConnectionManager.GetHubContext<SubscriptionHub>();
-                    hub.Clients.All.UpdateState(value);
+                    Clients.All.updateState(value);
                 }
             }
 
@@ -266,7 +343,18 @@ namespace BeerProduction.OPC
             public Single ProgramCubeStatusMachSpeed
             {
                 get { return programCubeStatusMachSpeed; }
-                private set { SetProperty(ref programCubeStatusMachSpeed, value); }
+                private set
+                {
+                    SetProperty(ref programCubeStatusMachSpeed, value);
+                    MachineSpeed machineSpeed = new MachineSpeed()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = value
+                    };
+
+                    _uow.MachineSpeedRepos.Add(machineSpeed);
+                    _uow.SaveChanges();
+                }
             }
 
             private Single programCubeStatusMachSpeed;
@@ -292,6 +380,8 @@ namespace BeerProduction.OPC
                 get { return programCubeStatusParameter; }
                 private set { SetProperty(ref programCubeStatusParameter, value); }
             }
+
+
 
             private Object[] programCubeStatusParameter;
 
@@ -321,7 +411,7 @@ namespace BeerProduction.OPC
             {
                 get { return programCubeAdminProdProcessedCount; }
                 private set { SetProperty(ref programCubeAdminProdProcessedCount, value);
-               
+                    Clients.All.UpdateProdProc(ProgramCubeAdminProdProcessedCount);
                 }
             }
 
@@ -348,7 +438,19 @@ namespace BeerProduction.OPC
             public Single ProgramCubeAdminParameterParameter_0_Value
             {
                 get { return programCubeAdminParameterParameter_0_Value; }
-                private set { SetProperty(ref programCubeAdminParameterParameter_0_Value, value); }
+                private set
+                {
+                    SetProperty(ref programCubeAdminParameterParameter_0_Value, value);
+
+                    NextBatchID nxtBatchID = new NextBatchID()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = (float)value
+                    };
+
+                    _uow.NextBatchIDRepos.Add(nxtBatchID);
+                    _uow.SaveChanges();
+                }
             }
 
             private Single programCubeAdminParameterParameter_0_Value;
