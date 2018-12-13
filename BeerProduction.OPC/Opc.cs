@@ -19,15 +19,14 @@ namespace BeerProduction.OPC
 {
     public sealed class Opc
     {
-        private readonly static Lazy<Opc> _instance = new Lazy<Opc>(
+        private static readonly Lazy<Opc> _instance = new Lazy<Opc>(
             () => new Opc(GlobalHost.ConnectionManager.GetHubContext<SubscriptionHub>().Clients));
 
         private readonly ConcurrentDictionary<string, Property> _properties = new ConcurrentDictionary<string, Property>();
 
         public UaApp UaApp1;
-        private static string Url = $"opc.tcp://localhost:4840";
+        private static string Url = "opc.tcp://localhost:4840";
         private UaApplication app;
-        public PropertyChangedEventHandler dummy;
 
         private static UnitofWork _uow = new UnitofWork();
 
@@ -86,15 +85,41 @@ namespace BeerProduction.OPC
                     App.Run();
                     this.PropertyChanged += dummy; // needed to start background activities
                 }
-                string message = "Hi from OPC";
             }
 
-            public async Task ButtonClick(int data)
+            public async Task<StatusCode> ButtonClick(int data)
             {
+                DataValue val = new DataValue(new Variant(data));
+                DataValue val2 = new DataValue(new Variant(true));
 
-                programCubeCommandCntrlCmd = data;
-                programCubeCommandCmdChangeRequest = true;
+                WriteRequest writeRequest = new WriteRequest
+                {
+                    NodesToWrite = new WriteValue[2]
+                    {
+                        new WriteValue()
+                        {
+                            NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.CntrlCmd"),
+                            AttributeId = AttributeIds.Value,
+                            Value = val
+                        },
+                        new WriteValue()
+                        {
+                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.CmdChangeRequest"),
+                            AttributeId = AttributeIds.Value,
+                            Value = val2
+                        },
 
+
+
+                    },
+                };
+                WriteRequest request = writeRequest;
+
+
+               StatusCode statusCode = (await App.GetChannelAsync(Url, new CancellationToken()).Result.WriteAsync(request)).Results[0];
+
+                var s = statusCode.ToString();
+                return statusCode;
             }
 
             #region Inventory   
@@ -302,25 +327,10 @@ namespace BeerProduction.OPC
 
             private Boolean programCubeCommandCmdChangeRequest;
 
-            /// <summary>
-            /// Gets or sets the value of ProgramCubeCommandParameter.
-            /// </summary>
-            [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Command.Parameter")]
-            public Object[] ProgramCubeCommandParameter
-            {
-                get { return programCubeCommandParameter; }
-                set { SetProperty(ref programCubeCommandParameter, value); }
-            }
-
-            private Object[] programCubeCommandParameter;
-
-
-
-
-
             #endregion
 
             #region Status
+
 
             /// <summary>
             /// Gets the value of ProgramCubeStatusStateCurrent.
@@ -328,13 +338,16 @@ namespace BeerProduction.OPC
             [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Status.StateCurrent")]
             public Int32 ProgramCubeStatusStateCurrent
             {
-                get { return programCubeStatusStateCurrent; }
-                private set { SetProperty(ref programCubeStatusStateCurrent, value);
+                get { return this.programCubeStatusStateCurrent; }
+                private set
+                {
+                    this.SetProperty(ref this.programCubeStatusStateCurrent, value);
                     Clients.All.updateState(value);
                 }
             }
 
             private Int32 programCubeStatusStateCurrent;
+
 
             /// <summary>
             /// Gets the value of ProgramCubeStatusMachSpeed.
@@ -346,6 +359,7 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programCubeStatusMachSpeed, value);
+                   
                     MachineSpeed machineSpeed = new MachineSpeed()
                     {
                         DateTime = DateTime.Now,
@@ -370,21 +384,6 @@ namespace BeerProduction.OPC
             }
 
             private Single programCubeStatusCurMachSpeed;
-
-            /// <summary>
-            /// Gets the value of ProgramCubeStatusParameter.
-            /// </summary>
-            [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Status.Parameter")]
-            public Object[] ProgramCubeStatusParameter
-            {
-                get { return programCubeStatusParameter; }
-                private set { SetProperty(ref programCubeStatusParameter, value); }
-            }
-
-
-
-            private Object[] programCubeStatusParameter;
-
 
             #endregion
 

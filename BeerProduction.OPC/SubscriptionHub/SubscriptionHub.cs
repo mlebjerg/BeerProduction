@@ -14,12 +14,10 @@ namespace Serene1.SubscriptionHub
     public class SubscriptionHub : Hub
     {
         private Opc _opc;
-
-
+        
         public SubscriptionHub() :
             this(Opc.Instance)
         {
-
         }
 
         public SubscriptionHub(Opc opc)
@@ -34,19 +32,11 @@ namespace Serene1.SubscriptionHub
         {
             Clients.All.notifyAllUsers(message);
         }
-        public void updateProdProc(int data)
-        {
-            Clients.All.UpdateProdProc(data);
-        }
 
-        public void updateState(int data)
+        public async void btnClick(int message)
         {
-            Clients.All.UpdateState(data);
-        }
-
-        public async void BtnClickAsync(int data)
-        {
-            await Opc.Instance.UaApp1.ButtonClick(data);
+            Clients.All.notifyAllUsers(message);
+            await Opc.Instance.UaApp1.ButtonClick(message);
 
         }
     }

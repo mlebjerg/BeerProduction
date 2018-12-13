@@ -336,7 +336,7 @@
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
         left: 0;
-        top: 50;
+        top: 50px;
         width: 100%; /* Full width */
         height: 100%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
@@ -358,11 +358,20 @@
         $(document).ready(function () {
 
             //setInterval(getProduced, 500);
+            setInterval(getState, 500);
 
         });
 
 
-
+    function getState() {
+        $.ajax({
+            url: "/Dashboard/GetUnacceptableAmountProduced",
+            data: {},
+            success: function (data) {
+                $("#unacceptableAmountProduced").text((data.unacceptableAmountProduced));
+            }
+        });
+    }
 
     Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
 
@@ -698,10 +707,11 @@
             toastr.info(message);
         }
 
-        hub.client.UpdateState = function (data) {
-            clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
-            resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
-            startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
+        hub.client.updateState = function (data) {
+            debugger;
+            var clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
+            var resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
+            var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
 
             switch (data) {
                 case 0:
@@ -811,7 +821,6 @@
         }
         
         hub.client.UpdateProdProc = function (data) {
-            debugger
 
             $("#produced").text(data);
             }
@@ -823,31 +832,31 @@
                 hub.server.hello("hello from button");
             });
 
-            $("#resetBtn").click(function() {
-                hub.server.btnClickAsync(1);
+            //$("#resetBtn").click(function() {
+            //    hub.server.btnClick(1);
 
-            });
+            //});
 
-            $("#startBtn").click(function() {
-                hub.server.btnClickAsync(2);
+            //$("#startBtn").click(function() {
+            //    hub.server.btnClick(2);
 
-            });
+            //});
 
-            $("#stopBtn").click(function () {
-                hub.server.btnClickAsync(3);
-                hub.server.hello("hello from stop button");
+            //$("#stopBtn").click(function () {
+            //    hub.server.btnClick(3);
+            //});
 
-            });
+            //$("#abortBtn").click(function() {
+            //    hub.server.btnClick(4);
 
-            $("#abortBtn").click(function() {
-                hub.server.btnClickAsync(4);
+            //});
 
-            });
+            //$("#clearBtn").click(function () {
+            //    hub.server.btnClick(5);
+
+            //});
             
         });
-
-     
-  
       
     });
  

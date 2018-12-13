@@ -45,7 +45,7 @@ namespace Serene1.Modules.Batches
         {
             return null;
         }
-        public ActionResult GetType()
+        public new ActionResult GetType()
         {
             return null;
         }
