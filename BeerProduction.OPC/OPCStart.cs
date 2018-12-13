@@ -89,7 +89,7 @@ namespace BeerProduction.OPC
             float performance = (float) (speed / maxSpeed); //Percentage of max speed
             float quality = (float) (good / total); //Percentage of good products
 
-            return  performance * quality * availablity ; //Calculate OEE
+            return  performance * quality * availablity * 100; //Calculate OEE
         }
 
 
