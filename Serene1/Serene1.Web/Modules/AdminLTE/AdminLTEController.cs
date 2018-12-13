@@ -35,7 +35,7 @@ namespace Serene1.AdminLTE
         {
             try
             {
-                return Json(new { success = true, produced = Opc.Instance.UaApp1.ProgramCubeAdminProdProcessedCount, responseText = "success" },
+                return Json(new { success = true , produced = Opc.Instance.UaApp1.ProgramCubeAdminProdProcessedCount, responseText = "success" },
                     JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -245,7 +245,6 @@ namespace Serene1.AdminLTE
         {
             try
             {
-                Opc.Instance.UaApp1.ProgramCubeCommandCntrlCmd = data;
                 return Json(new { success = true, responseText = "success" },
                     JsonRequestBehavior.AllowGet);
             }
