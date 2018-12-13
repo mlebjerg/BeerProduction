@@ -13,16 +13,16 @@ namespace Serene1.SubscriptionHub
     [HubName("SubscriptionTicker")]
     public class SubscriptionHub : Hub
     {
-        private Opc _opc;
+        //private Opc _opc;
         
-        public SubscriptionHub() :
-            this(Opc.Instance)
-        {
-        }
+        //public SubscriptionHub() :
+        //    this(Opc.Instance)
+        //{
+        //}
 
-        public SubscriptionHub(Opc opc)
+        public SubscriptionHub(/*Opc opc*/)
         {
-            _opc = opc;
+            //_opc = opc;
         }
         public void Hello()
         {

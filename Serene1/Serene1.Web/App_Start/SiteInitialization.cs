@@ -15,6 +15,7 @@ namespace Serene1
         public static void ApplicationStart()
         {
             //var noNameIsTooLongToNotMakeSense = OpcStart.Instance;
+            Opc.Instance.Start();
 
             try
             {
