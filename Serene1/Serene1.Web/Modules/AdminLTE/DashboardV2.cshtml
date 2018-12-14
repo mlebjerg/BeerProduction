@@ -369,21 +369,35 @@
             url: "/Dashboard/GetAllStats",
             data: {},
             success: function (data) {
-                $("#batchID").text(data.batchId);
+                $("#produced").text(data.prodProc);
+                $("#nextBatchID").text(data.batchId);
+                $("#nextProductAmount").text(data.prodProcAmt);
+                $("#machineSpeed").text(data.machSpeed);
+                $("#acceptableAmountProduced").text(data.prodProcG);
+                $("#unacceptableAmountProduced").text(data.prodProcB);
+                $("#temperature").text(data.temp);
+                $("#humidity").text(data.humidity);
+                $("#vibration").text(data.vibra);
+                updateState(data.currentState);
+                var percentageBarley = Math.round((data.barley / 35000) * 100);
+                        $("#barley").text(percentageBarley + "/100");
+                        $('#barley-bar').css('width', percentageBarley + '%');
+                var percentageHops = Math.round((data.hops / 35000) * 100);
+                    $("#hops").text(percentageHops + "/100");
+                        $('#hops-bar').css('width', percentageHops + '%');
+                var percentageMalt = Math.round((data.malt / 35000) * 100);
+                    $("#Malt").text(percentageMalt + "/100");
+                        $('#malt-bar').css('width', percentageMalt + '%');
+                var percentageWheat = Math.round((data.wheat / 35000) * 100);
+                $("#wheat").text(percentageWheat + "/100");
+                        $('#wheat-bar').css('width', percentageWheat + '%');
+                var percentageYeast = Math.round((data.yeast / 35000) * 100);
+                $("#yeast").text(percentageYeast + "/100");
+                        $('#yeast-bar').css('width', percentageYeast + '%');
             }
         });
     }
 
-
-    function getState() {
-        $.ajax({
-            url: "/Dashboard/GetUnacceptableAmountProduced",
-            data: {},
-            success: function (data) {
-                $("#unacceptableAmountProduced").text((data.unacceptableAmountProduced));
-            }
-        });
-    }
 
     Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
 
@@ -452,72 +466,12 @@
         Plotly.newPlot('plotChart', data, layout);
     })
 
-    function getProduced() {
-        $.ajax({
-            url: "/Dashboard/GetProduced",
-            data: {},
-            success: function(data) {
-                $("#produced").text(data.produced);
-            }
-        });
-    }
-
     function getNextProductID() {
         $.ajax({
             url: "/Dashboard/GetProductID",
             data: {},
             success: function(data) {
                 $("#nextProductID").text((data.nextProductID));
-            }
-        });
-    }
-    
-    function getMalt() {
-        $.ajax({
-            url: "/Dashboard/GetMalt",
-            data: {},
-            success: function(data) {
-                $("#malt").text((data.malt));
-            }
-        });
-    }
-
-    function getHops() {
-        $.ajax({
-            url: "/Dashboard/GetHops",
-            data: {},
-            success: function (data) {
-                $("#hops").text((data.hops));
-            }
-        });
-    }
-
-    function getBarley() {
-        $.ajax({
-            url: "/Dashboard/GetBarley",
-            data: {},
-            success: function (data) {
-                $("#barley").text((data.barley));
-            }
-        });
-    }
-
-    function getWheat() {
-        $.ajax({
-            url: "/Dashboard/GetWheat",
-            data: {},
-            success: function (data) {
-                $("#wheat").text((data.wheat));
-            }
-        });
-    }
-
-    function getYeast() {
-        $.ajax({
-            url: "/Dashboard/GetYeast",
-            data: {},
-            success: function (data) {
-                $("#yeast").text((data.yeast));
             }
         });
     }
@@ -542,66 +496,6 @@
         });
     }
 
-    function getHumidity() {
-        $.ajax({
-            url: "/Dashboard/GetHumidity",
-            data: {},
-            success: function (data) {
-                $("#humidity").text((data.humidity));
-            }
-        });
-    }
-
-    function getTemperature() {
-        $.ajax({
-            url: "/Dashboard/GetTemperature",
-            data: {},
-            success: function (data) {
-                $("#temperature").text((data.temperature));
-            }
-        });
-    }
-
-    function getVibration() {
-        $.ajax({
-            url: "/Dashboard/GetVibration",
-            data: {},
-            success: function (data) {
-                $("#vibration").text((data.vibration));
-            }
-        });
-    }
-
-    function getMachinespeed() {
-        $.ajax({
-            url: "/Dashboard/GetMachinespeed",
-            data: {},
-            success: function (data) {
-                $("#machinespeed").text((data.machinespeed));
-            }
-        });
-    } 
-
-    function getAcceptableAmountProduced() {
-        $.ajax({
-            url: "/Dashboard/GetAcceptableAmountProduced",
-            data: {},
-            success: function (data) {
-                $("#acceptableAmountProduced").text((data.acceptableAmountProduced));
-            }
-        });
-    }
-
-    function getUnacceptableAmountProduced() {
-        $.ajax({
-            url: "/Dashboard/GetUnacceptableAmountProduced",
-            data: {},
-            success: function (data) {
-                $("#unacceptableAmountProduced").text((data.unacceptableAmountProduced));
-            }
-        });
-    }
-
     function actionBtnClick(data) {
 
         $.ajax({
@@ -611,35 +505,6 @@
             }
         });
     }
-
-    $("#stateBtn").click(function () {
-        state = (state + 1) % 4;
-
-        switch (state) {
-            case 0:
-                $("#stateShow").text("State: Stopped");
-                $("#changingBtns").empty();
-                $("#changingBtns").append(resetBtn);
-                
-                break;
-            case 1:
-                $("#stateShow").text("State: Idle");
-                $("#changingBtns").empty();
-                $("#changingBtns").append(startBtn);
-                break;
-            case 2:
-                $("#stateShow").text("State: Completed");
-                $("#changingBtns").empty();
-                $("#changingBtns").append(resetBtn);
-
-                break;
-            case 3:
-                $("#stateShow").text("State: Aborted");
-                $("#changingBtns").empty();
-                $("#changingBtns").append(clearBtn);
-                break;
-        };
-    });
 
     $("#newBatchBtn").click(function () {
         modal.style.display = "block";
@@ -683,124 +548,132 @@
         });
     });
 
+    function updateState(data) {
+        debugger;
+        var clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
+        var resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
+        var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
+
+        switch (data) {
+            case 0:
+                $("#stateShow").text("State: Deactivated");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+
+                break;
+            case 1:
+                $("#stateShow").text("State: Clearing");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 2:
+                $("#stateShow").text("State: Stopped");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', false);
+                break;
+            case 3:
+                $("#stateShow").text("State: Starting");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 4:
+                $("#stateShow").text("State: Idle");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(startBtn);
+                $('#changingBtns').prop('disabled', false);
+                break;
+            case 5:
+                $("#stateShow").text("State: Suspended");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(clearBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 6:
+                $("#stateShow").text("State: Execute");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 7:
+                $("#stateShow").text("State: Stopping");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 8:
+                $("#stateShow").text("State: Aborting");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(clearBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 9:
+                $("#stateShow").text("State: Aborted");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(clearBtn);
+                $('#changingBtns').prop('disabled', false);
+                break;
+            case 10:
+                $("#stateShow").text("State: Holding");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 11:
+                $("#stateShow").text("State: Held");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 15:
+                $("#stateShow").text("State: Resetting");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(startBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 16:
+                $("#stateShow").text("State: Completing");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 17:
+                $("#stateShow").text("State: Complete");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', false);
+                break;
+            case 18:
+                $("#stateShow").text("State: Deactivating");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+            case 19:
+                $("#stateShow").text("State: Activating");
+                $("#changingBtns").empty();
+                $("#changingBtns").append(resetBtn);
+                $('#changingBtns').prop('disabled', true);
+                break;
+        }
+    }
+
     $(function () {
         debugger;
         var hub = $.connection.SubscriptionTicker;
+        var connection = $.hubConnection();
+        connection.logging = true;
+        connection.start();
+
         hub.client.notifyAllUsers = function(message) {
             toastr.info(message);
         }
 
         hub.client.updateState = function (data) {
-            debugger;
-            var clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
-            var resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
-            var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
-
-            switch (data) {
-                case 0:
-                    $("#stateShow").text("State: Deactivated");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-
-                    break;
-                case 1:
-                    $("#stateShow").text("State: Clearing");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 2:
-                    $("#stateShow").text("State: Stopped");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', false);
-                    break;
-                case 3:
-                    $("#stateShow").text("State: Starting");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 4:
-                    $("#stateShow").text("State: Idle");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(startBtn);
-                    $('#changingBtns').prop('disabled', false);
-                    break;
-                case 5:
-                    $("#stateShow").text("State: Suspended");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(clearBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 6:
-                    $("#stateShow").text("State: Execute");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 7:
-                    $("#stateShow").text("State: Stopping");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 8:
-                    $("#stateShow").text("State: Aborting");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(clearBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 9:
-                    $("#stateShow").text("State: Aborted");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(clearBtn);
-                    $('#changingBtns').prop('disabled', false);
-                    break;
-                case 10:
-                    $("#stateShow").text("State: Holding");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 11:
-                    $("#stateShow").text("State: Held");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 15:
-                    $("#stateShow").text("State: Resetting");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(startBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 16:
-                    $("#stateShow").text("State: Completing");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 17:
-                    $("#stateShow").text("State: Complete");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', false);
-                    break;
-                case 18:
-                    $("#stateShow").text("State: Deactivating");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-                case 19:
-                    $("#stateShow").text("State: Activating");
-                    $("#changingBtns").empty();
-                    $("#changingBtns").append(resetBtn);
-                    $('#changingBtns').prop('disabled', true);
-                    break;
-            }
+            updateState(data);
         }
         
         hub.client.UpdateProdProc = function (data) {
@@ -838,77 +711,71 @@
             $("#vibration").text(data);
         }
         hub.client.UpdateBarley = function (data) {
-
             var percentage = Math.round((data / 35000) * 100);
 
-            $("#barley").replaceWith('<span id="barley" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $("#barley").text(percentage + "/100");
             $('#barley-bar').css('width', percentage + '%');
         }
 
         hub.client.UpdateHops = function (data) {
-
             var percentage = Math.round((data / 35000) * 100);
 
-            $("#hops").replaceWith('<span id="hops" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $("#hops").text(percentage + "/100");
             $('#hops-bar').css('width', percentage + '%');
         }
         hub.client.UpdateMalt = function (data) {
-
             var percentage = Math.round((data / 35000) * 100);
 
-            $("#Malt").replaceWith('<span id="malt" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $("#Malt").text(percentage + "/100");
             $('#malt-bar').css('width', percentage + '%');
         }
 
         hub.client.UpdateWheat = function (data) {
-
             var percentage = Math.round((data / 35000) * 100);
 
-            $("#wheat").replaceWith('<span id="wheat" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $("#wheat").text(percentage + "/100");
             $('#wheat-bar').css('width', percentage + '%');
         }
         hub.client.UpdateYeast = function (data) {
-
             var percentage = Math.round((data / 35000) * 100);
 
-            $("#yeast").replaceWith('<span id="yeast" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $("#yeast").text(percentage + "/100");
             $('#yeast-bar').css('width', percentage + '%');
         }
 
-
-
-        $.connection.hub.start().done(function() {
+        $.connection.hub.start().done(function () {
+            $.connection.hub.logging = true;
+            $.connection.hub.start();
             $("#notifyBtn").click(function () {
                 debugger;
                 hub.server.hello("hello from button");
             });
 
-            $("#resetBtn").click(function() {
-                hub.server.btnClick(1);
+            function actionBtn(data) {
 
+                $.connection.SubscriptionTicker.Invoke("btnClick", data); 
+            }
+
+            $("#resetBtn").click(function() {
+                actionBtn(1);
             });
 
             $("#startBtn").click(function() {
-                hub.server.btnClick(2);
-
+                actionBtn(2);
             });
 
             $("#stopBtn").click(function () {
-                hub.server.btnClick(3);
+                actionBtn(3);
             });
 
             $("#abortBtn").click(function() {
-                hub.server.btnClick(4);
-
+                actionBtn(4);
             });
 
             $("#clearBtn").click(function () {
-                hub.server.btnClick(5);
-
+                actionBtn(5);
             });
-            
         });
-      
     });
  
 </script>

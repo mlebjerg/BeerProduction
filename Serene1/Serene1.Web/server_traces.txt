@@ -1,0 +1,85 @@
+Microsoft.Owin.Host.SystemWeb.OwinAppContext Information: 0 : Support for WebSockets has been detected.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 12048d5d-1f20-4ce2-a308-fc84247821d1, transport: WebSocketTransport, message: {"C":"d-77690517-C,0|D,0|E,0|F,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: ce71aae5-8b14-41bd-8676-f1b32fbf3d37, transport: WebSocketTransport, message: {"C":"d-77690517-B,1","S":1,"M":[]}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection 12048d5d-1f20-4ce2-a308-fc84247821d1 using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 12048d5d-1f20-4ce2-a308-fc84247821d1, transport: WebSocketTransport, message: {"I":"0","E":"There was an error invoking Hub method 'subscriptionticker.BtnClick'."}
+Microsoft.Owin.Host.SystemWeb.OwinAppContext Information: 0 : Support for WebSockets has been detected.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 4793a8ba-b562-4cc9-ae1b-e8cb0e3bf8dd, transport: WebSocketTransport, message: {"C":"d-9D0C42FB-B,0|C,0|D,0|F,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 4a43e0eb-13b3-4977-b9cd-9514366f6f4f, transport: WebSocketTransport, message: {"C":"d-9D0C42FB-E,1","S":1,"M":[]}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection 4793a8ba-b562-4cc9-ae1b-e8cb0e3bf8dd using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 4793a8ba-b562-4cc9-ae1b-e8cb0e3bf8dd, transport: WebSocketTransport, message: {"I":"0","E":"There was an error invoking Hub method 'subscriptionticker.BtnClick'."}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection 4793a8ba-b562-4cc9-ae1b-e8cb0e3bf8dd using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 4793a8ba-b562-4cc9-ae1b-e8cb0e3bf8dd, transport: WebSocketTransport, message: {"I":"1","E":"There was an error invoking Hub method 'subscriptionticker.BtnClick'."}
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(4a43e0eb-13b3-4977-b9cd-9514366f6f4f)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(4793a8ba-b562-4cc9-ae1b-e8cb0e3bf8dd)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(4a43e0eb-13b3-4977-b9cd-9514366f6f4f)
+SignalR.Transports.WebSocketTransport Information: 0 : End(4a43e0eb-13b3-4977-b9cd-9514366f6f4f)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(4a43e0eb-13b3-4977-b9cd-9514366f6f4f)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (4a43e0eb-13b3-4977-b9cd-9514366f6f4f)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 85e9dd9a-c5cd-4c17-84db-a77fb3bbb9dc, transport: WebSocketTransport, message: {"C":"d-9D0C42FB-G,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 874ef80c-6098-4dc4-a951-4368fa387139, transport: WebSocketTransport, message: {"C":"d-9D0C42FB-B,0|H,0|D,0|I,1","S":1,"M":[]}
+Microsoft.Owin.Host.SystemWeb.OwinAppContext Information: 0 : Support for WebSockets has been detected.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 4dd21a72-129e-4995-891f-7c1b65e880f9, transport: WebSocketTransport, message: {"C":"d-20F8062C-B,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: daf42035-f0d1-4fc6-8bfa-cfb77dd16615, transport: WebSocketTransport, message: {"C":"d-20F8062C-C,0|D,0|E,0|F,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: daf42035-f0d1-4fc6-8bfa-cfb77dd16615, transport: WebSocketTransport, message: {"C":"d-20F8062C-C,1|D,0|E,0|F,1","M":[{"H":"SubscriptionTicker","M":"notifyAllUsers","A":["hello from button"]}]}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection daf42035-f0d1-4fc6-8bfa-cfb77dd16615 using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: daf42035-f0d1-4fc6-8bfa-cfb77dd16615, transport: WebSocketTransport, message: {"I":"0"}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection daf42035-f0d1-4fc6-8bfa-cfb77dd16615 using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: daf42035-f0d1-4fc6-8bfa-cfb77dd16615, transport: WebSocketTransport, message: {"I":"1","E":"There was an error invoking Hub method 'subscriptionticker.BtnClick'."}
+Microsoft.Owin.Host.SystemWeb.OwinAppContext Information: 0 : Support for WebSockets has been detected.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2, transport: WebSocketTransport, message: {"C":"d-32A46DD2-C,0|D,0|E,0|F,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: f0eac1f3-67ab-4654-b016-d7ac2b72528c, transport: WebSocketTransport, message: {"C":"d-32A46DD2-B,1","S":1,"M":[]}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection 3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2 using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2, transport: WebSocketTransport, message: {"I":"0","E":"There was an error invoking Hub method 'subscriptionticker.btnClick'."}
+SignalR.HubDispatcher Verbose: 0 : Sending hub invocation result to connection 3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2 using transport WebSocketTransport
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2, transport: WebSocketTransport, message: {"I":"1","E":"There was an error invoking Hub method 'subscriptionticker.btnClick'."}
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(f0eac1f3-67ab-4654-b016-d7ac2b72528c)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(f0eac1f3-67ab-4654-b016-d7ac2b72528c)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2)
+SignalR.Transports.WebSocketTransport Information: 0 : End(f0eac1f3-67ab-4654-b016-d7ac2b72528c)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(f0eac1f3-67ab-4654-b016-d7ac2b72528c)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (f0eac1f3-67ab-4654-b016-d7ac2b72528c)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 968f9302-a81f-4540-a836-7d9f0c954219, transport: WebSocketTransport, message: {"C":"d-32A46DD2-G,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: af1f7c79-d830-4d87-8c4a-e6689d15e3a4, transport: WebSocketTransport, message: {"C":"d-32A46DD2-C,0|H,0|E,0|I,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2)
+SignalR.Transports.WebSocketTransport Information: 0 : End(3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (3ba1c5cc-c77f-44ff-b991-ab8e3a0354d2)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(968f9302-a81f-4540-a836-7d9f0c954219)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(af1f7c79-d830-4d87-8c4a-e6689d15e3a4)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(968f9302-a81f-4540-a836-7d9f0c954219)
+SignalR.Transports.WebSocketTransport Information: 0 : End(968f9302-a81f-4540-a836-7d9f0c954219)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(968f9302-a81f-4540-a836-7d9f0c954219)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (968f9302-a81f-4540-a836-7d9f0c954219)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: cab26592-4a2e-45bf-aa78-a14004e64f10, transport: WebSocketTransport, message: {"C":"d-32A46DD2-J,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 4e2f7895-547a-4d8d-97b6-5b692fb0bd7e, transport: WebSocketTransport, message: {"C":"d-32A46DD2-C,0|K,0|E,0|L,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(cab26592-4a2e-45bf-aa78-a14004e64f10)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(4e2f7895-547a-4d8d-97b6-5b692fb0bd7e)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(4e2f7895-547a-4d8d-97b6-5b692fb0bd7e)
+SignalR.Transports.WebSocketTransport Information: 0 : End(4e2f7895-547a-4d8d-97b6-5b692fb0bd7e)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(4e2f7895-547a-4d8d-97b6-5b692fb0bd7e)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (4e2f7895-547a-4d8d-97b6-5b692fb0bd7e)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(cab26592-4a2e-45bf-aa78-a14004e64f10)
+SignalR.Transports.WebSocketTransport Information: 0 : End(cab26592-4a2e-45bf-aa78-a14004e64f10)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(cab26592-4a2e-45bf-aa78-a14004e64f10)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (cab26592-4a2e-45bf-aa78-a14004e64f10)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(af1f7c79-d830-4d87-8c4a-e6689d15e3a4)
+SignalR.Transports.WebSocketTransport Information: 0 : End(af1f7c79-d830-4d87-8c4a-e6689d15e3a4)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(af1f7c79-d830-4d87-8c4a-e6689d15e3a4)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(af1f7c79-d830-4d87-8c4a-e6689d15e3a4)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (af1f7c79-d830-4d87-8c4a-e6689d15e3a4)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: a6c7d3de-f83c-437b-bd4c-da0c196cf217, transport: WebSocketTransport, message: {"C":"d-32A46DD2-M,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 1523f172-9dcb-43c8-a534-3a3e059b52ed, transport: WebSocketTransport, message: {"C":"d-32A46DD2-C,0|N,0|E,0|O,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(a6c7d3de-f83c-437b-bd4c-da0c196cf217)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(1523f172-9dcb-43c8-a534-3a3e059b52ed)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(a6c7d3de-f83c-437b-bd4c-da0c196cf217)
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(1523f172-9dcb-43c8-a534-3a3e059b52ed)
+SignalR.Transports.WebSocketTransport Information: 0 : End(a6c7d3de-f83c-437b-bd4c-da0c196cf217)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(a6c7d3de-f83c-437b-bd4c-da0c196cf217)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (a6c7d3de-f83c-437b-bd4c-da0c196cf217)
+SignalR.Transports.WebSocketTransport Information: 0 : End(1523f172-9dcb-43c8-a534-3a3e059b52ed)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(1523f172-9dcb-43c8-a534-3a3e059b52ed)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (1523f172-9dcb-43c8-a534-3a3e059b52ed)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: c59e900a-5b97-4415-af29-81b1cde40fb3, transport: WebSocketTransport, message: {"C":"d-32A46DD2-P,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 10b80c3a-0cf8-4e61-aca8-f4da5a84b43e, transport: WebSocketTransport, message: {"C":"d-32A46DD2-C,0|Q,0|E,0|R,1","S":1,"M":[]}

@@ -60,7 +60,7 @@ namespace BeerProduction.OPC
         {
             app = new UaApplicationBuilder()
                 .SetApplicationUri($"urn:{Dns.GetHostName()}:BeerCraft")
-                .ConfigureLoggerFactory(o => o.AddDebug(LogLevel.Trace))
+                //.ConfigureLoggerFactory(o => o.AddDebug(LogLevel.Trace))
                 .AddMappedEndpoint(Url, Url, SecurityPolicyUris.None)
                 .Build();
         }

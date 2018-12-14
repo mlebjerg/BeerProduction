@@ -32,8 +32,8 @@ namespace Serene1.SubscriptionHub
         {
             Clients.All.notifyAllUsers(message);
         }
-
-        public async void btnClick(int message)
+        [HubMethodName("btnClick")]
+        public async void BtnClick(int message)
         {
             Clients.All.notifyAllUsers(message);
             await Opc.Instance.UaApp1.ButtonClick(message);

@@ -94,6 +94,7 @@ namespace Serene1.AdminLTE
                         malt = opc.ProgramInventoryMalt,
                         yeast = opc.ProgramInventoryYeast,
                         wheat = opc.ProgramInventoryWheat,
+                        prodProcAmt = opc.Programproductproduce_amount,
                         prodProc = opc.Programproductproduced,
                         prodProcG = opc.Programproductgood,
                         prodProcB = opc.Programproductbad,
