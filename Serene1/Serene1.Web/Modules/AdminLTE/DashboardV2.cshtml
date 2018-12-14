@@ -95,7 +95,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Batch Id</span>
 
-                <span id="nextBatchID" class="info-box-number"> 123 </span>
+                <span id="nextBatchID" class="info-box-number"> XX </span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -104,7 +104,7 @@
             <span class="info-box-icon bg-gray"><i><img class="match-block" src="~/Content/beerAssets/beertap.svg" /> </i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Amount to Produce</span>
-                <span id="nextProductAmount" class="info-box-number">5000</span>
+                <span id="nextProductAmount" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -115,7 +115,7 @@
             <span class="info-box-icon bg-green"><i><img class="match-block" src="~/Content/beerAssets/speedometer.svg" /></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Speed</span>
-                <span id ="machinespeed" class="info-box-number">760</span>
+                <span id ="machineSpeed" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -131,7 +131,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Produced</span>
-                <span id="produced" class="info-box-number">90</span>
+                <span id="produced" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -140,7 +140,7 @@
             <span class="info-box-icon bg-gray"><i><img style="display: block; margin-left: auto; margin-top: 10%; margin-right: auto; height:72px; width: auto; vertical-align: middle;" src="~/Content/beerAssets/accept.svg" /> </i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Acceptable Amount Produced</span>
-                <span id ="acceptableAmountProduced" class="info-box-number">41,410</span>
+                <span id ="acceptableAmountProduced" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -151,7 +151,7 @@
             <span class="info-box-icon bg-bg-gray"><i><img style="display: block;margin-left: auto;margin-top: 10%;margin-right: auto;height:72px; width: auto; vertical-align: middle;" src="~/Content/beerAssets/defect.svg" /></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Unacceptable Amount Produced</span>
-                <span id ="unacceptableAmountProduced"class="info-box-number">760</span>
+                <span id ="unacceptableAmountProduced"class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -167,7 +167,7 @@
             </span>
             <div class="info-box-content">
                 <span class="info-box-text">Temperature</span>
-                <span id ="temperature" class="info-box-number">90</span>
+                <span id ="temperature" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -176,7 +176,7 @@
             <span class="info-box-icon bg-gray"><i><img class="match-block" src="~/Content/beerAssets/humidity.png" /> </i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Humidity</span>
-                <span id = "humidity" class="info-box-number">41,410</span>
+                <span id = "humidity" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -187,7 +187,7 @@
             <span class="info-box-icon bg-green"><i><img class="match-block" src="~/Content/beerAssets/vibration.svg" /></i></span>
             <div class="info-box-content">
                 <span class="info-box-text">Vibration</span>
-                <span id ="vibration" class="info-box-number">760</span>
+                <span id ="vibration" class="info-box-number">XX</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -227,38 +227,37 @@
                         </p>
                         <div class="progress-group">
                             <span class="progress-text">Barley</span>
-                            <span id="barley" class="progress-number"><b>80</b></span>
+                            <span id="barley" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
-                                <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                <div id="barley-bar" class="progress-bar progress-bar-green" style="width: 0%"></div>
                             </div>
-                        </div><!-- /.progress-group -->
+                        </div>
                         <div class="progress-group">
                             <span class="progress-text">Hops</span>
-                            <span id="hops" class="progress-number"> </span>
+                            <span id="hops" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
-                                <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                <div id="hops-bar" class="progress-bar progress-bar-green" style="width: 0%"></div>
                             </div>
-                        </div><!-- /.progress-group -->
-
+                        </div>
                         <div class="progress-group">
                             <span class="progress-text">Malt</span>
-                            <span id="malt" class="progress-number"><b>80   </b></span>
+                            <span id="Malt" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
-                                <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                <div id="malt-bar" class="progress-bar progress-bar-green" style="width: 0%"></div>
                             </div>
-                        </div><!-- /.progress-group -->
+                        </div>
                         <div class="progress-group">
                             <span class="progress-text">Wheat</span>
                             <span id="wheat" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
-                                <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                            </div>@*group -->*@
-                            <div class="progress-group">
-                                <span class="progress-text">Yeast</span>
-                            </div> @*/.progress-an>*@
+                                <div id="wheat-bar" class="progress-bar progress-bar-green" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-group">
+                            <span class="progress-text">Yeast</span>
                             <span id="yeast" class="progress-number"><b>80</b>/100%</span>
                             <div class="progress sm">
-                                <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                <div id="yeast-bar" class="progress-bar progress-bar-green" style="width: 0%"></div>
                             </div>
                         </div>
                         <!-- /.progress-group
@@ -357,10 +356,23 @@
 
         $(document).ready(function () {
 
+            getAllStats();
+
             //setInterval(getProduced, 500);
-            setInterval(getState, 500);
+            //setInterval(getState, 500);
 
         });
+
+
+    function getAllStats() {
+        $.ajax({
+            url: "/Dashboard/GetAllStats",
+            data: {},
+            success: function (data) {
+                $("#batchID").text(data.batchId);
+            }
+        });
+    }
 
 
     function getState() {
@@ -589,45 +601,16 @@
             }
         });
     }
-    
-        $("#resetBtn").click(function() {
-            $.ajax({
-                url: "/Dashboard/ActionBtnClick",
-                data: { data: 1 },
-                success: function(data) {
-                }
-            });
+
+    function actionBtnClick(data) {
+
+        $.ajax({
+            url: "/Dashboard/ActionBtnClick",
+            data: { data: data },
+            success: function(data) {
+            }
         });
-
-        $("#startBtn").click(function() {
-            $.ajax({
-                url: "/Dashboard/ActionBtnClick",
-                data: { data: 2 },
-                success: function(data) {
-
-                }
-            });
-        });
-
-        $("#stopBtn").click(function() {
-            $.ajax({
-                url: "/Dashboard/ActionBtnClick",
-                data: { data: 3 },
-                success: function(data) {
-                }
-            });
-        });
-
-        $("#abortBtn").click(function() {
-            $.ajax({
-                url: "/Dashboard/ActionBtnClick",
-                data: { data: 4 },
-                success: function(data) {
-                }
-            });
-    });
-
-
+    }
 
     $("#stateBtn").click(function () {
         state = (state + 1) % 4;
@@ -821,10 +804,78 @@
         }
         
         hub.client.UpdateProdProc = function (data) {
-
             $("#produced").text(data);
             }
-       
+
+        hub.client.UpdateBatchId = function (data) {
+            $("#batchID").text(data);
+        }
+
+        hub.client.UpdateAmtToProduce = function (data) {
+            $("#ProductAmount").text(data);
+        }
+
+        hub.client.UpdateSpeed = function (data) {
+            $("#machineSpeed").text(data);
+        }
+
+        hub.client.UpdateGoodProduced = function (data) {
+            $("#acceptableAmountProduced").text(data);
+        }
+
+        hub.client.UpdateBadProduced = function (data) {
+            $("#unacceptableAmountProduced").text(data);
+        }
+
+        hub.client.UpdateTemperature = function (data) {
+            $("#temperature").text(data);
+        }
+
+        hub.client.UpdateHumidity = function (data) {
+            $("#humidity").text(data);
+        }
+        hub.client.UpdateVibration = function (data) {
+            $("#vibration").text(data);
+        }
+        hub.client.UpdateBarley = function (data) {
+
+            var percentage = Math.round((data / 35000) * 100);
+
+            $("#barley").replaceWith('<span id="barley" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $('#barley-bar').css('width', percentage + '%');
+        }
+
+        hub.client.UpdateHops = function (data) {
+
+            var percentage = Math.round((data / 35000) * 100);
+
+            $("#hops").replaceWith('<span id="hops" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $('#hops-bar').css('width', percentage + '%');
+        }
+        hub.client.UpdateMalt = function (data) {
+
+            var percentage = Math.round((data / 35000) * 100);
+
+            $("#Malt").replaceWith('<span id="malt" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $('#malt-bar').css('width', percentage + '%');
+        }
+
+        hub.client.UpdateWheat = function (data) {
+
+            var percentage = Math.round((data / 35000) * 100);
+
+            $("#wheat").replaceWith('<span id="wheat" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $('#wheat-bar').css('width', percentage + '%');
+        }
+        hub.client.UpdateYeast = function (data) {
+
+            var percentage = Math.round((data / 35000) * 100);
+
+            $("#yeast").replaceWith('<span id="yeast" class="progress - number"><b>' + percentage + '</b>/100%</span>');
+            $('#yeast-bar').css('width', percentage + '%');
+        }
+
+
 
         $.connection.hub.start().done(function() {
             $("#notifyBtn").click(function () {
@@ -832,29 +883,29 @@
                 hub.server.hello("hello from button");
             });
 
-            //$("#resetBtn").click(function() {
-            //    hub.server.btnClick(1);
+            $("#resetBtn").click(function() {
+                hub.server.btnClick(1);
 
-            //});
+            });
 
-            //$("#startBtn").click(function() {
-            //    hub.server.btnClick(2);
+            $("#startBtn").click(function() {
+                hub.server.btnClick(2);
 
-            //});
+            });
 
-            //$("#stopBtn").click(function () {
-            //    hub.server.btnClick(3);
-            //});
+            $("#stopBtn").click(function () {
+                hub.server.btnClick(3);
+            });
 
-            //$("#abortBtn").click(function() {
-            //    hub.server.btnClick(4);
+            $("#abortBtn").click(function() {
+                hub.server.btnClick(4);
 
-            //});
+            });
 
-            //$("#clearBtn").click(function () {
-            //    hub.server.btnClick(5);
+            $("#clearBtn").click(function () {
+                hub.server.btnClick(5);
 
-            //});
+            });
             
         });
       

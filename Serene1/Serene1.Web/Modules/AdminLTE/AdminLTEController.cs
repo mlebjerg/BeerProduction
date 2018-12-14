@@ -1,6 +1,8 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using BeerProduction.DAL;
 using BeerProduction.OPC;
 using WebApplication1.Models;
 
@@ -13,7 +15,8 @@ namespace Serene1.AdminLTE
     [Authorize, RoutePrefix("Dashboard"), Route("{action=index}")]
     public class AdminLTEController : Controller
     {
-        
+        private UnitofWork _uow = new UnitofWork();
+
         [Authorize, HttpGet, Route("~/")]
         public ActionResult DashboardV2()
         {
@@ -61,6 +64,55 @@ namespace Serene1.AdminLTE
                     JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult GetDbTemps()
+        {
+            try
+            {
+                return Json(new { success = true,  responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        public ActionResult GetAllStats()
+        {
+            var opc = Opc.Instance.UaApp1;
+
+            try
+            {
+                
+                return Json(new { success = true,
+                        batchId = opc.BatchId,
+                        barley = opc.ProgramInventoryBarley,
+                        hops = opc.ProgramInventoryHops,
+                        malt = opc.ProgramInventoryMalt,
+                        yeast = opc.ProgramInventoryYeast,
+                        wheat = opc.ProgramInventoryWheat,
+                        prodProc = opc.Programproductproduced,
+                        prodProcG = opc.Programproductgood,
+                        prodProcB = opc.Programproductbad,
+                        currentState = opc.ProgramCubeStatusStateCurrent,
+                        machSpeed = opc.ProgramCubeStatusMachSpeed,
+                        humidity = opc.ProgramDataValueRelHumidity,
+                        vibra = opc.ProgramDataValueVibration,
+                        temp = opc.ProgramDataValueTemperature,
+                        responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
 
         public async Task<ActionResult> ActionBtnClick(int data)
         {
