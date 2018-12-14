@@ -131,7 +131,11 @@ namespace BeerProduction.OPC
             public Single ProgramInventoryBarley
             {
                 get { return programInventoryBarley; }
-                private set { SetProperty(ref programInventoryBarley, value); }
+                private set 
+                { 
+                    SetProperty(ref programInventoryBarley, value);
+                    Clients.All.updateBarley(value);
+                }
             }
 
             private Single programInventoryBarley;
@@ -143,7 +147,10 @@ namespace BeerProduction.OPC
             public Single ProgramInventoryHops
             {
                 get { return programInventoryHops; }
-                private set { SetProperty(ref programInventoryHops, value); }
+                private set { 
+                    SetProperty(ref programInventoryHops, value);
+                    Clients.All.updateHops(value);
+                }
             }
 
             private Single programInventoryHops;
@@ -158,6 +165,7 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programInventoryMalt, value);
+                    Clients.All.updateMalt(value);
                 }
             }
 
@@ -170,7 +178,11 @@ namespace BeerProduction.OPC
             public Single ProgramInventoryYeast
             {
                 get { return programInventoryYeast; }
-                private set { SetProperty(ref programInventoryYeast, value); }
+                private set
+                {
+                    SetProperty(ref programInventoryYeast, value);
+                    Clients.All.updateYeast(value);
+                }
             }
 
             private Single programInventoryYeast;
@@ -182,7 +194,11 @@ namespace BeerProduction.OPC
             public Single ProgramInventoryWheat
             {
                 get { return programInventoryWheat; }
-                private set { SetProperty(ref programInventoryWheat, value); }
+                private set 
+                    { 
+                        SetProperty(ref programInventoryWheat, value);
+                        Clients.All.updateWheat(value);
+                }
             }
 
             private Single programInventoryWheat;
@@ -207,7 +223,7 @@ namespace BeerProduction.OPC
                         DateTime = DateTime.Now,
                         Value = (float)value
                     };
-
+                    Clients.All.updateAmtToProduce(value);
                     _uow.NextProductAmountRepos.Add(nextProductAmt);
                     _uow.SaveChanges();
                 }
@@ -253,7 +269,7 @@ namespace BeerProduction.OPC
                         DateTime = DateTime.Now,
                         Value = (int)value
                     };
-                    Clients.All.updateProdProc(value);
+                    Clients.All.updateGoodProduced(value);
                     _uow.ProductProcessedRepos.Add(productProcessed);
                     _uow.SaveChanges();
                 }
@@ -277,7 +293,7 @@ namespace BeerProduction.OPC
                         DateTime = DateTime.Now,
                         Value = (int)value
                     };
-                    Clients.All.updateProdProc(value);
+                    Clients.All.updateBadProduced(value);
                     _uow.ProductProcessedRepos.Add(productProcessed);
                     _uow.SaveChanges();
                 }
@@ -365,7 +381,7 @@ namespace BeerProduction.OPC
                         DateTime = DateTime.Now,
                         Value = value
                     };
-
+                    Clients.All.updateSpeed(value);
                     _uow.MachineSpeedRepos.Add(machineSpeed);
                     _uow.SaveChanges();
                 }
@@ -431,10 +447,10 @@ namespace BeerProduction.OPC
 
             //Batch ID
             /// <summary>
-            /// Gets the value of ProgramCubeAdminParameterParameter_0_Value.
+            /// Gets the value of BatchId.
             /// </summary>
             [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Admin.Parameter[0].Value")]
-            public Single ProgramCubeAdminParameterParameter_0_Value
+            public Single BatchId
             {
                 get { return programCubeAdminParameterParameter_0_Value; }
                 private set
@@ -446,7 +462,7 @@ namespace BeerProduction.OPC
                         DateTime = DateTime.Now,
                         Value = (float)value
                     };
-
+                    Clients.All.updateBatchId(value);
                     _uow.NextBatchIDRepos.Add(nxtBatchID);
                     _uow.SaveChanges();
                 }
@@ -456,6 +472,59 @@ namespace BeerProduction.OPC
 
 
             #endregion
+
+            #region Data
+
+                    /// <summary>
+        /// Gets the value of ProgramDataValueRelHumidity.
+        /// </summary>
+        [MonitoredItem(nodeId: "ns=6;s=::Program:Data.Value.RelHumidity")]
+        public Int16 ProgramDataValueRelHumidity
+        {
+            get { return this.programDataValueRelHumidity; }
+            private set 
+            { 
+                this.SetProperty(ref this.programDataValueRelHumidity, value);
+                Clients.All.updateHumidity(value);
+            }
+        }
+
+        private Int16 programDataValueRelHumidity;
+
+        /// <summary>
+        /// Gets the value of ProgramDataValueVibration.
+        /// </summary>
+        [MonitoredItem(nodeId: "ns=6;s=::Program:Data.Value.Vibration")]
+        public Single ProgramDataValueVibration
+        {
+            get { return this.programDataValueVibration; }
+            private set 
+            { 
+                this.SetProperty(ref this.programDataValueVibration, value);
+                Clients.All.updateVibration(value);
+            }
+        }
+
+        private Single programDataValueVibration;
+
+        /// <summary>
+        /// Gets the value of ProgramDataValueTemperature.
+        /// </summary>
+        [MonitoredItem(nodeId: "ns=6;s=::Program:Data.Value.Temperature")]
+        public Single ProgramDataValueTemperature
+        {
+            get { return this.programDataValueTemperature; }
+            private set 
+            { 
+                this.SetProperty(ref this.programDataValueTemperature, value);
+                Clients.All.updateTemperature(value);
+            }
+        }
+
+        private Single programDataValueTemperature;
+
+            #endregion
+
         }
 
 
