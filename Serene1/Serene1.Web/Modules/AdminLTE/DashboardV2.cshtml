@@ -256,6 +256,13 @@
                                 <div id="yeast-bar" class="progress-bar progress-bar-green" style="width: 0%"></div>
                             </div>
                         </div>
+                        <div class="progress-group">
+                            <span class="progress-text">Maintenance</span>
+                            <span id="maintenance" class="progress-number"><b>80</b>/100%</span>
+                            <div class="progress sm">
+                                <div id="maintenance-bar" class="progress-bar progress-bar-red" style="width: 0%"></div>
+                            </div>
+                        </div>
                         <!-- /.progress-group
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -376,7 +383,7 @@
                 $("#vibration").text(data.vibra);
                 updateState(data.currentState);
                 var percentageBarley = Math.round((data.barley / 35000) * 100);
-                        $("#barley").text(percentageBarley + "/100");
+                    $("#barley").text(percentageBarley + "/100");
                         $('#barley-bar').css('width', percentageBarley + '%');
                 var percentageHops = Math.round((data.hops / 35000) * 100);
                     $("#hops").text(percentageHops + "/100");
@@ -385,11 +392,14 @@
                     $("#Malt").text(percentageMalt + "/100");
                         $('#malt-bar').css('width', percentageMalt + '%');
                 var percentageWheat = Math.round((data.wheat / 35000) * 100);
-                $("#wheat").text(percentageWheat + "/100");
+                    $("#wheat").text(percentageWheat + "/100");
                         $('#wheat-bar').css('width', percentageWheat + '%');
                 var percentageYeast = Math.round((data.yeast / 35000) * 100);
-                $("#yeast").text(percentageYeast + "/100");
+                    $("#yeast").text(percentageYeast + "/100");
                         $('#yeast-bar').css('width', percentageYeast + '%');
+                var percentageMaintenance = Math.round((data.maintenance / 35000) * 100);
+                    $("#maintenance").text(percentageMaintenance + "/100");
+                        $('#maintenance-bar').css('width', percentageMaintenance + '%');
             }
         });
     }
@@ -552,104 +562,104 @@
 
         switch (data) {
             case 0:
-                $("#stateShow").text("State: Deactivated");
+                $("#stateShow").text("Deactivated");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
 
                 break;
             case 1:
-                $("#stateShow").text("State: Clearing");
+                $("#stateShow").text("Clearing");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 2:
-                $("#stateShow").text("State: Stopped");
+                $("#stateShow").text("Stopped");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', false);
                 break;
             case 3:
-                $("#stateShow").text("State: Starting");
+                $("#stateShow").text("Starting");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 4:
-                $("#stateShow").text("State: Idle");
+                $("#stateShow").text("Idle");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(startBtn);
                 $('#changingBtns').prop('disabled', false);
                 break;
             case 5:
-                $("#stateShow").text("State: Suspended");
+                $("#stateShow").text("Suspended");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(clearBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 6:
-                $("#stateShow").text("State: Execute");
+                $("#stateShow").text("Execute");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 7:
-                $("#stateShow").text("State: Stopping");
+                $("#stateShow").text("Stopping");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 8:
-                $("#stateShow").text("State: Aborting");
+                $("#stateShow").text("Aborting");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(clearBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 9:
-                $("#stateShow").text("State: Aborted");
+                $("#stateShow").text("Aborted");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(clearBtn);
                 $('#changingBtns').prop('disabled', false);
                 break;
             case 10:
-                $("#stateShow").text("State: Holding");
+                $("#stateShow").text("Holding");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 11:
-                $("#stateShow").text("State: Held");
+                $("#stateShow").text("Held");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 15:
-                $("#stateShow").text("State: Resetting");
+                $("#stateShow").text("Resetting");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(startBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 16:
-                $("#stateShow").text("State: Completing");
+                $("#stateShow").text("Completing");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 17:
-                $("#stateShow").text("State: Complete");
+                $("#stateShow").text("Complete");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', false);
                 break;
             case 18:
-                $("#stateShow").text("State: Deactivating");
+                $("#stateShow").text("Deactivating");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 19:
-                $("#stateShow").text("State: Activating");
+                $("#stateShow").text("Activating");
                 $("#changingBtns").empty();
                 $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
@@ -737,6 +747,12 @@
 
             $("#yeast").text(percentage + "/100");
             $('#yeast-bar').css('width', percentage + '%');
+        }
+        hub.client.updateMaintenance = function (data) {
+            var percentage = Math.round((data / 30000) * 100);
+
+            $("#maintenance").text(percentage + "/100");
+            $('#maintenance-bar').css('width', percentage + '%');
         }
 
         $.connection.hub.start().done(function () {
