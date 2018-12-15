@@ -69,10 +69,6 @@
       <span id ="changingBtns"></span>
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
-
-        <button id="notifyBtn" class="btn btn-block btn-success btn-lg">
-            Notify
-        </button>
         <button id="stopBtn" class="btn btn-block btn-warning btn-lg">Stop</button>
     </div>
     <div class="col-md-2 col-sm-6 col-xs-12">
@@ -746,35 +742,49 @@
         $.connection.hub.start().done(function () {
             $.connection.hub.logging = true;
             $.connection.hub.start();
-            $("#notifyBtn").click(function () {
-                debugger;
-                hub.server.hello("hello from button");
-            });
 
             function actionBtn(data) {
 
-                $.connection.SubscriptionTicker.Invoke("btnClick", data); 
+                hub.server.BtnClick(data);
             }
 
-            $("#resetBtn").click(function() {
-                actionBtn(1);
-            });
+            $(document).on("click",
+                "#resetBtn",
+                function() {
 
-            $("#startBtn").click(function() {
-                actionBtn(2);
-            });
+                    actionBtn(1);
 
-            $("#stopBtn").click(function () {
-                actionBtn(3);
-            });
+                });
 
-            $("#abortBtn").click(function() {
-                actionBtn(4);
-            });
+            $(document).on("click",
+                "#startBtn",
+                function() {
 
-            $("#clearBtn").click(function () {
-                actionBtn(5);
-            });
+                    actionBtn(2);
+
+                });
+            $(document).on("click",
+                "#stopBtn",
+                function() {
+
+                    actionBtn(3);
+
+                });
+            $(document).on("click",
+                "#abortBtn",
+                function() {
+
+                    actionBtn(4);
+
+                });
+            $(document).on("click",
+                "#clearBtn",
+                function() {
+
+                    actionBtn(5);
+
+                });
+
         });
     });
  

@@ -32,12 +32,11 @@ namespace Serene1.SubscriptionHub
         {
             Clients.All.notifyAllUsers(message);
         }
-        [HubMethodName("btnClick")]
-        public async void BtnClick(int message)
-        {
-            Clients.All.notifyAllUsers(message);
-            await Opc.Instance.UaApp1.ButtonClick(message);
 
+        [HubMethodName("BtnClick")]
+        public void BtnClick(int data)
+        {
+            Opc.Instance.UaApp1.ButtonClick(data);
         }
     }
 }

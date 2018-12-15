@@ -699,3 +699,15 @@ Workstation.ServiceModel.Ua.UaApplication: Trace: Removing UaTcpSessionChannel f
 Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel closed.
 Workstation.ServiceModel.Ua.UaApplication: Trace: Error creating UaTcpSessionChannel for opc.tcp://localhost:4840. LocalPrivateKey is null.
 BeerProduction.OPC.Opc.UaApp: Trace: Error getting channel. LocalPrivateKey is null.
+System.Web.HttpException (0x80004005): Stien '/Modules/AdminLTE/DashboardV2.cshtml' blev ikke fundet.
+   ved System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   ved System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   ved System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   ved System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+Configuration invalid: ToAddress must have a value
+System.Web.HttpException (0x80004005): Stien '/Modules/AdminLTE/DashboardV2.cshtml' blev ikke fundet.
+   ved System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   ved System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   ved System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   ved System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+Configuration invalid: ToAddress must have a value
