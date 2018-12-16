@@ -525,6 +525,25 @@ namespace BeerProduction.OPC
 
             #endregion
 
+            #region Maintenance
+
+                    /// <summary>
+        /// Gets the value of ProgramMaintenanceCounter.
+        /// </summary>
+        [MonitoredItem(nodeId: "ns=6;s=::Program:Maintenance.Counter")]
+        public UInt16 ProgramMaintenanceCounter
+        {
+            get { return this.programMaintenanceCounter; }
+                        private set
+                        {
+                            this.SetProperty(ref this.programMaintenanceCounter, value);
+                            Clients.All.updateMaintenance(value);
+                }
+        }
+
+        private UInt16 programMaintenanceCounter;
+
+            #endregion
         }
 
 

@@ -103,6 +103,7 @@ namespace Serene1.AdminLTE
                         humidity = opc.ProgramDataValueRelHumidity,
                         vibra = opc.ProgramDataValueVibration,
                         temp = opc.ProgramDataValueTemperature,
+                        maintenance = opc.ProgramMaintenanceCounter,
                         responseText = "success" },
                     JsonRequestBehavior.AllowGet);
             }
