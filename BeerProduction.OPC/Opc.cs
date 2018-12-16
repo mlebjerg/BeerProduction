@@ -124,9 +124,20 @@ namespace BeerProduction.OPC
 
             public async Task<StatusCode> setBatch(int amt, int beertype, int speed)
             {
+                BatchReport batchReport = new BatchReport()
+                {
+                    startDateTime = DateTime.Now,
+                    AmountToProduce = amt,
+                    BeerType = beertype,
+                    Speed = speed,
+                };
+
+                _uow.BatchReportRepos.Add(batchReport);
+                _uow.SaveChanges();
                 DataValue amtVal = new DataValue(new Variant((float)amt));
                 DataValue beertypeVal = new DataValue(new Variant((float)beertype));
                 DataValue speedVal = new DataValue(new Variant((float)speed));
+                DataValue BatchID = new DataValue(new Variant((float)batchReport.Id));
 
                 WriteRequest writeRequest = new WriteRequest
                 {
@@ -155,7 +166,7 @@ namespace BeerProduction.OPC
                         {
                             NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[0].Value"),
                             AttributeId = AttributeIds.Value,
-                            Value = speedVal
+                            Value = BatchID // setId to that down here.
                         },
                     },
                 };
@@ -264,14 +275,7 @@ namespace BeerProduction.OPC
                 {
                     SetProperty(ref programproductproduce_amount, value);
 
-                    NextProductAmount nextProductAmt = new NextProductAmount()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = (float)value
-                    };
                     Clients.All.updateAmtToProduce(value);
-                    _uow.NextProductAmountRepos.Add(nextProductAmt);
-                    _uow.SaveChanges();
                 }
             }
 
@@ -403,14 +407,7 @@ namespace BeerProduction.OPC
             private set
             {
                 this.SetProperty(ref this.programCubeStatusParameterParameter_0_Value, value);
-                NextBatchID nxtBatchID = new NextBatchID()
-                {
-                    DateTime = DateTime.Now,
-                    Value = (float)value
-                };
                 Clients.All.updateBatchId(value);
-                _uow.NextBatchIDRepos.Add(nxtBatchID);
-                _uow.SaveChanges();
                 }
         }
 

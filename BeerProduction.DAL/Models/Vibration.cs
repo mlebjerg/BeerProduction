@@ -7,6 +7,7 @@ namespace BeerProduction.DAL.Models
     public class Vibration
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public float Value { get; set; }
         public DateTime DateTime { get; set; }

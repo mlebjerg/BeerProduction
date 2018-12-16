@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BeerProduction.DAL;
 using BeerProduction.OPC;
-using WebApplication1.Models;
 
 namespace Serene1.AdminLTE
 {
@@ -70,10 +69,6 @@ namespace Serene1.AdminLTE
                 return Json(new { success = false, responseText = setBatchStatusCode },
                     JsonRequestBehavior.AllowGet);
             }
-
-
-
-
         }
 
         public ActionResult GetAllStats()

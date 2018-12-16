@@ -549,9 +549,10 @@
                 $("#speed").val(null);
 
                 modal.style.display = "none";
+                getAllStats();
             },
             error: function (data) {
-                toastr.error("An error happened.")
+                toastr.error(data.responseText)
             }
         });
     });

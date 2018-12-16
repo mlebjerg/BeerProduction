@@ -18,26 +18,21 @@
 
 <div class="row">
     <div class="col-md-12">
-        <table id="table_id" class="display">
+        <table id="table_id" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Column1</th>
-                    <th>Column2</th>
-                    <th>Column3</th>
+                    <th>Batch ID</th>
+                    <th>Start Time</th>
+                    <th>Stop Time</th>
                 </tr>
             </thead>
-            <tbody>
+            <tfoot>
                 <tr>
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                    <td>Row 1 Data 3</td>
+                    <th>Batch ID</th>
+                    <th>Start Time</th>
+                    <th>Stop Time</th>
                 </tr>
-                <tr>
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
-                    <td>Row 2 Data 3</td>
-                </tr>
-            </tbody>
+            </tfoot>
         </table>
     </div>
 </div>
@@ -50,7 +45,24 @@
 </style>
 
 <script type="text/javascript">
-    $(document).ready( function () {
-        $('#table_id').DataTable();
-    } ); 
+    $(document).ready(function () {
+
+        $.ajax({
+            url: "/BatchReporter/GetAllBatches",
+            data: {},
+            success: function(data) {
+               
+                $('#table_id').DataTable({
+                    data: data.batches,
+                    "columns": [
+                        { "data": "Id" },
+                        { "data": "startDateTime" },
+                        { "data" : "stopDateTime" }
+                    ]
+                } );
+                
+            }
+        });
+    
+} );
 </script>

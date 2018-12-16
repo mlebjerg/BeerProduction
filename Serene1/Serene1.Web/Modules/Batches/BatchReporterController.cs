@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeerProduction.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,8 @@ namespace Serene1.Modules.Batches
     [Authorize, RoutePrefix("BatchReporter"), Route("{action=index}")]
     public class BatchReporterController : Controller
     {
+        private static UnitofWork _uow = new UnitofWork();
+
         [Authorize, HttpGet, Route("~/BatchReporter")]
         public ActionResult BatchReporter()
         {
@@ -20,34 +23,21 @@ namespace Serene1.Modules.Batches
             return View(MVC.Views.Batches.BatchReportViewer);
         }
 
-        [HttpGet]
-        public ActionResult GetBatchID()
+        public ActionResult GetAllBatches()
         {
-            return null;
-        }
-        public ActionResult GetProductAmount()
-        {
-            return null;
-        }
-        public ActionResult GetSpeed()
-        {
-            return null;
-        }
-        public ActionResult GetProduced()
-        {
-            return null;
-        }
-        public ActionResult GetAccepted()
-        {
-            return null;
-        }
-        public ActionResult GetUnacceptable()
-        {
-            return null;
-        }
-        public new ActionResult GetType()
-        {
-            return null;
+            try
+            {
+                var batches = _uow.BatchReportRepos.GetAll().ToList();
+
+                return Json(new { success = true, batches = batches, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, responseText = "Getting Batches Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

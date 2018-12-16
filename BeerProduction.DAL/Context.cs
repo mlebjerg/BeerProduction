@@ -10,12 +10,10 @@ namespace BeerProduction.DAL
     public class Context : DbContext
     {
         public DbSet<TestClass> TestClasss { get; set; }
+        public DbSet<BatchReport> BatchReports { get; set; }
         public DbSet<Temperature> Temperatures { get; set; }
         public DbSet<Humidity> Humidities { get; set; }
         public DbSet<MachineSpeed> MachineSpeeds { get; set; }
-        public DbSet<NextBatchID> NextBatchIds { get; set; }
-        public DbSet<NextProductAmount> NextProductAmounts { get; set; }
-        public DbSet<NextProductID> NextProductIds { get; set; }
         public DbSet<ProductProcessed> ProductProcesseds { get; set; }
         public DbSet<Vibration> Vibrations { get; set; }
         public DbSet<SetControlCommand> SetControlCommands { get; set; }

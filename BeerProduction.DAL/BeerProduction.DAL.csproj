@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repos\BatchReportRepo.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="IRepo\IBaseRepository.cs" />
     <Compile Include="Migrations\201811282058150_CreateTemp.cs" />
@@ -60,12 +61,9 @@
       <DependentUpon>201811282058150_CreateTemp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Beer.cs" />
+    <Compile Include="Models\BatchReport.cs" />
     <Compile Include="Models\Humidity.cs" />
     <Compile Include="Models\MachineSpeed.cs" />
-    <Compile Include="Models\NextBatchID.cs" />
-    <Compile Include="Models\NextProductAmount.cs" />
-    <Compile Include="Models\NextProductID.cs" />
     <Compile Include="Models\ProductProcessed.cs" />
     <Compile Include="Models\SetControlCommand.cs" />
     <Compile Include="Models\Temperature.cs" />
@@ -74,9 +72,6 @@
     <Compile Include="Repos\BaseRepository.cs" />
     <Compile Include="Repos\HumidityRepo.cs" />
     <Compile Include="Repos\MachineSpeedRepo.cs" />
-    <Compile Include="Repos\NextBatchIDRepo.cs" />
-    <Compile Include="Repos\NextProductAmountRepo.cs" />
-    <Compile Include="Repos\NextProductIDRepo.cs" />
     <Compile Include="Repos\ProductProcessedRepo.cs" />
     <Compile Include="Repos\SetControlCommandRepo.cs" />
     <Compile Include="Repos\TemperatureRepo.cs" />
