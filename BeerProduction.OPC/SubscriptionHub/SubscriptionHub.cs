@@ -38,5 +38,10 @@ namespace Serene1.SubscriptionHub
         {
             Opc.Instance.UaApp1.ButtonClick(data);
         }
+
+        public void StartNewBatch(int amt, int beertype,)
+        {
+
+        }
     }
 }

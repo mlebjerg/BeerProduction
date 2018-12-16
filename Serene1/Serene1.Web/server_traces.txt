@@ -289,3 +289,6 @@ SignalR.Transports.WebSocketTransport Information: 0 : Abort(fd2f236c-135c-44da-
 SignalR.Transports.WebSocketTransport Information: 0 : End(fd2f236c-135c-44da-9a98-0f163f23815f)
 SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(fd2f236c-135c-44da-9a98-0f163f23815f)
 SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (fd2f236c-135c-44da-9a98-0f163f23815f)
+Microsoft.Owin.Host.SystemWeb.OwinAppContext Information: 0 : Support for WebSockets has been detected.
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 8c6b3e8b-adfd-45d5-ac5e-1f20f4b1e7df, transport: WebSocketTransport, message: {"C":"d-6D9AD267-B,0|D,0|E,0|F,1","S":1,"M":[]}
+SignalR.Transports.WebSocketTransport Verbose: 0 : Sending outgoing message. Connection id: 91474311-7fa7-45b0-830d-c13a2cfde751, transport: WebSocketTransport, message: {"C":"d-6D9AD267-C,1","S":1,"M":[]}
