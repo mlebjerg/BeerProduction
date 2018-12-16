@@ -41,21 +41,21 @@
                         </div><!-- /.form-group -->
                     </div><!-- /.col -->
                     <div class="col-md-4">
-                        <label>Mængde(0-65535):</label>
+                        <label>Amount(0-65535):</label>
 
                         <input id="amtSet" type="number" min="0" max="65535" class="form-control" placeholder="10000">
 
                     </div><!-- /.col -->
                     <div class="col-md-4">
-                        <label>Batch ID:</label>
+                        <label>Speed: Product / min</label>
 
-                        <input id="batchID" type="number" class="form-control" value="25" disabled="">
+                        <input id="speed" type="number" class="form-control" value="25" >
 
                     </div><!-- /.col -->
                 </div>
                     <div class="modal-footer">
                         <button id="closeModal"type="button" class="btn btn-default pull-left">Close</button>
-                        <button id="sendData" type="button" class="btn btn-primary">Save changes</button>
+                        <button id="sendData" type="button" class="btn btn-primary">Start</button>
                     </div>
                 </div>
             </div><!-- /.modal-content -->
@@ -271,11 +271,6 @@
             </div><!-- /.box -->
         </div><!-- /.col -->
     </div><!-- /.row -->
-    <div class="row" style="padding-bottom: 15px">
-        <div class="col-md-2 col-sm-6 col-xs-12">
-            <button id="stateBtn" class="btn btn-block btn-primary btn-lg">State Changer</button>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-4">
             <div class="info-box">
@@ -512,7 +507,9 @@
         });
     }
 
-    $("#newBatchBtn").click(function () {
+    $(document).on("click",
+        "#startBtn",
+        function() {
         modal.style.display = "block";
     });
 
@@ -535,7 +532,7 @@
         var amt = parseInt($("#amtSet").val());
         var beerType = parseInt($("#beerSelector").find(":selected").attr("beer-data"));
         var beerTypeName = $("#beerSelector").val();
-        var batchID = parseInt($("#batchID").val());
+        var speed = parseInt($("#batchID").val());
         $.ajax({
             url: "/AdminLTE/SendBtnClick",
             data: { name: amt, name2: beerType, name: batchID },
@@ -546,6 +543,8 @@
                 $("#beerSelector").val("Pilsner");
                 $("#nextID").val(batchID);
                 $("#amtSet").val(null);
+                $("#speed").val(null);
+
                 modal.style.display = "none";
             },
             error: function (data) {
@@ -558,7 +557,7 @@
         debugger;
         var clearBtn = '<button id="clearBtn" class="btn btn-block btn-info btn-lg">Clear</button>';
         var resetBtn = '<button id="resetBtn" class="btn btn-block btn-primary btn-lg">Reset</button>';
-        var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">Start</button>';
+        var startBtn = '<button id="startBtn" class="btn btn-block btn-success btn-lg">New Batch</button>';
 
         switch (data) {
             case 0:
@@ -772,13 +771,13 @@
 
                 });
 
-            $(document).on("click",
-                "#startBtn",
-                function() {
+            //$(document).on("click",
+            //    "#startBtn",
+            //    function() {
 
-                    actionBtn(2);
+            //        actionBtn(2);
 
-                });
+            //    });
             $(document).on("click",
                 "#stopBtn",
                 function() {
