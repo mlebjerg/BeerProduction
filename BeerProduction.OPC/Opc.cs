@@ -60,7 +60,7 @@ namespace BeerProduction.OPC
         {
             app = new UaApplicationBuilder()
                 .SetApplicationUri($"urn:{Dns.GetHostName()}:BeerCraft")
-                //.ConfigureLoggerFactory(o => o.AddDebug(LogLevel.Trace))
+                .ConfigureLoggerFactory(o => o.AddDebug(LogLevel.Trace))
                 .AddMappedEndpoint(Url, Url, SecurityPolicyUris.None)
                 .Build();
         }
@@ -124,35 +124,39 @@ namespace BeerProduction.OPC
 
             public async Task<StatusCode> setBatch(int amt, int beertype, int speed)
             {
-                DataValue amtVal = new DataValue(new Variant(amt));
-                DataValue beertypeVal = new DataValue(new Variant(beertype));
-                DataValue speedeVal = new DataValue(new Variant(speed));
+                DataValue amtVal = new DataValue(new Variant((float)amt));
+                DataValue beertypeVal = new DataValue(new Variant((float)beertype));
+                DataValue speedVal = new DataValue(new Variant((float)speed));
 
                 WriteRequest writeRequest = new WriteRequest
                 {
-                    NodesToWrite = new WriteValue[3]
+                    NodesToWrite = new WriteValue[4]
                     {
                         new WriteValue()
                         {
-                            NodeId = NodeId.Parse("ns=6;s=::Program:product.produce_amount"),
+                            NodeId = NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[2].Value"),//amt
                             AttributeId = AttributeIds.Value,
                             Value = amtVal
                         },
                         new WriteValue()
                         {
-                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.CmdChangeRequest"),
+                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[1].Value"),//beertypeId
                             AttributeId = AttributeIds.Value,
                             Value = beertypeVal
                         },
                         new WriteValue()
                         {
-                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.MachSpeed"),
+                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.MachSpeed"),//speed
                             AttributeId = AttributeIds.Value,
-                            Value = speedeVal
+                            Value = speedVal
                         },
 
-
-
+                        new WriteValue()
+                        {
+                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.Parameter[0].Value"),
+                            AttributeId = AttributeIds.Value,
+                            Value = speedVal
+                        },
                     },
                 };
                 WriteRequest request = writeRequest;
@@ -389,6 +393,29 @@ namespace BeerProduction.OPC
 
             #region Status
 
+        /// <summary>
+        /// Gets the value of ProgramCubeStatusParameterParameter_0_Value.
+        /// </summary>
+        [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Status.Parameter[0].Value")]
+        public Single BatchId
+        {
+            get { return this.programCubeStatusParameterParameter_0_Value; }
+            private set
+            {
+                this.SetProperty(ref this.programCubeStatusParameterParameter_0_Value, value);
+                NextBatchID nxtBatchID = new NextBatchID()
+                {
+                    DateTime = DateTime.Now,
+                    Value = (float)value
+                };
+                Clients.All.updateBatchId(value);
+                _uow.NextBatchIDRepos.Add(nxtBatchID);
+                _uow.SaveChanges();
+                }
+        }
+
+        private Single programCubeStatusParameterParameter_0_Value;
+
 
             /// <summary>
             /// Gets the value of ProgramCubeStatusStateCurrent.
@@ -485,33 +512,6 @@ namespace BeerProduction.OPC
             }
 
             private Object programCubeAdminStopReason;
-
-
-            //Batch ID
-            /// <summary>
-            /// Gets the value of BatchId.
-            /// </summary>
-            [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Admin.Parameter[0].Value")]
-            public Single BatchId
-            {
-                get { return programCubeAdminParameterParameter_0_Value; }
-                private set
-                {
-                    SetProperty(ref programCubeAdminParameterParameter_0_Value, value);
-
-                    NextBatchID nxtBatchID = new NextBatchID()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = (float)value
-                    };
-                    Clients.All.updateBatchId(value);
-                    _uow.NextBatchIDRepos.Add(nxtBatchID);
-                    _uow.SaveChanges();
-                }
-            }
-
-            private Single programCubeAdminParameterParameter_0_Value;
-
 
             #endregion
 

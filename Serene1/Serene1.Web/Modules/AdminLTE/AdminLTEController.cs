@@ -47,18 +47,32 @@ namespace Serene1.AdminLTE
             }
 
         }
-        public ActionResult StartNewBatch(int amt, int beertypeId, int speed)
+        public async Task<ActionResult> StartNewBatch(int amt, int beertypeId, int speed)
         {
-            try
+            var setBatchStatusCode = await Opc.Instance.UaApp1.setBatch(amt, beertypeId, speed);
+
+            if (setBatchStatusCode.ToString() == "0x00000000")
             {
-                return Json(new { success = true,  responseText = "success" },
+               var buttonStatusCode = await Opc.Instance.UaApp1.ButtonClick(2);
+
+                if (buttonStatusCode.ToString() == "0x00000000")
+                {
+                   return Json(new { success = true, responseText = "success" },
+                            JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { success = false, responseText = buttonStatusCode}, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json(new { success = false, responseText = setBatchStatusCode },
                     JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
-            {
-                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
-                    JsonRequestBehavior.AllowGet);
-            }
+
+
+
 
         }
 

@@ -717,3 +717,1361 @@ System.Web.HttpException (0x80004005): Path '/Modules/AdminLTE/DashboardV2.cshtm
    at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 Configuration invalid: ToAddress must have a value
+Workstation.ServiceModel.Ua.UaApplication: Trace: UaApplication running.
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin creating UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: Discovering endpoints of 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel opening.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending OpenSecureChannelRequest, Handle: 1
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received OpenSecureChannelResponse, Handle: 1 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel opened.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending GetEndpointsRequest, Handle: 2
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Installed new security token 1.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received GetEndpointsResponse, Handle: 2 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel closing.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CloseSecureChannelRequest, Handle: 3
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Error: Error closing secure channel. Timeout occurred while processing the request.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel closed.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Success discovering endpoints of 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel opening.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: Opening session channel with endpoint 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: SecurityPolicy: 'http://opcfoundation.org/UA/SecurityPolicy#None'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: SecurityMode: 'None'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: UserIdentity: ''.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending OpenSecureChannelRequest, Handle: 1
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received OpenSecureChannelResponse, Handle: 1 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSessionRequest, Handle: 2
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Installed new security token 1.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSessionResponse, Handle: 2 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending ActivateSessionRequest, Handle: 3
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received ActivateSessionResponse, Handle: 3 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending ReadRequest, Handle: 4
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received ReadResponse, Handle: 4 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSubscriptionRequest, Handle: 5
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSubscriptionResponse, Handle: 5 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel opened.
+Workstation.ServiceModel.Ua.UaApplication: Trace: Success creating UaTcpSessionChannel for opc.tcp://localhost:4840.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSubscriptionRequest, Handle: 6
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSubscriptionResponse, Handle: 6 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 7
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateMonitoredItemsRequest, Handle: 8
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 9
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 10
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateMonitoredItemsResponse, Handle: 8 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 7 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 11
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 9 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 12
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 10 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 13
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 11 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 14
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 12 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 15
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 13 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 16
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 14 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 17
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 15 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 18
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 16 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 19
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 17 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 20
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 18 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 21
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 19 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 22
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 20 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 23
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 21 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 24
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 22 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 25
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 23 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 26
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 24 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 27
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 25 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 28
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 26 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 29
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 27 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 30
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 28 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 31
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 29 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 32
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 30 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 33
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 31 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 34
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 32 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 35
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 33 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 36
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 37
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 37 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 34 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 38
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 35 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 39
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 36 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 40
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 38 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 41
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 42
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 42 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 39 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 43
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 44
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 44 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 40 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 45
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 41 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 46
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 43 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 47
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 45 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 48
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 46 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 49
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 47 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 50
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 48 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 51
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 49 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 52
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 50 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 53
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 51 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 54
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 52 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 55
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 53 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 56
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 54 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 57
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 55 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 58
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 56 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 59
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 57 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 60
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 58 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 61
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 59 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 62
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 60 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 63
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 61 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 64
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 62 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 65
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 63 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 66
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 64 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 67
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 68
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 68 Result: 0x00000000
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 69
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 69 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 65 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 70
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 66 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 71
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 67 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 72
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 70 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 73
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 71 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 74
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 72 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 75
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 73 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 76
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 74 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 77
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 75 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 78
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 76 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 79
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 77 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 80
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 78 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 81
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 79 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 82
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 80 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 83
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 81 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 84
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 82 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 85
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 83 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 86
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 84 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 87
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 85 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 88
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 86 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 89
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 87 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 90
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 88 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 91
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 89 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 92
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 93
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 90 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 93 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 94
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 91 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 95
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 92 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 96
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 97
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 97 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 94 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 98
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 95 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 99
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 100
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 100 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 96 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 101
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 98 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 102
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 99 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 103
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 101 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 104
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 102 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 105
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 103 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 106
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 104 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 107
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 105 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 108
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 106 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 109
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 107 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 110
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 108 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 111
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 109 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 112
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 110 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 113
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 111 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 114
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 112 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 115
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 113 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 116
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 114 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 117
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 115 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 118
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 119
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 119 Result: 0x00000000
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 120
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 120 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 116 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 121
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 117 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 122
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 118 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 123
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 121 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 124
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 122 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 125
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 123 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 126
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 124 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 127
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 125 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 128
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 126 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 129
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 127 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 130
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 128 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 131
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 129 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 132
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 130 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 133
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 131 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 134
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 132 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 135
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 133 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 136
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 134 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 137
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 135 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 138
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 136 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 139
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 137 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 140
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 138 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 141
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 139 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 142
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 140 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 143
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 141 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 144
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 142 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 145
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 143 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 146
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 144 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 147
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 145 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 148
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 146 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 149
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 147 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 150
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 148 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 151
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 149 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 152
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 150 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 153
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 151 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 154
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 152 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 155
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 153 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 156
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 154 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 157
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 155 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 158
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 156 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 159
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 157 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 160
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 158 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 161
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 159 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 162
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 160 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 163
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 161 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 164
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 162 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 165
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 163 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 166
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 164 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 167
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 165 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 168
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 166 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 169
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 167 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 170
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 168 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 171
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 169 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 172
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 170 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 173
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 171 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 174
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 172 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 175
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 173 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 176
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 174 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 177
+Workstation.ServiceModel.Ua.UaApplication: Trace: UaApplication running.
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin creating UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: Discovering endpoints of 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel opening.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending OpenSecureChannelRequest, Handle: 1
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received OpenSecureChannelResponse, Handle: 1 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel opened.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending GetEndpointsRequest, Handle: 2
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Installed new security token 1.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received GetEndpointsResponse, Handle: 2 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel closing.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CloseSecureChannelRequest, Handle: 3
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Error: Error closing secure channel. Timeout occurred while processing the request.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel closed.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Success discovering endpoints of 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel opening.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: Opening session channel with endpoint 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: SecurityPolicy: 'http://opcfoundation.org/UA/SecurityPolicy#None'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: SecurityMode: 'None'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: UserIdentity: ''.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending OpenSecureChannelRequest, Handle: 1
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received OpenSecureChannelResponse, Handle: 1 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSessionRequest, Handle: 2
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Installed new security token 1.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSessionResponse, Handle: 2 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending ActivateSessionRequest, Handle: 3
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received ActivateSessionResponse, Handle: 3 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending ReadRequest, Handle: 4
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received ReadResponse, Handle: 4 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSubscriptionRequest, Handle: 5
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSubscriptionResponse, Handle: 5 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel opened.
+Workstation.ServiceModel.Ua.UaApplication: Trace: Success creating UaTcpSessionChannel for opc.tcp://localhost:4840.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSubscriptionRequest, Handle: 6
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSubscriptionResponse, Handle: 6 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 7
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateMonitoredItemsRequest, Handle: 8
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 9
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 10
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateMonitoredItemsResponse, Handle: 8 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 7 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 11
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 9 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 12
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 10 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 13
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 11 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 14
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 12 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 15
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 13 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 16
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 14 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 17
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 15 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 18
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 16 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 19
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 17 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 20
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 18 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 21
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 19 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 22
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 20 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 23
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 21 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 24
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 22 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 25
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 23 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 26
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 24 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 27
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 25 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 28
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 26 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 29
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 27 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 30
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 28 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 31
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 29 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 32
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 30 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 33
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 31 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 34
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 32 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 35
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 33 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 36
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 34 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 37
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 35 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 38
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 36 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 39
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 37 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 40
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 38 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 41
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 39 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 42
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 40 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 43
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 41 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 44
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 42 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 45
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 43 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 46
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 44 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 47
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 45 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 48
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 46 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 49
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 47 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 50
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 48 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 51
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 49 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 52
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 50 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 53
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 51 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 54
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 52 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 55
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 53 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 56
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 54 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 57
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 55 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 58
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 56 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 59
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 57 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 60
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 58 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 61
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 59 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 62
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 60 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 63
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 61 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 64
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 62 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 65
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 63 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 66
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 64 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 67
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 65 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 68
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 66 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 69
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 67 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 70
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 68 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 71
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 69 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 72
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 70 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 73
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 71 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 74
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 72 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 75
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 76
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 76 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 73 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 77
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 74 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 78
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 75 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 79
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 77 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 80
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 78 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 81
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 79 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 82
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 80 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 83
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 81 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 84
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 82 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 85
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 83 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 86
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 84 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 87
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 85 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 88
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 86 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 89
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 87 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 90
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 88 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 91
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 92
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 92 Result: 0x00000000
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending WriteRequest, Handle: 93
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received WriteResponse, Handle: 93 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 89 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 94
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 90 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 95
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 91 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 96
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 94 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 97
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 95 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 98
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 96 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 99
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 97 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 100
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 98 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 101
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 99 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 102
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 100 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 103
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 101 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 104
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 102 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 105
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 103 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 106
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 104 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 107
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 105 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 108
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 106 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 109
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 107 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 110
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 108 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 111
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 109 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 112
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 110 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 113
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 111 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 114
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 112 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 115
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 113 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 116
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 114 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 117
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 115 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 118
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 116 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 119
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 117 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 120
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 118 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 121
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 119 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 122
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 120 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 123
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 121 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 124
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 122 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 125
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 123 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 126
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 124 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 127
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 125 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 128
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 126 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 129
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 127 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 130
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 128 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 131
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 129 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 132
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 130 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 133
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 131 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 134
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 132 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 135
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 133 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 136
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 134 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 137
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 135 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 138
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 136 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 139
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 137 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 140
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 138 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 141
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 139 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 142
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 140 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 143
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 141 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 144
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 142 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 145
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 143 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 146
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 144 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 147
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 145 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 148
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 146 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 149
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 147 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 150
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 148 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 151
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 149 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 152
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 150 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 153
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 151 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 154
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 152 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 155
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 153 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 156
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 154 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 157
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 155 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 158
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 156 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 159
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 157 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 160
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 158 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 161
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 159 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 162
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 160 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 163
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 161 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 164
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 162 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 165
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 163 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 166
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 164 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 167
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 165 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 168
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 166 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 169
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 167 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 170
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 168 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 171
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 169 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 172
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 170 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 173
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 171 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 174
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 172 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 175
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 173 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 176
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 174 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 177
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 175 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 178
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 176 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 179
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 177 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 180
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 178 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 181
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 179 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 182
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 180 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 183
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 181 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 184
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 182 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 185
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 183 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 186
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 184 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 187
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 185 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 188
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 186 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 189
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 187 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 190
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 188 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 191
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 189 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 192
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 190 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 193
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 191 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 194
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 192 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 195
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 193 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 196
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 194 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 197
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 195 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 198
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 196 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 199
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 197 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 200
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 198 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 201
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 199 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 202
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 200 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 203
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 201 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 204
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 202 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 205
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 203 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 206
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 204 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 207
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 205 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 208
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 206 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 209
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 207 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 210
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 208 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 211
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 209 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 212
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 210 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 213
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 211 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 214
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 212 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 215
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 213 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 216
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 214 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 217
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 215 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 218
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 216 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 219
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 217 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 220
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 218 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 221
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 219 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 222
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 220 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 223
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 221 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 224
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 222 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 225
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 223 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 226
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 224 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 227
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 225 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 228
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 226 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 229
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 227 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 230
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 228 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 231
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 229 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 232
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 230 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 233
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 231 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 234
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 232 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 235
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 233 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 236
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 234 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 237
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 235 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 238
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 236 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 239
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 237 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 240
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 238 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 241
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 239 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 242
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 240 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 243
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 241 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 244
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 242 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 245
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 243 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 246
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 244 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 247
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 245 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 248
+Workstation.ServiceModel.Ua.UaApplication: Trace: UaApplication running.
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin getting UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.UaApplication: Trace: Begin creating UaTcpSessionChannel for opc.tcp://localhost:4840
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: Discovering endpoints of 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel opening.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending OpenSecureChannelRequest, Handle: 1
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received OpenSecureChannelResponse, Handle: 1 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel opened.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending GetEndpointsRequest, Handle: 2
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Installed new security token 1.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received GetEndpointsResponse, Handle: 2 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel closing.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CloseSecureChannelRequest, Handle: 3
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Error: Error closing secure channel. Timeout occurred while processing the request.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Channel closed.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Success discovering endpoints of 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel opening.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: Opening session channel with endpoint 'opc.tcp://localhost:4840'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: SecurityPolicy: 'http://opcfoundation.org/UA/SecurityPolicy#None'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: SecurityMode: 'None'.
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Information: UserIdentity: ''.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending OpenSecureChannelRequest, Handle: 1
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received OpenSecureChannelResponse, Handle: 1 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSessionRequest, Handle: 2
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Installed new security token 1.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSessionResponse, Handle: 2 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending ActivateSessionRequest, Handle: 3
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received ActivateSessionResponse, Handle: 3 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending ReadRequest, Handle: 4
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received ReadResponse, Handle: 4 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSubscriptionRequest, Handle: 5
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSubscriptionResponse, Handle: 5 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSessionChannel: Trace: Channel opened.
+Workstation.ServiceModel.Ua.UaApplication: Trace: Success creating UaTcpSessionChannel for opc.tcp://localhost:4840.
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 6
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateSubscriptionRequest, Handle: 7
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateSubscriptionResponse, Handle: 7 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 8
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 9
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending CreateMonitoredItemsRequest, Handle: 10
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received CreateMonitoredItemsResponse, Handle: 10 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 6 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 11
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 8 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 12
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 9 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 13
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 11 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 14
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 12 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 15
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 13 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 16
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 14 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 17
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 15 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 18
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 16 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 19
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 17 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 20
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 18 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 21
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 19 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 22
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 20 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 23
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 21 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 24
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 22 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 25
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 23 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 26
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 24 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 27
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 25 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 28
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 26 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 29
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 27 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 30
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 28 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 31
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 29 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 32
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 30 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 33
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 31 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 34
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 32 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 35
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 33 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 36
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 34 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 37
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 35 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 38
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 36 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 39
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 37 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 40
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 38 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 41
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 39 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 42
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 40 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 43
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 41 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 44
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 42 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 45
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 43 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 46
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 44 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 47
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 45 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 48
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 46 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 49
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 47 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 50
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 48 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 51
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 49 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 52
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 50 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 53
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 51 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 54
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 52 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 55
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 53 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 56
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 54 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 57
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 55 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 58
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 56 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 59
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 57 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 60
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 58 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 61
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 59 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 62
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 60 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 63
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 61 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 64
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 62 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 65
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 63 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 66
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 64 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 67
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 65 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 68
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 66 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 69
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 67 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 70
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 68 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 71
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 69 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 72
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 70 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 73
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 71 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 74
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 72 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 75
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 73 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 76
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 74 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 77
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 75 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 78
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 76 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 79
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 77 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 80
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 78 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 81
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 79 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 82
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 80 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 83
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 81 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 84
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 82 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 85
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 83 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 86
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 84 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 87
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 85 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 88
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 86 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 89
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 87 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 90
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 88 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 91
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 89 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 92
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 90 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 93
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 91 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 94
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 92 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 95
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 93 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 96
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 94 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 97
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 95 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 98
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 96 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 99
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 97 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 100
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 98 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 101
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 99 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 102
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 100 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 103
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 101 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 104
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 102 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 105
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 103 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 106
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 104 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 107
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 105 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 108
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 106 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 109
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 107 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 110
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 108 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 111
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 109 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 112
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 110 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 113
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 111 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 114
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 112 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 115
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 113 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 116
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 114 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 117
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 115 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 118
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 116 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 119
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 117 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 120
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 118 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 121
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 119 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 122
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 120 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 123
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 121 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 124
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 122 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 125
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 123 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 126
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 124 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 127
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 125 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 128
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 126 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 129
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 127 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 130
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 128 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 131
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 129 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 132
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 130 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 133
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 131 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 134
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 132 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 135
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 133 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 136
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 134 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 137
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 135 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 138
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 136 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 139
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 137 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 140
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 138 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 141
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 139 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 142
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 140 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 143
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 141 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 144
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 142 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 145
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 143 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 146
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 144 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 147
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 145 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 148
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 146 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 149
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 147 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 150
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 148 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 151
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 149 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 152
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 150 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 153
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 151 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 154
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 152 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 155
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 153 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 156
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 154 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 157
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 155 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 158
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 156 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 159
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 157 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 160
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 158 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 161
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 159 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 162
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 160 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 163
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 161 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 164
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 162 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 165
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 163 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 166
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 164 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 167
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 165 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 168
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 166 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 169
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 167 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 170
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 168 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 171
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 169 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 172
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 170 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 173
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 171 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 174
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 172 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 175
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 173 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 176
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 174 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 177
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 175 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 178
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 176 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 179
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 177 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 180
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 178 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 181
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 179 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 182
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 180 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 183
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 181 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 184
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 182 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 185
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 183 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 186
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 184 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 187
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 185 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 188
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 186 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 189
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 187 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 190
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 188 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 191
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 189 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 192
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 190 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 193
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 191 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 194
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 192 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 195
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 193 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 196
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 194 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 197
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 195 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 198
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 196 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 199
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 197 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 200
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 198 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 201
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 199 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 202
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 200 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 203
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 201 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 204
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 202 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 205
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 203 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 206
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 204 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 207
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 205 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 208
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 206 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 209
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 207 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 210
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 208 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 211
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 209 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 212
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 210 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 213
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 211 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 214
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 212 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 215
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Received PublishResponse, Handle: 213 Result: 0x00000000
+Workstation.ServiceModel.Ua.Channels.UaTcpSecureChannel: Trace: Sending PublishRequest, Handle: 216
