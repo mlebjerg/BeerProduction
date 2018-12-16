@@ -18,8 +18,9 @@ namespace Serene1.Modules.Batches
             return View(MVC.Views.Batches.BatchReporter);
         }
 
-        public ActionResult BatchReportViewer()
+        public ActionResult BatchReportViewer(int batchID)
         {
+            ViewData["BatchID"] = batchID;
             return View(MVC.Views.Batches.BatchReportViewer);
         }
 
@@ -38,6 +39,22 @@ namespace Serene1.Modules.Batches
                     JsonRequestBehavior.AllowGet);
             }
 
+        }
+
+        public ActionResult GetBatch(int batchID)
+        {
+            try
+            {
+                var batch = _uow.BatchReportRepos.Find(batchID);
+
+                return Json(new { success = true, batch = batch, responseText = "success" },
+                    JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json(new { success = false, responseText = "Getting Batch Failed" },
+                    JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }

@@ -30,7 +30,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">Batch Id</span>
 
-                <span id="nextBatchID" class="info-box-number"> 123 </span>
+                <span id="nextBatchID" class="info-box-number"> @ViewData["batchID"] </span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
     </div><!-- /.col -->
@@ -221,68 +221,18 @@
 
         Plotly.newPlot('plotChart', data, layout);
     })
+    $(document).ready(function () {
+        $.ajax({
+            url: "/BatchReporter/GetBatch(" + @ViewData["batchID"] +")",
+            data: {},
+            success: function (data) {
+                data: data.batch,
+                    $('#ProductAmount').val();
+            }
 
-    function getBatchID() {
-        $.ajax({
-            url: "/BatchReportViewer/GetBatchID",
-            data: {},
-            success: function(data) {
-                $("#nextBatchID").text(data.produced);
-            }
         });
-    }
-    function getProductAmount() {
-        $.ajax({
-            url: "/BatchReportViewer/GetProductAmount",
-            data: {},
-            success: function (data) {
-                $("#ProductAmount").text(data.produced);
-            }
-        });
-    }
-    function getSpeed() {
-        $.ajax({
-            url: "/BatchReportViewer/GetSpeed",
-            data: {},
-            success: function (data) {
-                $("#machinespeed").text(data.produced);
-            }
-        });
-    }
-    function getProduced() {
-        $.ajax({
-            url: "/BatchReportViewer/GetProduced",
-            data: {},
-            success: function (data) {
-                $("#produced").text(data.produced);
-            }
-        });
-    }
-    function getAcceptable() {
-        $.ajax({
-            url: "/BatchReportViewer/GetAccepted",
-            data: {},
-            success: function (data) {
-                $("#acceptableAmountProduced").text(data.produced);
-            }
-        });
-    }
-    function getUnacceptable() {
-        $.ajax({
-            url: "/BatchReportViewer/GetUnacceptable",
-            data: {},
-            success: function (data) {
-                $("#unacceptableAmountProduced").text(data.produced);
-            }
-        });
-    }
-    function getType() {
-        $.ajax({
-            url: "/BatchReportViewer/GetType",
-            data: {},
-            success: function (data) {
-                $("#type").text(data.produced);
-            }
-        });
-    }
+    } );
+    
+    
+    
 </script>

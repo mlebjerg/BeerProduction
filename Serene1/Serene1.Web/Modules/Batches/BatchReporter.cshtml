@@ -24,6 +24,7 @@
                     <th>Batch ID</th>
                     <th>Start Time</th>
                     <th>Stop Time</th>
+                    <th>Link</th>
                 </tr>
             </thead>
             <tfoot>
@@ -31,6 +32,7 @@
                     <th>Batch ID</th>
                     <th>Start Time</th>
                     <th>Stop Time</th>
+                    <th>Link</th>
                 </tr>
             </tfoot>
         </table>
@@ -57,7 +59,17 @@
                     "columns": [
                         { "data": "Id" },
                         { "data": "startDateTime" },
-                        { "data" : "stopDateTime" }
+                        { "data": "stopDateTime" },
+                        {
+                            "data": "Id",
+                            "render": function(data, type, row, meta) {
+                                if (type === 'display') {
+                                    data = '<a href="../BatchReporter/BatchReportViewer?batchID=' + data + '">See Batch ' + data + '</a>';
+                                }
+
+                                return data;
+                            }
+                        }
                     ]
                 } );
                 
