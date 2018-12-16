@@ -33,12 +33,11 @@ namespace Serene1.AdminLTE
             return View(MVC.Views.AdminLTE.Calendar);
         }
 
-        [HttpGet]
-        public ActionResult GetProduced()
+        public ActionResult GetDbTemps()
         {
             try
             {
-                return Json(new { success = true,/* produced = Opc.Instance.UaApp1.ProgramCubeAdminProdProcessedCount,*/ responseText = "success" },
+                return Json(new { success = true,  responseText = "success" },
                     JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
@@ -46,26 +45,9 @@ namespace Serene1.AdminLTE
                 return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
                     JsonRequestBehavior.AllowGet);
             }
+
         }
-
-
-
-        public ActionResult GetUnacceptableAmountProduced()
-        {
-            try
-            {
-
-                return Json(new { success = true, unacceptableAmountProduced = Opc.Instance.UaApp1.ProgramCubeStatusStateCurrent, responseText = "success" },
-                    JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception )
-            {
-                return Json(new { success = false, responseText = "Getting TimeRegs Failed" },
-                    JsonRequestBehavior.AllowGet);
-            }
-        }
-
-        public ActionResult GetDbTemps()
+        public ActionResult StartNewBatch(int amt, int beertypeId, int speed)
         {
             try
             {

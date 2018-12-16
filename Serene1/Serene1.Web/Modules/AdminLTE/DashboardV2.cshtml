@@ -532,16 +532,19 @@
         var amt = parseInt($("#amtSet").val());
         var beerType = parseInt($("#beerSelector").find(":selected").attr("beer-data"));
         var beerTypeName = $("#beerSelector").val();
-        var speed = parseInt($("#batchID").val());
+        var speed = parseInt($("#speed").val());
         $.ajax({
-            url: "/AdminLTE/SendBtnClick",
-            data: { name: amt, name2: beerType, name: batchID },
+            url: "/Dashboard/StartNewBatch",
+            data: {
+                amt: amt,
+                beertypeId: beerType,
+                speed: speed
+            },
             success: function (data) {
                 toastr.success("Batch Information has been send.")
                 $("#nextAmt").text(amt);
                 $("#nextType").text(beerTypeName);
                 $("#beerSelector").val("Pilsner");
-                $("#nextID").val(batchID);
                 $("#amtSet").val(null);
                 $("#speed").val(null);
 

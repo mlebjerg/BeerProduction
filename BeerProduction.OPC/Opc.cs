@@ -122,6 +122,48 @@ namespace BeerProduction.OPC
                 return statusCode;
             }
 
+            public async Task<StatusCode> setBatch(int amt, int beertype, int speed)
+            {
+                DataValue amtVal = new DataValue(new Variant(amt));
+                DataValue beertypeVal = new DataValue(new Variant(beertype));
+                DataValue speedeVal = new DataValue(new Variant(speed));
+
+                WriteRequest writeRequest = new WriteRequest
+                {
+                    NodesToWrite = new WriteValue[3]
+                    {
+                        new WriteValue()
+                        {
+                            NodeId = NodeId.Parse("ns=6;s=::Program:product.produce_amount"),
+                            AttributeId = AttributeIds.Value,
+                            Value = amtVal
+                        },
+                        new WriteValue()
+                        {
+                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.CmdChangeRequest"),
+                            AttributeId = AttributeIds.Value,
+                            Value = beertypeVal
+                        },
+                        new WriteValue()
+                        {
+                            NodeId =  NodeId.Parse("ns=6;s=::Program:Cube.Command.MachSpeed"),
+                            AttributeId = AttributeIds.Value,
+                            Value = speedeVal
+                        },
+
+
+
+                    },
+                };
+                WriteRequest request = writeRequest;
+
+
+                StatusCode statusCode = (await App.GetChannelAsync(Url, new CancellationToken()).Result.WriteAsync(request)).Results[0];
+
+                var s = statusCode.ToString();
+                return statusCode;
+            }
+
             #region Inventory   
 
             /// <summary>
