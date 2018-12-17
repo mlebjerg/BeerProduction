@@ -1,4 +1,5 @@
-﻿using BeerProduction.DAL.Models;
+﻿using System;
+using BeerProduction.DAL.Models;
 using BeerProduction.DAL.Repos;
 
 namespace BeerProduction.DAL
@@ -10,7 +11,6 @@ namespace BeerProduction.DAL
         public StopReasonRepo<StopReason> StopReasonRepos { get; set; }
         public BatchReportRepo<BatchReport> BatchReportRepos { get; set; }
         public TemperatureRepo<Temperature> TemperatureRepos { get; set; }
-        public VibrationRepo<Vibration> VibrationRepos { get; set; }
         public HumidityRepo<Humidity> HumidityRepos { get; set; }
         public MachineSpeedRepo<MachineSpeed> MachineSpeedRepos { get; set; }
         public UnitofWork()
@@ -20,14 +20,19 @@ namespace BeerProduction.DAL
         StopReasonRepos = new StopReasonRepo<StopReason>(_dbContext);
         BatchReportRepos = new BatchReportRepo<BatchReport>(_dbContext);
         TemperatureRepos = new TemperatureRepo<Temperature>(_dbContext);
-        VibrationRepos = new VibrationRepo<Vibration>(_dbContext);
         HumidityRepos = new HumidityRepo<Humidity>(_dbContext);
         MachineSpeedRepos = new MachineSpeedRepo<MachineSpeed>(_dbContext);
         }
 
         public void SaveChanges()
         {
-            _dbContext.SaveChanges();
+            try
+            {
+                _dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
     

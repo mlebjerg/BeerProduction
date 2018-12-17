@@ -462,45 +462,6 @@
         Plotly.newPlot('plotChart', data, layout);
     })
 
-    function getNextProductID() {
-        $.ajax({
-            url: "/Dashboard/GetProductID",
-            data: {},
-            success: function(data) {
-                $("#nextProductID").text((data.nextProductID));
-            }
-        });
-    }
-
-        function getNextBatchID() {
-            $.ajax({
-                url: "/Dashboard/GetNextBatchID",
-                data: {},
-                success: function(data) {
-                    $("#nextBatchID").text((data.nextBatchID));
-                }
-            });
-        }
-
-    function getNextProductAmount() {
-        $.ajax({
-            url: "/Dashboard/GetNextProductAmount",
-            data: {},
-            success: function(data) {
-                $("#nextProductAmount").text((data.nextProductAmount));
-            }
-        });
-    }
-
-    function actionBtnClick(data) {
-
-        $.ajax({
-            url: "/Dashboard/ActionBtnClick",
-            data: { data: data },
-            success: function(data) {
-            }
-        });
-    }
 
     $(document).on("click",
         "#startBtn",
@@ -766,21 +727,15 @@
                 function() {
 
                     actionBtn(1);
-
+                    getAllStats();
                 });
 
-            //$(document).on("click",
-            //    "#startBtn",
-            //    function() {
-
-            //        actionBtn(2);
-
-            //    });
             $(document).on("click",
                 "#stopBtn",
                 function() {
 
                     actionBtn(3);
+                    getAllStats();
 
                 });
             $(document).on("click",
@@ -788,6 +743,7 @@
                 function() {
 
                     actionBtn(4);
+                    getAllStats();
 
                 });
             $(document).on("click",
@@ -795,6 +751,7 @@
                 function() {
 
                     actionBtn(5);
+                    getAllStats();
 
                 });
 

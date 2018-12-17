@@ -44,11 +44,7 @@ namespace BeerProduction.DAL.Models
             List<MachineSpeed> MachineSpeed = _uow.MachineSpeedRepos.Search(x => x.BatchReportId == Id).ToList();
             return MachineSpeed;
         }
-        public List<Vibration> GetBatchVibration()
-        {
-            List<Vibration> Vibration = _uow.VibrationRepos.Search(x => x.BatchReportId == Id).ToList();
-            return Vibration;
-        }
+
         public List<State> GetBatchStates()
         {
             List<State> States = _uow.StateRepos.Search(x => x.BatchReportId == Id).ToList();

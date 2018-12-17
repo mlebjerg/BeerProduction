@@ -23,10 +23,8 @@ namespace BeerProduction.OPC
         private static readonly Lazy<Opc> _instance = new Lazy<Opc>(
             () => new Opc(GlobalHost.ConnectionManager.GetHubContext<SubscriptionHub>().Clients));
 
-        private readonly ConcurrentDictionary<string, Property> _properties = new ConcurrentDictionary<string, Property>();
-
         public UaApp UaApp1;
-        private static string Url = "opc.tcp://localhost:4840";
+        private static string Url = "opc.tcp://10.112.254.165:4840";
         private UaApplication app;
 
         private static UnitofWork _uow = new UnitofWork();
@@ -66,7 +64,7 @@ namespace BeerProduction.OPC
                 .Build();
         }
 
-        [Subscription(endpointUrl: "opc.tcp://localhost:4840", publishingInterval: -1)]
+        [Subscription(endpointUrl: "opc.tcp://10.112.254.165:4840", publishingInterval: -1)]
         public class UaApp : SubscriptionBase
         {
             private UaApplication App;
@@ -175,14 +173,6 @@ namespace BeerProduction.OPC
                 };
                 _uow.HumidityRepos.Add(humidity);
 
-                Vibration Vibration = new Vibration()
-                {
-                    DateTime = dateTime,
-                    Value = ProgramDataValueVibration,
-                    BatchReportId = BatchId
-                };
-                _uow.VibrationRepos.Add(Vibration);
-
                 Temperature Temperature = new Temperature()
                 {
                     DateTime = dateTime,
@@ -213,9 +203,6 @@ namespace BeerProduction.OPC
 
             public async Task<StatusCode> StartBatch(int amt, int beertype, int speed)
             {
-                
-
-
 
                 BatchReport batchReport = new BatchReport()
                 {
@@ -644,17 +631,6 @@ namespace BeerProduction.OPC
             {
                 this.SetProperty(ref this.programDataValueVibration, value);
                 Clients.All.updateVibration(value);
-                if (BatchId != 0)
-                {
-                    Vibration Vibration = new Vibration()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = value,
-                        BatchReportId = (int) BatchId
-                    };
-                    _uow.VibrationRepos.Add(Vibration);
-                    _uow.SaveChanges();
-                }
             }
         }
 
