@@ -24,17 +24,63 @@ namespace BeerProduction.DAL.Models
         public DateTime? stopDateTime { get; set; }
         public int? AmountProduced { get; set; }
         public int? AcceptableAmount { get; set; }
+        public int? UnacceptableAmount { get; set; }
         public int? OEE { get; set; }
         public TimeSpan? TimeTaken{ get => stopDateTime - startDateTime; }
 
 
         public List<Temperature> GetBatchTemps()
         {
-
-            List<Temperature> temps= _uow.TemperatureRepos.Search(x => x.DateTime >= startDateTime).ToList();
-
+            List<Temperature> temps= _uow.TemperatureRepos.Search(x => x.BatchReportId == Id).ToList();
             return temps;
         }
+        public List<Humidity> GetBatchHumidity()
+        {
+            List<Humidity> Humidity = _uow.HumidityRepos.Search(x => x.BatchReportId == Id).ToList();
+            return Humidity;
+        }
+        public List<MachineSpeed> GetBatchMachineSpeed()
+        {
+            List<MachineSpeed> MachineSpeed = _uow.MachineSpeedRepos.Search(x => x.BatchReportId == Id).ToList();
+            return MachineSpeed;
+        }
+        public List<Vibration> GetBatchVibration()
+        {
+            List<Vibration> Vibration = _uow.VibrationRepos.Search(x => x.BatchReportId == Id).ToList();
+            return Vibration;
+        }
+        public List<State> GetBatchStates()
+        {
+            List<State> States = _uow.StateRepos.Search(x => x.BatchReportId == Id).ToList();
+                return States;
+        }
+        public int calculateOEE()
+        {
+            double maxSpeed = 0;
+            switch (this.BeerType)
+            {
+                case 0:
+                    maxSpeed = 600;
+                    break;
+                case 1:
+                    maxSpeed = 300;
+                    break;
+                case 2:
+                    maxSpeed = 150;
+                    break;
+                case 3:
+                    maxSpeed = 200;
+                    break;
+                case 4:
+                    maxSpeed = 100;
+                    break;
+                case 5:
+                    maxSpeed = 125;
+                    break;
 
+            }
+            double tempOEE = Math.Round(1 * (maxSpeed / Speed) * ((double)AcceptableAmount / AmountToProduce), 2);
+            return (int)tempOEE * 100;
+        }
     }
 }

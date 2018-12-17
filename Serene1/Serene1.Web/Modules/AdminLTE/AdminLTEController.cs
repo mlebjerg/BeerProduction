@@ -48,7 +48,7 @@ namespace Serene1.AdminLTE
         }
         public async Task<ActionResult> StartNewBatch(int amt, int beertypeId, int speed)
         {
-            var setBatchStatusCode = await Opc.Instance.UaApp1.setBatch(amt, beertypeId, speed);
+            var setBatchStatusCode = await Opc.Instance.UaApp1.StartBatch(amt, beertypeId, speed);
 
             if (setBatchStatusCode.ToString() == "0x00000000")
             {

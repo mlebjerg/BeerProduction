@@ -11,5 +11,7 @@ namespace BeerProduction.DAL.Models
         public int Id { get; set; }
         public float Value { get; set; }
         public DateTime DateTime { get; set; }
+        public int BatchReportId { get; set; }
+        public BatchReport BatchReport { get; set; }
     }
 }

@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BeerProduction.DAL.Models
 {
-    public class SetControlCommand
+    public class State
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Int32 Value { get; set; }
+        public int Value { get; set; }
         public DateTime DateTime { get; set; }
+        public int BatchReportId { get; set; }
+        public BatchReport BatchReport { get; set; }
 
     }
 }

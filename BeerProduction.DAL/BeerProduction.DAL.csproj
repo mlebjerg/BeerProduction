@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\StopReason.cs" />
     <Compile Include="Repos\BatchReportRepo.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="IRepo\IBaseRepository.cs" />
@@ -64,8 +66,6 @@
     <Compile Include="Models\BatchReport.cs" />
     <Compile Include="Models\Humidity.cs" />
     <Compile Include="Models\MachineSpeed.cs" />
-    <Compile Include="Models\ProductProcessed.cs" />
-    <Compile Include="Models\SetControlCommand.cs" />
     <Compile Include="Models\Temperature.cs" />
     <Compile Include="Models\Vibration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,10 +74,10 @@
     <Compile Include="Repos\MachineSpeedRepo.cs" />
     <Compile Include="Repos\ProductProcessedRepo.cs" />
     <Compile Include="Repos\SetControlCommandRepo.cs" />
+    <Compile Include="Repos\StateRepo.cs" />
+    <Compile Include="Repos\StopReasonRepo.cs" />
     <Compile Include="Repos\TemperatureRepo.cs" />
-    <Compile Include="Repos\TestClassRepo.cs" />
     <Compile Include="Repos\VibrationRepo.cs" />
-    <Compile Include="TestClass.cs" />
     <Compile Include="UnitofWork.cs" />
   </ItemGroup>
   <ItemGroup>

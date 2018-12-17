@@ -9,14 +9,13 @@ namespace BeerProduction.DAL
 
     public class Context : DbContext
     {
-        public DbSet<TestClass> TestClasss { get; set; }
+        public DbSet<State> States { get; set; }
         public DbSet<BatchReport> BatchReports { get; set; }
+        public DbSet<StopReason> StopReasons { get; set; }
         public DbSet<Temperature> Temperatures { get; set; }
         public DbSet<Humidity> Humidities { get; set; }
         public DbSet<MachineSpeed> MachineSpeeds { get; set; }
-        public DbSet<ProductProcessed> ProductProcesseds { get; set; }
         public DbSet<Vibration> Vibrations { get; set; }
-        public DbSet<SetControlCommand> SetControlCommands { get; set; }
 
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 

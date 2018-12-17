@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BeerProduction.DAL.Repos
 {
-    public class VibrationRepo<T> : BaseRepository<T> where T : class
+    public class StopReasonRepo<T> : BaseRepository<T> where T : class
     {
-        public VibrationRepo(Context context) : base(context)
+        public StopReasonRepo(Context context) : base(context)
         {
 
         }

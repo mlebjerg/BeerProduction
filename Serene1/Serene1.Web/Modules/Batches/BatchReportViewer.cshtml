@@ -344,7 +344,7 @@
                     }
                 }
                 $('#type').text(beerType);
-                $('#oee').text(data.batch.OEE);
+                $('#oee').text(data.batch.OEE + '%');
                 $('#StopReason').text(stopReason);
                 var startTime = "Null";
                 startTime = moment(new Date(parseInt((data.batch.startDateTime).replace(/\/Date\((-?\d+)\)\//, '$1')))).format("MMMM Do YYYY, H:mm:ss");
@@ -359,7 +359,7 @@
                 
                 var timeSpan = "Null";
                 if (data.batch.TimeTaken != null) {
-                    timeSpan = data.batch.TimeTaken.ToString();
+                    timeSpan = data.batch.TimeTaken.ToString("g");
                 }
                 $('#timeSpan').text(timeSpan);
 

@@ -312,11 +312,6 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-2 col-sm-6 col-xs-12">
-            <button id="newBatchBtn" class="btn btn-block btn-success btn-lg">Start new Batch</button>
-        </div>
-    </div>
 </div>
 
 <style>
@@ -604,7 +599,6 @@
             case 6:
                 $("#stateShow").text("Execute");
                 $("#changingBtns").empty();
-                $("#changingBtns").append(resetBtn);
                 $('#changingBtns').prop('disabled', true);
                 break;
             case 7:

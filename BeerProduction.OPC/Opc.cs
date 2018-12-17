@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net;
 using System.Security.Policy;
 using System.Threading;
@@ -89,6 +90,44 @@ namespace BeerProduction.OPC
 
             public async Task<StatusCode> ButtonClick(int data)
             {
+
+                if (data == 1)
+                {
+                    if (BatchId != 0)
+                    {
+                        LogAll((int)BatchId);
+                        var stopReasons = _uow.StopReasonRepos.Search(x => x.BatchReportId == BatchId);
+                        if (stopReasons.Any())
+                        {
+                            var oldBatch = _uow.BatchReportRepos.Find(BatchId);
+
+                            oldBatch.stopDateTime = DateTime.Now;
+                            oldBatch.AcceptableAmount = Programproductgood;
+                            oldBatch.AmountProduced = Programproductproduced;
+                            oldBatch.UnacceptableAmount = Programproductbad;
+                            oldBatch.stopReason = stopReasons.FirstOrDefault().Value;
+
+                            oldBatch.OEE = oldBatch.calculateOEE();
+
+                            _uow.BatchReportRepos.Update(oldBatch);
+                        }
+                        else
+                        {
+                            var oldBatch = _uow.BatchReportRepos.Find(BatchId);
+
+                            oldBatch.stopDateTime = DateTime.Now;
+                            oldBatch.AcceptableAmount = Programproductgood;
+                            oldBatch.AmountProduced = Programproductproduced;
+                            oldBatch.UnacceptableAmount = Programproductbad;
+                            oldBatch.OEE = oldBatch.calculateOEE();
+
+                            _uow.BatchReportRepos.Update(oldBatch);
+                        }
+                        _uow.SaveChanges();
+
+                    }
+                }
+
                 DataValue val = new DataValue(new Variant(data));
                 DataValue val2 = new DataValue(new Variant(true));
 
@@ -116,14 +155,68 @@ namespace BeerProduction.OPC
                 WriteRequest request = writeRequest;
 
 
-               StatusCode statusCode = (await App.GetChannelAsync(Url, new CancellationToken()).Result.WriteAsync(request)).Results[0];
+
+
+
+                StatusCode statusCode = (await App.GetChannelAsync(Url, new CancellationToken()).Result.WriteAsync(request)).Results[0];
 
                 var s = statusCode.ToString();
                 return statusCode;
             }
 
-            public async Task<StatusCode> setBatch(int amt, int beertype, int speed)
+            public void LogAll(int BatchId)
             {
+                var dateTime = DateTime.Now;
+                Humidity humidity = new Humidity()
+                {
+                    DateTime = dateTime,
+                    Value = ProgramDataValueRelHumidity,
+                    BatchReportId = BatchId
+                };
+                _uow.HumidityRepos.Add(humidity);
+
+                Vibration Vibration = new Vibration()
+                {
+                    DateTime = dateTime,
+                    Value = ProgramDataValueVibration,
+                    BatchReportId = BatchId
+                };
+                _uow.VibrationRepos.Add(Vibration);
+
+                Temperature Temperature = new Temperature()
+                {
+                    DateTime = dateTime,
+                    Value = ProgramDataValueTemperature,
+                    BatchReportId = BatchId
+                };
+                _uow.TemperatureRepos.Add(Temperature);
+
+                State State = new State()
+                {
+                    DateTime = dateTime,
+                    Value = ProgramCubeStatusStateCurrent,
+                    BatchReportId = BatchId
+                };
+                _uow.StateRepos.Add(State);
+
+                MachineSpeed MachineSpeed = new MachineSpeed()
+                {
+                    DateTime = dateTime,
+                    Value = ProgramCubeStatusCurMachSpeed,
+                    BatchReportId = BatchId
+                };
+                _uow.MachineSpeedRepos.Add(MachineSpeed);
+
+
+                _uow.SaveChanges();
+            }
+
+            public async Task<StatusCode> StartBatch(int amt, int beertype, int speed)
+            {
+                
+
+
+
                 BatchReport batchReport = new BatchReport()
                 {
                     startDateTime = DateTime.Now,
@@ -134,6 +227,7 @@ namespace BeerProduction.OPC
 
                 _uow.BatchReportRepos.Add(batchReport);
                 _uow.SaveChanges();
+                LogAll(batchReport.Id);
                 DataValue amtVal = new DataValue(new Variant((float)amt));
                 DataValue beertypeVal = new DataValue(new Variant((float)beertype));
                 DataValue speedVal = new DataValue(new Variant((float)speed));
@@ -290,15 +384,7 @@ namespace BeerProduction.OPC
                 get { return programproductproduced; }
                 private set {
                     SetProperty<UInt16>(ref programproductproduced, value);
-
-                    ProductProcessed productProcessed = new ProductProcessed()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = (int)value
-                    };
                     Clients.All.updateProdProc(value);
-                    _uow.ProductProcessedRepos.Add(productProcessed);
-                    _uow.SaveChanges();
                 }
             }
 
@@ -314,14 +400,8 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programproductgood, value);
-                    ProductProcessed productProcessed = new ProductProcessed()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = (int)value
-                    };
+                    
                     Clients.All.updateGoodProduced(value);
-                    _uow.ProductProcessedRepos.Add(productProcessed);
-                    _uow.SaveChanges();
                 }
             }
 
@@ -337,21 +417,11 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programproductbad, value);
-
-                    ProductProcessed productProcessed = new ProductProcessed()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = (int)value
-                    };
                     Clients.All.updateBadProduced(value);
-                    _uow.ProductProcessedRepos.Add(productProcessed);
-                    _uow.SaveChanges();
                 }
             }
 
             private UInt16 programproductbad;
-
-
 
             #endregion
 
@@ -425,7 +495,20 @@ namespace BeerProduction.OPC
                 {
                     this.SetProperty(ref this.programCubeStatusStateCurrent, value);
                     Clients.All.updateState(value);
-                }
+
+                    if (BatchId !=0)
+                    {
+                    State State = new State()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = value,
+                        BatchReportId = (int) BatchId
+                    };
+
+                    _uow.StateRepos.Add(State);
+                    _uow.SaveChanges();
+                    }
+            }
             }
 
             private Int32 programCubeStatusStateCurrent;
@@ -441,15 +524,6 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programCubeStatusMachSpeed, value);
-                   
-                    MachineSpeed machineSpeed = new MachineSpeed()
-                    {
-                        DateTime = DateTime.Now,
-                        Value = value
-                    };
-                    Clients.All.updateSpeed(value);
-                    _uow.MachineSpeedRepos.Add(machineSpeed);
-                    _uow.SaveChanges();
                 }
             }
 
@@ -462,7 +536,22 @@ namespace BeerProduction.OPC
             public Single ProgramCubeStatusCurMachSpeed
             {
                 get { return programCubeStatusCurMachSpeed; }
-                private set { SetProperty(ref programCubeStatusCurMachSpeed, value); }
+                private set
+                {
+                    SetProperty(ref programCubeStatusCurMachSpeed, value);
+                    Clients.All.updateSpeed(value);
+                    if (BatchId != 0)
+                    {
+                        MachineSpeed machineSpeed = new MachineSpeed()
+                        {
+                            DateTime = DateTime.Now,
+                            Value = value,
+                            BatchReportId = (int) BatchId
+                        };
+                        _uow.MachineSpeedRepos.Add(machineSpeed);
+                        _uow.SaveChanges();
+                    }
+                }
             }
 
             private Single programCubeStatusCurMachSpeed;
@@ -470,18 +559,6 @@ namespace BeerProduction.OPC
             #endregion
 
             #region Admin
-
-            /// <summary>
-            /// Gets the value of ProgramCubeAdminProdDefectiveCount.
-            /// </summary>
-            [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Admin.ProdDefectiveCount")]
-            public Int32 ProgramCubeAdminProdDefectiveCount
-            {
-                get { return programCubeAdminProdDefectiveCount; }
-                private set { SetProperty(ref programCubeAdminProdDefectiveCount, value); }
-            }
-
-            private Int32 programCubeAdminProdDefectiveCount;
 
 
             /// <summary>
@@ -501,14 +578,28 @@ namespace BeerProduction.OPC
             /// <summary>
             /// Gets the value of ProgramCubeAdminStopReason.
             /// </summary>
-            [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Admin.StopReason")]
-            public Object ProgramCubeAdminStopReason
+            [MonitoredItem(nodeId: "ns=6;s=::Program:Cube.Admin.StopReason.ID")]
+            public Int32 ProgramCubeAdminStopReason
             {
                 get { return programCubeAdminStopReason; }
-                private set { SetProperty(ref programCubeAdminStopReason, value); }
+                private set
+                {
+                    SetProperty(ref programCubeAdminStopReason, value);
+                    if (BatchId != 0)
+                    {
+                        StopReason stopReason = new StopReason()
+                        {
+                            Value = value,
+                            DateTime = DateTime.Now,
+                            BatchReportId = (int) BatchId
+                        };
+                        _uow.StopReasonRepos.Add(stopReason);
+                        _uow.SaveChanges();
+                    }
+                }
             }
 
-            private Object programCubeAdminStopReason;
+            private Int32 programCubeAdminStopReason;
 
             #endregion
 
@@ -524,7 +615,19 @@ namespace BeerProduction.OPC
             private set 
             { 
                 this.SetProperty(ref this.programDataValueRelHumidity, value);
+                SetProperty(ref programCubeStatusCurMachSpeed, value);
                 Clients.All.updateHumidity(value);
+                if (BatchId != 0)
+                {
+                    Humidity Humidity = new Humidity()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = value,
+                        BatchReportId = (int) BatchId
+                    };
+                    _uow.HumidityRepos.Add(Humidity);
+                    _uow.SaveChanges();
+                }
             }
         }
 
@@ -537,10 +640,21 @@ namespace BeerProduction.OPC
         public Single ProgramDataValueVibration
         {
             get { return this.programDataValueVibration; }
-            private set 
-            { 
+            private set
+            {
                 this.SetProperty(ref this.programDataValueVibration, value);
                 Clients.All.updateVibration(value);
+                if (BatchId != 0)
+                {
+                    Vibration Vibration = new Vibration()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = value,
+                        BatchReportId = (int) BatchId
+                    };
+                    _uow.VibrationRepos.Add(Vibration);
+                    _uow.SaveChanges();
+                }
             }
         }
 
@@ -557,6 +671,17 @@ namespace BeerProduction.OPC
             { 
                 this.SetProperty(ref this.programDataValueTemperature, value);
                 Clients.All.updateTemperature(value);
+                if (BatchId != 0)
+                {
+                    Temperature Temperature = new Temperature()
+                    {
+                        DateTime = DateTime.Now,
+                        Value = value,
+                        BatchReportId = (int) BatchId
+                    };
+                    _uow.TemperatureRepos.Add(Temperature);
+                    _uow.SaveChanges();
+                }
             }
         }
 
