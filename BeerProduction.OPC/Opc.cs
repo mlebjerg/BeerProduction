@@ -511,6 +511,18 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programCubeStatusMachSpeed, value);
+                    Clients.All.updateSpeed(value);
+                    if (BatchId != 0)
+                    {
+                        MachineSpeed machineSpeed = new MachineSpeed()
+                        {
+                            DateTime = DateTime.Now,
+                            Value = value,
+                            BatchReportId = (int)BatchId
+                        };
+                        _uow.MachineSpeedRepos.Add(machineSpeed);
+                        _uow.SaveChanges();
+                    }
                 }
             }
 
@@ -526,18 +538,7 @@ namespace BeerProduction.OPC
                 private set
                 {
                     SetProperty(ref programCubeStatusCurMachSpeed, value);
-                    Clients.All.updateSpeed(value);
-                    if (BatchId != 0)
-                    {
-                        MachineSpeed machineSpeed = new MachineSpeed()
-                        {
-                            DateTime = DateTime.Now,
-                            Value = value,
-                            BatchReportId = (int) BatchId
-                        };
-                        _uow.MachineSpeedRepos.Add(machineSpeed);
-                        _uow.SaveChanges();
-                    }
+                    
                 }
             }
 
