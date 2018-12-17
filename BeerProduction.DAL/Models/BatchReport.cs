@@ -75,7 +75,7 @@ namespace BeerProduction.DAL.Models
                     break;
 
             }
-            double tempOEE = Math.Round(1 * (maxSpeed / Speed) * ((double)AcceptableAmount / AmountToProduce), 2);
+            double tempOEE = Math.Round(1 * (Speed / maxSpeed) * ((double)AcceptableAmount / AmountToProduce), 2);
             return (int)tempOEE * 100;
         }
     }
