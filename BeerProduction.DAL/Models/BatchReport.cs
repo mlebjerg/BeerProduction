@@ -48,7 +48,8 @@ namespace BeerProduction.DAL.Models
         public List<State> GetBatchStates()
         {
             List<State> States = _uow.StateRepos.Search(x => x.BatchReportId == Id).ToList();
-                return States;
+
+            return States;
         }
         public int calculateOEE()
         {
@@ -75,8 +76,16 @@ namespace BeerProduction.DAL.Models
                     break;
 
             }
-            double tempOEE = Math.Round(1 * (Speed / maxSpeed) * ((double)AcceptableAmount / AmountToProduce), 2);
-            return (int)tempOEE * 100;
+            _uow.BatchReportRepos.Search(x => x.stopReason == this.stopReason).ToList();
+            _uow.BatchReportRepos.Search(x => x.stopDateTime == this.stopDateTime).ToList();
+            _uow.BatchReportRepos.Search(x => x.AmountProduced == this.AmountProduced).ToList();
+            _uow.BatchReportRepos.Search(x => x.AcceptableAmount == this.AcceptableAmount).ToList();
+            _uow.BatchReportRepos.Search(x => x.UnacceptableAmount== this.UnacceptableAmount).ToList();     
+         
+
+            double tempOEE =  ((double) this.Speed / (double)maxSpeed) * ((double)this.AcceptableAmount / (double)this.AmountToProduce)*100;
+            _uow.BatchReportRepos.Search(x => x.OEE == (int)tempOEE).ToList();
+            return (int)tempOEE;
         }
     }
 }
